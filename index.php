@@ -74,42 +74,19 @@ include("connection.php");
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 ?>
 <p>choose your govt type</p>
-            <form method="post">
-                    <input type="submit" name="button1"
-                            value="democracy"/>
-                      
-                    <input type="submit" name="button2"
-                            value="dictator"/>
-                </form>
-            <button onclick="location.href='army.php';">go to army page</button>
-            <?php
-            if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
-                        {
-                            echo"
-                            <div class='user'>
-                            $_SESSION[username] - <a href='logout.php'>logout</a>
-                            </div>
-                            ";
-                        }
-                        ?>
-            <?php
-                  
-                  if(isset($_POST['button2'])) 
-                  {
-                    dictatorstats();
-                  }
-                  if(isset($_POST['button1'])) 
-                  {
-                    democracystats();
-                  }
-              ?>  
+<form method="POST" action="functions.php">
+                
+                <button type="submit" class="loginbtn" name="democracy">democracy</button>
+                <button type="submit" class="loginbtn" name="dictator">dictator</button>
+
+
+            </form> 
 <?php
 } else {
 ?>
 <?php
 }
 ?>
-
 
 
 
@@ -133,43 +110,9 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
             document.getElementById('login popup').style.display="none"; 
             document.getElementById('forgot-popup').style.display="flex";
         }
-    </script>
+</script>
 
 
-<?php
-
-function democracystats()
-{   
-    $con=new mysqli("localhost","root","","test");
-    $query="UPDATE `forces` SET `army`='10',`navy`='10',`airforce`='10' WHERE `username`=='vt66396'";
-  
-
-    $result=mysqli_query($con,$query);
-    if($result)
-    {
-        echo"successful";
-    }
-    else
-    {
-        echo"unsuccessful";
-        echo"$_SESSION[username]";
-    }
-}
-function dictatorstats()
-{
-    $query="INSERT INTO `forces`(`army`, `navy`, `airforce`) VALUES ('100','100','100') WHERE `username`=='$_SESSION[username]'";
-    $con=new mysqli("localhost","root","","test");
-
-    $result=mysqli_query($con,$query);
-    if($result)
-    {
-        echo"successful";
-    }
-    else
-    {
-        echo"unsuccessful";
-    }
-}?>
 
 
 

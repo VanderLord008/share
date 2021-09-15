@@ -3,45 +3,75 @@ include("connection.php");
 require('login_register.php');
 
 
-if(isset($_SESSION['email']))
-{
-    
-    $emil=$_SESSION['email'];
 
-    echo"<h1> welcome $emil</h1>";
+if(isset($_POST['democracy']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `forces` SET `army`='10',`navy`='10',`airforce`='10' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('army updated');
+                window.location.href='manage_army.php';
+                </script>
+                ";
+            }
+            else{
+                echo"
+                <script>
+                alert('error');
+                window.location.href='index.php';
+                </script>
+                ";
+            }
+        }
+?>
 
-}
+<?php
+if(isset($_POST['dictator']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `forces` SET `army`='20',`navy`='20',`airforce`='20' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('army updated');
+                window.location.href='manage_army.php';
+                </script>
+                ";
+            }
+            else{
+                echo"
+                <script>
+                alert('error');
+                window.location.href='index.php';
+                </script>
+                ";
+            }
+        }
+        ?>
 
 
-function democracystats()
-{
-    $con=new mysqli("localhost","root","","test");
-
-    $query="INSERT INTO `forces`(`army`, `navy`, `airforce`) VALUES ('10','10','10') WHERE `email`='$_GET[emil]'";
-    $result=mysqli_query($con,$query);
-    if($result)
-    {
-        echo"successful";
-    }
-    else
-    {
-        echo"unsuccessful";
-    }
-}
-function dictatorstats()
-{
-    $query="INSERT INTO `forces`(`army`, `navy`, `airforce`) VALUES ('100','100','100') WHERE `email`=='$_SESSION[email]'";
-    $con=new mysqli("localhost","root","","test");
-
-    $result=mysqli_query($con,$query);
-    if($result)
-    {
-        echo"successful";
-    }
-    else
-    {
-        echo"unsuccessful";
-    }
-}
-
+<?php
+if(isset($_POST['increase_army']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `forces` SET `army`='$_POST[increase_army]',`navy`='$_POST[increase_army]',`airforce`='$_POST[increase_army]' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('army updated');
+                window.location.href='manage_army.php';
+                </script>
+                ";
+            }
+            else{
+                echo"
+                <script>
+                alert('error');
+                window.location.href='index.php';
+                </script>
+                ";
+            }
+        }
 ?>
