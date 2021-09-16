@@ -25,7 +25,7 @@ header nav a{
 }
 
 header div.signin button{
-    background-color: #75cfb8;
+    background-color: #a1adac;
     font-size: 16px;
     font-weight: 500;
     padding: 4px 12px;
@@ -36,7 +36,7 @@ header div.signin button{
 }
 
 header div.signin button:last-button{
-    background-color: #fa9579;
+    background-color: #2af8dc;
 }
 
 div.popup-container{
