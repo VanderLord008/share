@@ -69,7 +69,7 @@ div.popup-container div.popup h2{
     justify-content: center;
     justify-content: space-between;
     margin-bottom: 30px;
-    color: #30475e;
+    color: #797775;
 }
 
 div.popup-container div.popup h2 button{
@@ -78,14 +78,14 @@ div.popup-container div.popup h2 button{
     outline: none;
     font-size: 18px;
     font-weight: 500;
-    color: #797775;
+    color: #595959;
 }
 div.popup-container div.popup input{
     width: 100%;
     margin-bottom: 20px;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid #30475e;
+    color: #595959;
     border-radius: 0;
     padding: 10px 0;
     font-weight: 500px;
@@ -98,15 +98,19 @@ div.popup-container div.popup input{
 }
 
 div.popup-container div.popup button.loginbtn,div.popup-container div.register button.registerbtn, div.popup-container div.forgot button.resetbtn{
-    font-weight: 500px;
-    font-style: 15px;
-    color: white;
-    background-color: #30475e;
-    padding: 5px 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
     border: none;
+    color: #595959;
+    border-radius: 0;
+    padding: 10px 0;
+    font-weight: 500px;
     outline: none;
-    margin-top: 5px;
-    cursor: pointer;
+    font-size: 20px;
+    border-radius: 25px;
+    box-shadow:  2px 2px 5px #babecc, 5px 5px 10px #ffffff73;
+    padding-left: 25px;
 }
 
 div.popup-container div.popup div.forgotbtn{
