@@ -4,6 +4,10 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: poppins;
+    
+}
+body{
+    background-color: #dde1e7;
 }
 header{
     display: flex;
@@ -41,19 +45,22 @@ div.popup-container{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .2);
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     display: none;
+    
 }
 
 div.popup-container div.popup{
-    background-color: white;
+    background-color: #dde1e7;
     width: 350px;
     border-radius: 5px;
     padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
 }
 
 div.popup-container div.popup h2{
@@ -80,10 +87,14 @@ div.popup-container div.popup input{
     border: none;
     border-bottom: 2px solid #30475e;
     border-radius: 0;
-    padding: 5px 0;
+    padding: 10px 0;
     font-weight: 500px;
     outline: none;
-    font-size: 15px;
+    font-size: 20px;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
+    padding-left: 25px;
+
 }
 
 div.popup-container div.popup button.loginbtn,div.popup-container div.register button.registerbtn, div.popup-container div.forgot button.resetbtn{
