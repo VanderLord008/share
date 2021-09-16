@@ -73,7 +73,7 @@ include("connection.php");
 <?php
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 ?>
-<p>choose your govt type</p>
+<p>Choose your government type</p>
 <form method="POST" action="functions.php">
                 
                 <button type="submit" class="loginbtn" name="democracy">democracy</button>
