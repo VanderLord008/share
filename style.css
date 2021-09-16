@@ -25,11 +25,12 @@ header nav a{
 }
 
 header div.signin button{
-    background-color: #a1adac;
+    background-color: #2af8dc;
     font-size: 16px;
     font-weight: 500;
     padding: 4px 12px;
     border: 2px solid #000;
+    border-radius: 12px;
     outline: none;
     margin-left: 20px;
     cursor: pointer;
@@ -73,47 +74,12 @@ div.popup-container div.popup h2{
 }
 
 div.popup-container div.popup h2 button{
-    body {
-        background: #e7e8e9;
-        padding: 40px;
-      }
-      
-      .btn {
-          background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
-          border-radius: 40px;
-        box-sizing: border-box;
-          color: #00a84f;
-          display: block;
-          font: 1.125rem 'Oswald', Arial, sans-serif; /*18*/
-          height: 80px;
-          letter-spacing: 1px;
-          margin: 0 auto;
-          padding: 4px;
-          position: relative;
-        text-decoration: none;
-          text-transform: uppercase;
-          width: 264px;
-          z-index: 2;
-      }
-      
-      .btn:hover {
-          color: #fff;
-      }
-      
-      .btn span {
-          align-items: center;
-          background: #e7e8e9;
-          border-radius: 40px;
-          display: flex;
-          justify-content: center;
-          height: 100%;
-          transition: background .5s ease;
-          width: 100%;
-      }
-      
-      .btn:hover span {
-          background: transparent;
-      }
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: #797775;
 }
 div.popup-container div.popup input{
     width: 100%;
