@@ -1,6 +1,4 @@
-<?php require('connection.php');
 
-?>
 <header>
 <link rel="stylesheet" href="style.css">
 
