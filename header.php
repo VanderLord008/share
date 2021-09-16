@@ -2,7 +2,7 @@
 <header>
 <link rel="stylesheet" href="style.css">
 
-        <h2>PnWtest</h2>
+        <h2>Democracy to Dictatorship</h2>
         <nav>
             <a href="#">home</a>
             <a href="#">blog</a>
