@@ -7,25 +7,25 @@
     
 }
 body{
-    background-color: #fff39b;
+    background-color: #ffccff;
 }
 header{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: #a01c18;
-    color: #fff39b;
+    background-color: #330099;
+    color: #ffccff;
     padding: 20px 0;
 }
 header nav a{
-    color: white;
+    color: #ffccff;
     margin-right: 30px;
     font-weight: 500;
 }
 
 header div.signin button{
-    background-color: #2af8dc;
+    background-color: #ffffcc;
     font-size: 16px;
     font-weight: 500;
     padding: 4px 12px;
@@ -37,7 +37,7 @@ header div.signin button{
 }
 
 header div.signin button:last-button{
-    background-color: #2af8dc;
+    background-color: #ffffcc;
 }
 
 div.popup-container{
