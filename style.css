@@ -7,7 +7,7 @@
     
 }
 body{
-    background-color: #ffffcc;
+    background-color: #ecffdf;
 }
 header{
     display: flex;
@@ -15,7 +15,7 @@ header{
     align-items: center;
     justify-content: space-around;
     background-color: #330099;
-    color: #ffffcc;
+    color: #ecffdf;
     padding: 20px 0;
 }
 header nav a{
