@@ -1,14 +1,9 @@
 
 <header>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=format_1452" />
 
         <h2>Democracy to Dictatorship</h2>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Blog</a>
-            <a href="#">Contact</a>
-            <a href="#">About</a>
-        </nav>
+        
         <?php
         if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
             {

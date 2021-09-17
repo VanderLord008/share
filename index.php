@@ -12,7 +12,16 @@
 <?php include("header.php");
 include("connection.php");
 ?>          
-
+$var = 'your value';
+echo '<input type="text" name="name1" value="'.$var.'">';
+echo '<textarea class="box">'.$var.'</textarea>';
+<style>
+    .box{
+        border: 1px solid #aaa; /*getting border*/
+        border-radius: 4px; /*rounded border*/
+        color: #000; /*text color*/
+    }
+</style>
     <div class="popup-container" id="login popup">
         <div class="popup">
             <form method="POST" action="login_register.php">
