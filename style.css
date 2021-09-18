@@ -7,7 +7,7 @@
     
 }
 body{
-    background-color: #ecffdf;
+    background-color: #ffffff;
 }
 header{
     display: flex;
@@ -15,7 +15,7 @@ header{
     align-items: center;
     justify-content: space-around;
     background-color: #330099;
-    color: #ecffdf;
+    color: #242424;
     padding: 20px 0;
 }
 header nav a{
@@ -25,7 +25,7 @@ header nav a{
 }
 
 header div.signin button{
-    background-color: #ffffcc;
+    background-color: #ffffff;
     font-size: 16px;
     font-weight: 500;
     padding: 4px 12px;
@@ -37,7 +37,7 @@ header div.signin button{
 }
 
 header div.signin button:last-button{
-    background-color: #ffffcc;
+    background-color: #ffffff;
 }
 
 div.popup-container{
@@ -154,4 +154,40 @@ div.user{
 }
 div.user a{
     color: #30475e;
+}
+.Color-Economy p{
+	color: #f8fff2;
+    background-color: #336600;
+    font-size: 2em;
+    margin: 0 auto;
+    line-height: 4em;
+    width: 70%;
+    text-align: center;
+}
+.Color-Military p{
+	color: #f8fbff;
+    background-color: #003399;
+    font-size: 2em;
+    margin: 0 auto;
+    line-height: 4em;
+    width: 70%;
+    text-align: center;
+}
+.Color-City p{
+	color: #ffffff;
+    background-color: #330099;
+    font-size: 2em;
+    margin: 0 auto;
+    line-height: 4em;
+    width: 70%;
+    text-align: center;
+}
+.Color-Alliance p{
+	color: #fffcf8;
+    background-color: #993300;
+    font-size: 2em;
+    margin: 0 auto;
+    line-height: 4em;
+    width: 70%;
+    text-align: center;
 }
