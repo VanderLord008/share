@@ -66,8 +66,8 @@ include("connection.php");
     <div class="Color-Military">
 				<p>Military will be blue.</p>
 	</div>
-    <div class="Color-Nation/City">
-				<p>Nation buiding will be purple.</p>
+    <div class="Color-City">
+				<p>Nation/city buiding will be purple.</p>
 	</div>
     <div class="Color-Alliance">
 				<p>Alliance will be dark orange.</p>
