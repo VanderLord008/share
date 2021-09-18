@@ -2,8 +2,9 @@
 include("connection.php");
 include("header.php");
 include("data.php");
-?>
 
+?>
+<link rel="stylesheet" href="style.css">
 
 
 <?php
