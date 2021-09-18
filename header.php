@@ -1,6 +1,6 @@
 
 <header>
-<link rel="stylesheet" href="//www.1001fonts.com/format-1452-font.html"/>
+<link rel="stylesheet" type="text/css" href="header.css">
 
         <h2>Democracy to Dictatorship</h2>
         
