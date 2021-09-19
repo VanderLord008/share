@@ -1,19 +1,27 @@
-
+<?php 
+include("connection.php");
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login and register</title>
+    <title>landing page</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: #242424;
+        }
+    </style>
 </head>
 <body>
-<?php include("header.php");
-include("connection.php");
-?>          
+   
+<div class="title">
+    Democracy To Dictatorship
+</div>
 
-    <div class="popup-container" id="login popup">
+<div class="popup-container" id="login popup">
         <div class="popup">
             <form method="POST" action="login_register.php">
                 <h2>
@@ -60,18 +68,7 @@ include("connection.php");
         </div>
     </div>
 
-    <div class="Color-Economy">
-				<p>Economy will be green.</p>
-	</div>
-    <div class="Color-Military">
-				<p>Military will be blue.</p>
-	</div>
-    <div class="Color-City">
-				<p>Nation/city buiding will be purple.</p>
-	</div>
-    <div class="Color-Alliance">
-				<p>Alliance will be dark orange.</p>
-	</div>
+  
 <?php
         if(isset($_SESSION['logged_in']))
         {
@@ -116,8 +113,6 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
             document.getElementById('forgot-popup').style.display="flex";
         }
 </script>
-
-
 <div class="signin">
 
             <button type="button" onclick="popup('login popup')">login</button>

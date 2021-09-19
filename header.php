@@ -1,6 +1,6 @@
 
 <header>
-<link rel="stylesheet" type="text/css" href="header.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 
         <h2>Democracy to Dictatorship</h2>
         

@@ -36,6 +36,26 @@ header div.signin button{
     cursor: pointer;
 }
 
+div.signin button:last-button{
+    background-color: #ffffff;
+}
+div.signin button{
+    background-color: #ffffff;
+    font-size: 40px;
+    font-weight: 500;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    margin-left: 50%;
+    margin-top: 1%;
+    float: left;
+    
+}
+
 header div.signin button:last-button{
     background-color: #ffffff;
 }
@@ -56,7 +76,7 @@ div.popup-container{
 }
 
 div.popup-container div.popup{
-    background-color: #a01c18;
+    background-color: #ffffff;
     width: 350px;
     border-radius: 5px;
     padding: 20px 25px;
@@ -191,3 +211,20 @@ div.user a{
     width: 70%;
     text-align: center;
 }
+.title{
+    width: 40%;
+   
+    background-color: transparent;
+    border: none;
+    color: #edeef7;
+    border-radius: 0;
+    font-weight: 500px;
+    outline: none;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15%;
+    font-size: 4em;
+    box-shadow:  2px 2px 5px #babecc, 5px 5px 10px #ffffff73;
+
+}
+
