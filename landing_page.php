@@ -11,15 +11,29 @@ include("connection.php");
     <link rel="stylesheet" href="style.css">
     <style>
         body{
-            background-color: #242424;
+            background-image: url('../../images/bg.png');     
+            background-repeat: no-repeat;
+            background-size:     cover;    
+            
+            
         }
     </style>
 </head>
 <body>
-   
+<div class="landing">
+
 <div class="title">
     Democracy To Dictatorship
 </div>
+
+<div class="signin">
+
+            <button type="button" onclick="popup('login popup')">login</button>
+            <button type="button" onclick="popup('register popup')">register</button>
+            
+</div>
+</div>
+
 
 <div class="popup-container" id="login popup">
         <div class="popup">
@@ -68,7 +82,7 @@ include("connection.php");
         </div>
     </div>
 
-  
+    
 <?php
         if(isset($_SESSION['logged_in']))
         {
@@ -113,12 +127,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
             document.getElementById('forgot-popup').style.display="flex";
         }
 </script>
-<div class="signin">
 
-            <button type="button" onclick="popup('login popup')">login</button>
-            <button type="button" onclick="popup('register popup')">register</button>
-            
-</div>
 
 </body>
 </html>

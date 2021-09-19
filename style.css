@@ -36,25 +36,7 @@ header div.signin button{
     cursor: pointer;
 }
 
-div.signin button:last-button{
-    background-color: #ffffff;
-}
-div.signin button{
-    background-color: #ffffff;
-    font-size: 40px;
-    font-weight: 500;
-    padding: 20px 30px;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    margin-left: 50%;
-    margin-top: 1%;
-    float: left;
-    
-}
+
 
 header div.signin button:last-button{
     background-color: #ffffff;
@@ -125,13 +107,14 @@ div.popup-container div.popup button.loginbtn,div.popup-container div.register b
     border: none;
     color: #595959;
     border-radius: 0;
-    padding: 10px 0;
+    padding: 10px 0px;
     font-weight: 500px;
     outline: none;
     font-size: 20px;
     border-radius: 25px;
     box-shadow:  2px 2px 5px #babecc, 5px 5px 10px #ffffff73;
-    padding-left: 25px;
+   padding-right: 10px;
+    
 }
 
 div.popup-container div.popup div.forgotbtn{
@@ -144,6 +127,7 @@ div.popup-container div.popup div.forgotbtn button{
     outline: none;
     font-weight: 500;
     cursor: pointer;
+    
 }
 
 
@@ -153,15 +137,17 @@ div.popup-container div.register{
 }
 
 div.popup-container div.register h2,div.popup-container div.forgot h2{
-    color: #fa9579;
+    color: #595959;
 }
 
 div.popup-container div.register input,div.popup-container div.forgot input{
-    border-bottom-color: #fa9579;
+    border-bottom-color: #595959;
 }
 
 div.popup-container div.register button.registerbtn,div.popup-container div.forgot button.resetbtn{
-    background-color: #fa9579; 
+    background-color: #ffffff
+   
+    
 }
 
 div.user{
@@ -211,9 +197,9 @@ div.user a{
     width: 70%;
     text-align: center;
 }
-.title{
+div.landing div.title{
     width: 40%;
-   
+    float: left;
     background-color: transparent;
     border: none;
     color: #edeef7;
@@ -222,9 +208,43 @@ div.user a{
     outline: none;
     font-size: 20px;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 17%;
     font-size: 4em;
-    box-shadow:  2px 2px 5px #babecc, 5px 5px 10px #ffffff73;
 
 }
 
+div.landing div.signin{
+    width: 40%;
+    float: right;
+    background-color: transparent;
+    border: none;
+    color: #edeef7;
+    border-radius: 0;
+    font-weight: 500px;
+    outline: none;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 12%;
+    font-size: 4em;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+div.landing div.signin button{
+    
+    background-color: #595959;
+    color: #edeef7;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5% 25%;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    padding: 5%;
+    font-size: 30px;
+    
+    
+    cursor: pointer;
+}
