@@ -54,14 +54,16 @@ if(isset($_POST['login']))
           {
             $_SESSION['logged_in']=true;
             $_SESSION['username']=$result_fetch['username'];
-            header("location:index.php");
+            $_SESSION['verified']=$result_fetch['verified'];
+            
+            header("location:verifyemail.php");
           }
           else
           {
             echo"
             <script>
             alert('incorrect password');
-            window.location.href='index.php';
+            window.location.href='verifyemail.php';
             </script>
             ";
           }
@@ -120,6 +122,7 @@ if(isset($_POST['register']))
             $vcode=bin2hex(random_bytes(16));
             $query="INSERT INTO `registered_user`(`username`, `email`, `password`, `verification_code`, `verified`) VALUES ('$_POST[username]','$_POST[email]','$password','$vcode','0')";
             $q2=mysqli_query($con,"INSERT INTO `forces`(`email`, `username`, `army`, `navy`, `airforce`) VALUES ('$_POST[email]','$_POST[username]','0','0','0')");
+            
             if(mysqli_query($con,$query) && sendMail($_POST['email'],$vcode))
             {
                 echo"

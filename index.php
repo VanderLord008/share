@@ -118,12 +118,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 </script>
 
 
-<div class="signin">
 
-            <button type="button" onclick="popup('login popup')">login</button>
-            <button type="button" onclick="popup('register popup')">register</button>
-            
-</div>
 
 </body>
 </html>
