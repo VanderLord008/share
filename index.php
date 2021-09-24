@@ -61,7 +61,7 @@ include("connection.php");
     </div>
 
     <div class="Color-Economy">
-				<p>Economy will be green.</p>
+				<p>Economy will be greennnnn.</p>
 	</div>
     <div class="Color-Military">
 				<p>Military will be blue.</p>
