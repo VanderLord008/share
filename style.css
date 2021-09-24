@@ -248,3 +248,29 @@ div.landing div.signin button{
     
     cursor: pointer;
 }
+
+div.govtchoice div.democracychoice{
+    display: flex;
+    display: inline;
+}
+
+div.govtchoice div.democracychoice p{
+	color: #fffcf8;
+    background-color: #993300;
+    font-size: 2em;
+   
+    line-height: 4em;
+    width: 70%;
+    text-align: center;
+}
+div.govtchoice div.democracychoice button.democracybtn{
+    background-color: #595959;
+    color: #edeef7;
+    font-size: 2em;
+   
+    line-height: 4em;
+    
+    text-align: center;
+    
+    
+    cursor: pointer;}

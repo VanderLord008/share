@@ -28,7 +28,31 @@ if(isset($_POST['democracy']))
 ?>
 
 <?php
-if(isset($_POST['dictator']))
+if(isset($_POST['dictatorship']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `forces` SET `army`='20',`navy`='20',`airforce`='20' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('army updated');
+                window.location.href='manage_army.php';
+                </script>
+                ";
+            }
+            else{
+                echo"
+                <script>
+                alert('error');
+                window.location.href='index.php';
+                </script>
+                ";
+            }
+        }
+        ?>
+
+<?php
+if(isset($_POST['autocracy']))
 {   $con=new mysqli("localhost","root","","test");
     $query="UPDATE `forces` SET `army`='20',`navy`='20',`airforce`='20' WHERE `username`='$_SESSION[username]'";
         if(mysqli_query($con,$query))
