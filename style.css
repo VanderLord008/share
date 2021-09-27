@@ -1,6 +1,7 @@
 @font-face {
-    font-family: 'yellow_magicianregular';
-         url('YellowMagician-webfont.woff') format('woff'),
+    font-family: 'yellow_magician';
+    src: url('fonts/YellowMagician-webfont.woff2') format('woff2'),
+         url('fonts/YellowMagician-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
