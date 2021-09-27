@@ -11,7 +11,7 @@ include("connection.php");
     <link rel="stylesheet" href="style.css">
     <style>
         body{
-            background-image: url('../../images/bg.png');     
+            background-image: url('../../images/D2DMainBW.jpeg');     
             background-repeat: no-repeat;
             background-size:     cover;    
             
