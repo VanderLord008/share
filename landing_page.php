@@ -8,19 +8,15 @@ include("connection.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>landing page</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body{
-            background-image: url('../../images/D2DMainBW.jpeg');     
-            background-repeat: no-repeat;
-            background-size:     cover;    
-            
-            
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">    
 </head>
-<body>
+
+
+ <body>       
 <div class="landing">
+    <div class = "bg-image">
+        <p> Democracy to Dictatorship</p>
+        </div>
 
 <div class="title">
     Democracy To Dictatorship
@@ -33,6 +29,7 @@ include("connection.php");
             
 </div>
 </div>
+
 
 
 <div class="popup-container" id="login popup">

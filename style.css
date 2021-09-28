@@ -1,7 +1,6 @@
 @font-face {
     font-family: 'yellow_magician';
-    src: url('fonts/YellowMagician-webfont.woff2') format('woff2'),
-         url('fonts/YellowMagician-webfont.woff') format('woff');
+    src: url('fonts/YellowMagician-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -11,9 +10,17 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: poppins;
+    font-family: yellow_magician;
+    color: #242424;
     
 }
+div.landing .bg-image{
+    background: url('../images/D2DMainBW.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 body{
     background-color: #ffffff;
 }
@@ -169,48 +176,13 @@ div.user{
 div.user a{
     color: #30475e;
 }
-.Color-Economy p{
-	color: #f8fff2;
-    background-color: #336600;
-    font-size: 2em;
-    margin: 0 auto;
-    line-height: 4em;
-    width: 70%;
-    text-align: center;
-}
-.Color-Military p{
-	color: #f8fbff;
-    background-color: #003399;
-    font-size: 2em;
-    margin: 0 auto;
-    line-height: 4em;
-    width: 70%;
-    text-align: center;
-}
-.Color-City p{
-	color: #ffffff;
-    background-color: #330099;
-    font-size: 2em;
-    margin: 0 auto;
-    line-height: 4em;
-    width: 70%;
-    text-align: center;
-}
-.Color-Alliance p{
-	color: #fffcf8;
-    background-color: #993300;
-    font-size: 2em;
-    margin: 0 auto;
-    line-height: 4em;
-    width: 70%;
-    text-align: center;
-}
+
 div.landing div.title{
     width: 40%;
     float: left;
     background-color: transparent;
     border: none;
-    color: #edeef7;
+    color: #242424;
     border-radius: 0;
     font-weight: 500px;
     outline: none;
