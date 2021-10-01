@@ -122,7 +122,9 @@ if(isset($_POST['register']))
             $vcode=bin2hex(random_bytes(16));
             $query="INSERT INTO `registered_user`(`username`, `email`, `password`, `verification_code`, `verified`) VALUES ('$_POST[username]','$_POST[email]','$password','$vcode','0')";
             $q2=mysqli_query($con,"INSERT INTO `forces`(`email`, `username`, `army`, `navy`, `airforce`) VALUES ('$_POST[email]','$_POST[username]','0','0','0')");
-            
+            $q3=mysqli_query($con,"INSERT INTO `stats`(`username`, `email`, `population`, `government`) VALUES ('$_POST[username]','$_POST[email]','10000000','dictatorship')");
+            $q4=mysqli_query($con,"INSERT INTO `states`(`username`, `email`) VALUES ('$_POST[username]','$_POST[email]')");
+
             if(mysqli_query($con,$query) && sendMail($_POST['email'],$vcode))
             {
                 echo"

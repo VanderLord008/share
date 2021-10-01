@@ -4,15 +4,15 @@ require('login_register.php');
 
 
 
-if(isset($_POST['democracy']))
+if(isset($_POST['Asia']))
 {   $con=new mysqli("localhost","root","","test");
-    $query="UPDATE `forces` SET `army`='10',`navy`='10',`airforce`='10' WHERE `username`='$_SESSION[username]'";
+    $query="UPDATE `stats` SET `continent`='Asia' WHERE `username`='$_SESSION[username]'";
         if(mysqli_query($con,$query))
             {
                 echo"
                 <script>
-                alert('army updated');
-                window.location.href='manage_army.php';
+                alert('continent selected sucessfully');
+                window.location.href='city_creator.php';
                 </script>
                 ";
             }
@@ -24,56 +24,163 @@ if(isset($_POST['democracy']))
                 </script>
                 ";
             }
-        }
+}
+
+if(isset($_POST['Antartica']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `continent`='Antartica' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('continent selected sucessfully');
+                window.location.href='city_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+
+if(isset($_POST['Africa']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `continent`='Africa' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('continent selected sucessfully');
+                window.location.href='city_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+
+if(isset($_POST['Australia']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `continent`='Australia' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('continent selected sucessfully');
+                window.location.href='city_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+
+if(isset($_POST['Europe']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `continent`='Europe' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('continent selected sucessfully');
+                window.location.href='city_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+
+if(isset($_POST['North America']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `continent`='North America' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('continent selected sucessfully');
+                window.location.href='city_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+
+if(isset($_POST['South America']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `continent`='South America' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('continent selected sucessfully');
+                window.location.href='city_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+
+
+if(isset($_POST['save_state']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `states` SET `state1`='$_POST[first_state_name]' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('state saved sucessfully');
+                window.location.href='army.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+} 
 ?>
-
-<?php
-if(isset($_POST['dictatorship']))
-{   $con=new mysqli("localhost","root","","test");
-    $query="UPDATE `forces` SET `army`='20',`navy`='20',`airforce`='20' WHERE `username`='$_SESSION[username]'";
-        if(mysqli_query($con,$query))
-            {
-                echo"
-                <script>
-                alert('army updated');
-                window.location.href='manage_army.php';
-                </script>
-                ";
-            }
-            else{
-                echo"
-                <script>
-                alert('error');
-                window.location.href='index.php';
-                </script>
-                ";
-            }
-        }
-        ?>
-
-<?php
-if(isset($_POST['autocracy']))
-{   $con=new mysqli("localhost","root","","test");
-    $query="UPDATE `forces` SET `army`='20',`navy`='20',`airforce`='20' WHERE `username`='$_SESSION[username]'";
-        if(mysqli_query($con,$query))
-            {
-                echo"
-                <script>
-                alert('army updated');
-                window.location.href='manage_army.php';
-                </script>
-                ";
-            }
-            else{
-                echo"
-                <script>
-                alert('error');
-                window.location.href='index.php';
-                </script>
-                ";
-            }
-        }
-        ?>
 
 
 <?php
