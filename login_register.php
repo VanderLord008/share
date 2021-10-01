@@ -63,7 +63,7 @@ if(isset($_POST['login']))
             echo"
             <script>
             alert('incorrect password');
-            window.location.href='verifyemail.php';
+            window.location.href='index.php';
             </script>
             ";
           }
@@ -146,7 +146,7 @@ if(isset($_POST['register']))
     {
         echo"
         <script>
-        alert('cannot run gdfgdquery');
+        alert('cannot run query');
         window.location.href='index.php';
         </script>
         ";

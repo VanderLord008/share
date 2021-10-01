@@ -15,15 +15,7 @@
     color: #242424;
     
 }
-.landing,
 
-
-body{
-    background-image: url('../images/landing.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #ffffff;
-}
 header{
     display: flex;
     flex-direction: row;

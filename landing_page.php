@@ -8,7 +8,14 @@ include("connection.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Democracy to Dictatorship</title>
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="style.css">  
+    <style>
+    body{
+    background-image: url('../images/landing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #ffffff;
+}</style>  
 </head>
 
 
