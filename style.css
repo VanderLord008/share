@@ -1,27 +1,27 @@
 @font-face {
-    font-family: 'yellow_magician';
-    src: url('fonts/YellowMagician-webfont.woff') format('woff');
+    font-family: 'uppereastside';
+    src: url('fonts/UpperEastSide-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: yellow_magician;
+    font-family: uppereastside;
     color: #242424;
     
 }
-div.landing .bg-image{
-    background: url('../images/D2DMainBW.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+.landing,
 
 
 body{
+    background-image: url('../images/landing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #ffffff;
 }
 header{
@@ -180,7 +180,7 @@ div.user a{
 div.landing div.title{
     width: 40%;
     float: left;
-    background-color: transparent;
+    background-image: radial-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.2) );
     border: none;
     color: #242424;
     border-radius: 0;
@@ -188,7 +188,8 @@ div.landing div.title{
     outline: none;
     font-size: 20px;
     text-align: center;
-    margin-top: 17%;
+    margin-top: 10%;
+    padding: 100px;
     font-size: 4em;
 
 }

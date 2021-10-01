@@ -7,19 +7,20 @@ include("connection.php");
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>landing page</title>
+    <title>Democracy to Dictatorship</title>
     <link rel="stylesheet" href="style.css">    
 </head>
 
 
  <body>       
 <div class="landing">
-    <div class = "bg-image">
-        <p> Democracy to Dictatorship</p>
-        </div>
+
+      
 
 <div class="title">
-    Democracy To Dictatorship
+    Democracy
+    To
+    Dictatorship
 </div>
 
 <div class="signin">
