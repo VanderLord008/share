@@ -18,21 +18,22 @@ include("data.php");
 
 <h2>here you can create three of your many states</h2>
 <br>
+
 <form method="POST" action="functions.php">
                 
-                <input type="text" placeholder="first state name" name="first_state_name">
+                <input type="text" placeholder="first state name" name="first">
                 <br>
                 <br>
-                <input type="text" placeholder="second state name" name="second_state_name">
+                <input type="text" placeholder="second state name" name="second">
                 <br>
                 <br>
-                <input type="text" placeholder="third state name" name="third_state_name">
+                <input type="text" placeholder="third state name" name="third">
                 
                 
+            
+
+
+            <button type="submit" class="save_statebtn" name="submit">submit</button>
             </form>
-
-
-            <button type="submit" class="save_statebtn" name="save_state">save state</button>
-
 </body>
 </html>

@@ -12,7 +12,7 @@ if(isset($_POST['Asia']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='city_creator.php';
+                window.location.href='state_creator.php';
                 </script>
                 ";
             }
@@ -34,7 +34,7 @@ if(isset($_POST['Antartica']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='city_creator.php';
+                window.location.href='state_creator.php';
                 </script>
                 ";
                 }
@@ -56,7 +56,7 @@ if(isset($_POST['Africa']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='city_creator.php';
+                window.location.href='state_creator.php';
                 </script>
                 ";
                 }
@@ -78,7 +78,7 @@ if(isset($_POST['Australia']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='city_creator.php';
+                window.location.href='state_creator.php';
                 </script>
                 ";
                 }
@@ -100,7 +100,7 @@ if(isset($_POST['Europe']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='city_creator.php';
+                window.location.href='state_creator.php';
                 </script>
                 ";
                 }
@@ -114,7 +114,7 @@ if(isset($_POST['Europe']))
                 }
 }   
 
-if(isset($_POST['North America']))
+if(isset($_POST['North_America']))
 {   $con=new mysqli("localhost","root","","test");
     $query="UPDATE `stats` SET `continent`='North America' WHERE `username`='$_SESSION[username]'";
         if(mysqli_query($con,$query))
@@ -122,7 +122,7 @@ if(isset($_POST['North America']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='city_creator.php';
+                window.location.href='state_creator.php';
                 </script>
                 ";
                 }
@@ -136,7 +136,7 @@ if(isset($_POST['North America']))
                 }
 }   
 
-if(isset($_POST['South America']))
+if(isset($_POST['South_America']))
 {   $con=new mysqli("localhost","root","","test");
     $query="UPDATE `stats` SET `continent`='South America' WHERE `username`='$_SESSION[username]'";
         if(mysqli_query($con,$query))
@@ -144,7 +144,7 @@ if(isset($_POST['South America']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='city_creator.php';
+                window.location.href='state_creator.php';
                 </script>
                 ";
                 }
@@ -159,9 +159,9 @@ if(isset($_POST['South America']))
 }   
 
 
-if(isset($_POST['save_state']))
+if(isset($_POST['submit']))
 {   $con=new mysqli("localhost","root","","test");
-    $query="UPDATE `states` SET `state1`='$_POST[first_state_name]' WHERE `username`='$_SESSION[username]'";
+    $query="UPDATE `states` SET `state1`='$_POST[first]',`state2`='$_POST[second]',`state3`='$_POST[third]' WHERE `username`='$_SESSION[username]'";
         if(mysqli_query($con,$query))
             {
                 echo"

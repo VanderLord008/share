@@ -73,7 +73,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 <form method="POST" action="functions.php">
                 
              
-                <button type="submit" class="North Americabtn" name="North America">North America</button>
+                <button type="submit" class="North Americabtn" name="North_America">North America</button>
 
 
 <div class="South America">
@@ -81,7 +81,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 <form method="POST" action="functions.php">
                 
              
-                <button type="submit" class="South Americabtn" name="South America">South America</button>
+                <button type="submit" class="South Americabtn" name="South_America">South America</button>
 
 <?php
 
