@@ -239,3 +239,90 @@ div.democracychoice p{
     
     
 }
+/* 
+div.savestatebtn button{
+
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-family: "montserrat";
+    text-decoration: none;
+    margin: 30px 0;
+    border: 2px solid #ff7675;
+    padding: 14px 60px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s all ease;
+    background-color: #242424;
+} */
+
+
+.Africabtn{
+    background-color: #112122 !important;
+border: none;
+border-radius: 5px;
+box-sizing: inherit;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: "Source Sans Pro", sans-serif;
+font-size: 17px;
+line-height: 1.5;
+margin-bottom: 16px !important;
+margin-top: 16px !important;
+overflow: hidden;
+overflow-x: hidden;
+padding: 6px 18px;
+text-align: center;
+text-decoration: none;
+user-select: none;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.Africabtn:hover{
+    background-color: rgb(5, 152, 98) !important;
+color: #ffffff;
+}
+
+.Africabtn:active{
+    background-color: rgb(5, 152, 98) !important;
+color: #ffffff;
+}
+.Africabtn:focus{
+    background-color: rgb(5, 152, 98) !important;
+box-shadow: none;
+}
+
+
+
+
+.Asiabtn{
+    background-color: #797775;
+border-radius: 13px;
+box-sizing: border-box;
+color: #ffccff;
+margin: 0px;
+margin-left: 8px;
+margin-right: 0px;
+
+padding: 0px;
+padding-left: 1.6rem !important;
+padding-right: 1.6rem !important;
+text-decoration: none;
+touch-action: manipulation;
+}
+
+.Asiabtn:hover{
+background-color: beige;
+color: black;
+text-decoration: none;}
+.Asiabtn:active{
+background-color: yellow;
+color: orange;
+text-decoration: none;}
+.Asiabtn:focus{
+background-color: palegoldenrod;
+color: magenta;
+text-decoration: none;}

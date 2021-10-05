@@ -52,7 +52,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 
                 <button type="submit" class="Africabtn" name="Africa">Africa</button>
 
-
+</div>
 
 <div class="Australia">
     <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
