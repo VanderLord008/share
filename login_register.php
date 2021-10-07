@@ -1,5 +1,9 @@
 <?php
 require('connection.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -7,9 +11,6 @@ function test_input($data) {
     return $data;
   }
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 function sendMail($email,$vcode)
 {
     require ("PHPMailer\PHPMailer.php");
@@ -43,6 +44,9 @@ function sendMail($email,$vcode)
         return false;
     }
 }
+
+
+
 if(isset($_POST['login']))
 {
     $query="SELECT * FROM `registered_user` WHERE `email`='$_POST[email_username]' OR `username`='$_POST[email_username]'";
@@ -93,6 +97,7 @@ if(isset($_POST['register']))
 {
     $user_exist_query="SELECT * FROM `registered_user` WHERE `username`='$_POST[username]' OR `email`='$_POST[email]'";
     $result=mysqli_query($con,$user_exist_query);
+
     if($result)
     {
         if(mysqli_num_rows($result)>0)
@@ -121,17 +126,12 @@ if(isset($_POST['register']))
         {
             $password=password_hash($_POST['password'],PASSWORD_BCRYPT);
             $vcode=bin2hex(random_bytes(16));
-            $query="INSERT INTO `registered_user`(`username`, `email`, `password`, `verification_code`, `verified`) VALUES ('$_POST[username]','$_POST[email]','$password','$vcode','0')";
-            $q2=mysqli_query($con,"INSERT INTO `forces`(`email`, `username`, `army`, `navy`, `airforce`) VALUES ('$_POST[email]','$_POST[username]','0','0','0')");
-            $q3=mysqli_query($con,"INSERT INTO `stats`(`username`, `email`, `population`, `government`) VALUES ('$_POST[username]','$_POST[email]','10000000','dictatorship')");
-            $q4=mysqli_query($con,"INSERT INTO `states`(`username`, `email`) VALUES ('$_POST[username]','$_POST[email]')");
             $username=test_input($_POST['username']);
             $email=test_input($_POST['email']);
             $query="INSERT INTO `registered_user`(`username`, `email`, `password`, `verification_code`, `verified`) VALUES ('$username','$email','$password','$vcode','0')";
             $q2=mysqli_query($con,"INSERT INTO `forces`(`email`, `username`, `army`, `navy`, `airforce`) VALUES ('$email','$username','0','0','0')");
             $q3=mysqli_query($con,"INSERT INTO `stats`(`username`, `email`, `population`, `government`) VALUES ('$username','$email','10000000','dictatorship')");
             $q4=mysqli_query($con,"INSERT INTO `states`(`username`, `email`) VALUES ('$username','$email')");
-
             if(mysqli_query($con,$query) && sendMail($_POST['email'],$vcode))
             {
                 echo"
@@ -160,5 +160,7 @@ if(isset($_POST['register']))
         </script>
         ";
     }
+
 }
+
 ?>
