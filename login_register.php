@@ -1,11 +1,5 @@
 <?php
 require('connection.php');
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -131,9 +125,8 @@ if(isset($_POST['register']))
             $query="INSERT INTO `registered_user`(`username`, `email`, `password`, `verification_code`, `verified`) VALUES ('$username','$email','$password','$vcode','0')";
             $q2=mysqli_query($con,"INSERT INTO `forces`(`email`, `username`, `army`, `navy`, `airforce`) VALUES ('$email','$username','0','0','0')");
             $q3=mysqli_query($con,"INSERT INTO `stats`(`username`, `email`, `population`, `government`) VALUES ('$username','$email','10000000','dictatorship')");
-            $q4=mysqli_query($con,"INSERT INTO `states`(`username`, `email`) VALUES ('$username','$email')");
-
-            if(mysqli_query($con,$query) && sendMail($_POST['email'],$vcode))
+            $q4=mysqli_query($con,"INSERT INTO `states`(`username`, `email`) VALUES ('$username','$email')");      if(mysqli_query($con,$query) && sendMail($_POST['email'],$vcode));
+            
             {
                 echo"
                 <script>
