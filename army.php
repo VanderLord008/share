@@ -5,3 +5,4 @@ include("data.php");
 
 
 ?>
+<p>this is the army page</p>

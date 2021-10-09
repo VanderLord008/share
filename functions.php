@@ -159,15 +159,15 @@ if(isset($_POST['South_America']))
 }   
 
 
-if(isset($_POST['submit']))
+if(isset($_POST['save_first_state']))
 {   $con=new mysqli("localhost","root","","test");
-    $query="UPDATE `states` SET `state1`='$_POST[first]',`state2`='$_POST[second]',`state3`='$_POST[third]' WHERE `username`='$_SESSION[username]'";
+    $query="UPDATE `states` SET `state1`='$_POST[first]' WHERE `username`='$_SESSION[username]'";
         if(mysqli_query($con,$query))
             {
                 echo"
                 <script>
                 alert('state saved sucessfully');
-                window.location.href='army.php';
+                window.location.href='budget.php';
                 </script>
                 ";
                 }
@@ -205,4 +205,95 @@ if(isset($_POST['increase_army']))
                 ";
             }
         }
+
+
+if(isset($_POST['capitalism']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `economic_policy`='capitalism' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('economic policy  selected sucessfully');
+                window.location.href='state_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+if(isset($_POST['socialism']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `economic_policy`='socialism' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('economic policy  selected sucessfully');
+                window.location.href='state_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+}   
+if(isset($_POST['communism']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `stats` SET `economic_policy`='communism' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('economic policy  selected sucessfully');
+                window.location.href='state_creator.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+} 
+
+if(isset($_POST['budget']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `budget` SET `healthcare`='$_POST[healthcare]',`welfare`='$_POST[welfare]',`military`='$_POST[military]',`research`='$_POST[research]' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('budget saved sucessfully');
+                window.location.href='army.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+                }
+} 
+?>
+
+
+
 ?>

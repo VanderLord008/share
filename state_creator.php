@@ -20,20 +20,23 @@ include("data.php");
 <br>
 
 <form method="POST" action="functions.php">
+    create your first state here 
+    name it here
                 
-                <input type="text" placeholder="first state name" name="first">
-                <br>
-                <br>
-                <input type="text" placeholder="second state name" name="second">
-                <br>
-                <br>
-                <input type="text" placeholder="third state name" name="third">
-                
-                
-            
+                <input type="text" placeholder="first state name" name="first" >
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+            all the buildings will come here
 
+            ??
+            ??
+            ??
+            ??
 <div class="savestatebtn">
-            <button type="submit" class="save_statebtn" name="submit">submit</button>
+            <button type="submit" class="save_statebtn" name="save_first_state">submit</button>
             </div>
             </form>
 </body>
