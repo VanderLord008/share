@@ -274,7 +274,7 @@ if(isset($_POST['communism']))
 if(isset($_POST['budget']))
 {   $con=new mysqli("localhost","root","","test");
     $query="UPDATE `budget` SET `healthcare`='$_POST[healthcare]',`welfare`='$_POST[welfare]',`military`='$_POST[military]',`research`='$_POST[research]' WHERE `username`='$_SESSION[username]'";
-        if(mysqli_query($con,$query))
+        if(mysqli_query($con,$query) && ($_POST['healthcare'] + $_POST['welfare']+$_POST['military']+$_POST['research']==100)) 
             {
                 echo"
                 <script>
