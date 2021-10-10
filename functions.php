@@ -286,14 +286,41 @@ if(isset($_POST['budget']))
                 else{
                     echo"
                     <script>
-                    alert('error');
-                    window.location.href='index.php';
+                    alert('please make sure the sum is 100%');
+                    window.location.href='budget.php';
                     </script>
                     ";
                 }
 } 
+
+
+if(isset($_POST['createsoldiers']))
+{   $con=new mysqli("localhost","root","","test");
+    $query="UPDATE `forces` SET `army`='$_POST[soldiers]' WHERE `username`='$_SESSION[username]'";
+        if(mysqli_query($con,$query)) 
+            {
+                echo"
+                <script>
+                alert('army saved sucessfully');
+                window.location.href='army.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error);
+                    window.location.href='budget.php';
+                    </script>
+                    ";
+                }
+} 
+
+
+
+
+
 ?>
 
 
 
-?>
