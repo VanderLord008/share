@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +8,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include("header.php");
+<?php
 include("connection.php");
+include("header.php");
 ?>          
 
+    
+    <section class="home-section">
     <div class="popup-container" id="login popup">
         <div class="popup">
             <form method="POST" action="login_register.php">
@@ -59,7 +61,6 @@ include("connection.php");
         
         </div>
     </div>
-    <section class="home-section">
       <div class="text">
   
     <div class="Color-Economy">
@@ -75,8 +76,7 @@ include("connection.php");
 				<p>Alliance will be dark orange.</p>
 	</div>
     </div>
-    </section>
-<?php
+    <?php
         if(isset($_SESSION['logged_in']))
         {
             echo"<h1> welcome $_SESSION[username]</h1>";
@@ -87,7 +87,12 @@ include("connection.php");
 
 <?php
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
-    header("location:govt_type.php");
+    echo"
+                <script>
+                
+                window.location.href='govt_type.php';
+                </script>
+                ";
 ?>
  
             
@@ -120,6 +125,8 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
             document.getElementById('forgot-popup').style.display="flex";
         }
 </script>
+
+    </section>
 
 
 

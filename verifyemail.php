@@ -14,7 +14,7 @@ include("data.php");
     <title>please verify email</title>
 </head>
 <body>
-
+<section class="home-section">
 <?php
 if($_SESSION['verified']==0) {
     echo"<h1> verify email first</h1>";}
@@ -23,7 +23,7 @@ if($_SESSION['verified']==0) {
  if($_SESSION['verified']==1) {
     header("location:index.php");}
 ?>
-            
+</section>       
 
 
 </body>

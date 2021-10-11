@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login and register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 <?php
 include("connection.php");
 include("header.php");
@@ -15,7 +25,7 @@ include("data.php");
 </head>
 <body>
     
-
+<section class="home-section">
 <h2>here you can create three of your many states</h2>
 <br>
 
@@ -39,5 +49,6 @@ include("data.php");
             <button type="submit" class="save_statebtn" name="save_first_state">submit</button>
             </div>
             </form>
-</body>
-</html>
+        </body>
+    </section>
+        </html>

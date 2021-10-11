@@ -1,7 +1,11 @@
 <?php
 
     $con=new mysqli("localhost","root","","test");
-    session_start();
+    if(!isset($_SESSION)) 
+     { 
+         session_start(); 
+     }
+   
     
 
     if(mysqli_connect_error()){

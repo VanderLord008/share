@@ -5,15 +5,6 @@
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
 
-
-
-
-
-
-
-
-
-
 <div class="sidebar">
     <div class="logo_content">
         <div class="logo">
@@ -43,7 +34,7 @@
             <i class='bx bxs-user' ></i>
                 <span class="links_name">user</span>
             </a>
-            <span class="tooltip">Dashboard</span>
+            <span class="tooltip">user</span>
 
         </li>
         <li>
@@ -100,22 +91,6 @@
   }
   </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <h2>Democracy to Dictatorship</h2>
         
         <?php
@@ -137,90 +112,6 @@
             ";
         }
             ?>
-       <!-- <nav class="navigation">
-  <div class="nav_icon">
-    <i class="fas fa-bars"></i>
-  </div>
-  <ul class="nav_list">
-
-    <li class="list-item" data-tooltip="Codepen">
-      <a href="#">
-        <i class="fab fa-codepen "></i>
-        <span class="text">codepen</span>
-      </a>
-    </li>
-    <li class="list-item" data-tooltip="Opera">
-      <a href="#">
-        <i class="fab fa-opera "></i>
-        <span class="text">opera</span>
-      </a>
-    </li>
-    <li class="list-item" data-tooltip="Army">
-      <a href="#">
-        <i class="fab fa-Army "></i>
-        <span class="text">Army</span>
-      </a>
-    </li>
-
-    <li class="list-item" data-tooltip="Firefox">
-      <a href="#">
-        <i class="fab fa-firefox "></i>
-        <span class="text">firefox</span>
-      </a>
-    </li>
-    <li class="list-item" data-tooltip="Linux">
-      <a href="#">
-        <i class="fab fa-linux "></i>
-        <span class="text">linux</span>
-      </a>
-    </li>
-    <li class="list-item" data-tooltip="Facebook">
-      <a href="#">
-        <i class="fab fa-facebook "></i>
-        <span class="text">facebook</span>
-      </a>
-    </li>
-    <li class="list-item" data-tooltip="CSS3">
-      <a href="#">
-        <i class="fab fa-css3 "></i>
-        <span class="text">css3</span>
-      </a>
-    </li>
-    <li class="list-item" data-tooltip="Python">
-      <a href="#">
-        <i class="fab fa-python "></i>
-        <span class="text">python</span>
-      </a>
-    </li>
-    <li class="list-item" data-tooltip="Settings">
-      <a href="#">
-        <i class="fas fa-cog "></i>
-        <span class="text">settings</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-
-
-<script>const sidebar = document.querySelector(".navigation");
-const navIcon = document.querySelector(".fas");
-
-navIcon.addEventListener("click", () => {
-  sidebar.classList.toggle("active");
-});
-</script> -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </header>
