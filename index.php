@@ -59,7 +59,9 @@ include("connection.php");
         
         </div>
     </div>
-
+    <section class="home-section">
+      <div class="text">
+  
     <div class="Color-Economy">
 				<p>Economy will be greennnnn.</p>
 	</div>
@@ -72,6 +74,8 @@ include("connection.php");
     <div class="Color-Alliance">
 				<p>Alliance will be dark orange.</p>
 	</div>
+    </div>
+    </section>
 <?php
         if(isset($_SESSION['logged_in']))
         {
