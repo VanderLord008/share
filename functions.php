@@ -1,7 +1,7 @@
 <?php
 include("connection.php");
 require('login_register.php');
-
+include("data.php");
 
 
 if(isset($_POST['Asia']))
@@ -296,24 +296,44 @@ if(isset($_POST['budget']))
 
 if(isset($_POST['createsoldiers']))
 {   $con=new mysqli("localhost","root","","test");
-    $query="UPDATE `forces` SET `army`='$_POST[soldiers]' WHERE `username`='$_SESSION[username]'";
-        if(mysqli_query($con,$query)) 
-            {
-                echo"
+    $soldiers_limit= ((5*$user_stats['population'])/100)-($number_of_wars*10000);
+    
+    $soldiers=$_POST['soldiers'];
+    $money_needed= (1000*$soldiers);
+
+    if($money_needed>$user_stats['money'])
+    {
+        echo"
                 <script>
-                alert('army saved sucessfully');
+                alert('you dont have enough money');
                 window.location.href='army.php';
                 </script>
                 ";
-                }
-                else{
-                    echo"
-                    <script>
-                    alert('error);
-                    window.location.href='budget.php';
-                    </script>
-                    ";
-                }
+    }
+    elseif($money_needed<=$user_stats['money'] && $soldiers<$soldiers_limit)
+    {
+        $money_left=$user_stats['money']-$money_needed;
+        $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+        $new_soldiers= $user_forces['army']+$soldiers;
+        $query="UPDATE `forces` SET `army`='$new_soldiers' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$query);
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('army saved sucessfully');
+            window.location.href='army.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+  
 } 
 
 
