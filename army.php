@@ -16,6 +16,17 @@ include("data.php");
 
 ?>
 <section class="home-section">
+    click on this links below to go to other pages of the military
+    <br>
+    <br>
+    <br>
+    <a href="navy.php">navy</a>
+    <br>
+    <br>
+    <a href="airforce.php">airforce</a>
+    <br>
+    <br>
+    <br>
 <p>this is the army page</p>
 <p>you are new so not all things are unlocked for you which will unlock as you progress through the story for now you can make soldiers</p>
 <br>
