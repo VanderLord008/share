@@ -21,15 +21,51 @@ include("data.php");
 <br>
 <p>cost of creating one soldier is 1000</p>
 <br>
-your current soldiers are <?php echo $user_forces['army'] ?>
+your current soldiers are <?php echo $user_forces['soldiers'] ?>
 <br>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <button onclick="window.location.href='taxes.php'">Continue</button>
 <form method="POST" action="functions.php">
-<input type="number" min="1" max="100000000000" placeholder="enter the soldiers" name="soldiers" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="enter the soldiers" name="soldiers" >
 
                 <button type="submit" class="createsoldiersbtm" name="createsoldiers">create soldiers</button>
+</form>
+<br>
+<p>cost of creating one artillery is 10000</p>
+<br>
+your current artilleries are <?php echo $user_forces['artillery'] ?>
+<br>
+your current money is <?php echo $user_stats['money'] ?>
+<br>
+<form method="POST" action="functions.php">
+<input type="number" min="-10000000000000" max="100000000000" placeholder="enter the artillery" name="artillery" >
+
+                <button type="submit" class="createartillerybtm" name="createartillery">create artillery</button>
+</form>
+<br>
+<p>cost of creating one armoured vehicel is 20000</p>
+<br>
+your current soldiers are <?php echo $user_forces['vehicles'] ?>
+<br>
+your current money is <?php echo $user_stats['money'] ?>
+<br>
+<form method="POST" action="functions.php">
+<input type="number" min="-10000000000000" max="100000000000" placeholder="enter the vehicles" name="vehicles" >
+
+                <button type="submit" class="createvehiclesbtm" name="createvehicles">create vehicles</button>
+</form>
+<br>
+<p>cost of creating one gun is 500</p>
+<br>
+your current weapons are <?php echo $user_forces['weapons'] ?>
+<br>
+your current money is <?php echo $user_stats['money'] ?>
+<br>
+<form method="POST" action="functions.php">
+<input type="number" min="-10000000000000" max="100000000000" placeholder="enter the weapons" name="weapons" >
+
+                <button type="submit" class="createweaponsbtm" name="createweapons">create weapons</button>
 </form>
 
 </section>

@@ -12,7 +12,7 @@ if(isset($_POST['Asia']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='economy_type.php';
                 </script>
                 ";
             }
@@ -34,7 +34,7 @@ if(isset($_POST['Antartica']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='economy_type.php';
                 </script>
                 ";
                 }
@@ -56,7 +56,7 @@ if(isset($_POST['Africa']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='economy_type.php';
                 </script>
                 ";
                 }
@@ -78,7 +78,7 @@ if(isset($_POST['Australia']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='economy_type.php';
                 </script>
                 ";
                 }
@@ -100,7 +100,7 @@ if(isset($_POST['Europe']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='economy_type.php';
                 </script>
                 ";
                 }
@@ -122,7 +122,7 @@ if(isset($_POST['North_America']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='economy_type.php';
                 </script>
                 ";
                 }
@@ -144,7 +144,7 @@ if(isset($_POST['South_America']))
                 echo"
                 <script>
                 alert('continent selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='economy_type.php';
                 </script>
                 ";
                 }
@@ -314,13 +314,97 @@ if(isset($_POST['createsoldiers']))
     {
         $money_left=$user_stats['money']-$money_needed;
         $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-        $new_soldiers= $user_forces['army']+$soldiers;
-        $query="UPDATE `forces` SET `army`='$new_soldiers' WHERE `username`='$_SESSION[username]'";
+        $new_soldiers= $user_forces['soldiers']+$soldiers;
+        $query="UPDATE `forces` SET `soldiers`='$new_soldiers' WHERE `username`='$_SESSION[username]'";
         mysqli_query($con,$query);
         mysqli_query($con,$q2);
             echo"
             <script>
-            alert('army saved sucessfully');
+            alert('soldiers saved sucessfully');
+            window.location.href='army.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['createartillery']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    $artillery=$_POST['artillery'];
+    $money_needed= (10000*$artillery);
+
+    if($money_needed>$user_stats['money'])
+    {
+        echo"
+                <script>
+                alert('you dont have enough money');
+                window.location.href='army.php';
+                </script>
+                ";
+    }
+    elseif($money_needed<=$user_stats['money'])
+    {
+        $money_left=$user_stats['money']-$money_needed;
+        $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+        $new_artillery= $user_forces['artillery']+$artillery;
+        $query="UPDATE `forces` SET `artillery`='$new_artillery' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$query);
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('artillery saved sucessfully');
+            window.location.href='army.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['createvehicles']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    $vehicles=$_POST['vehicles'];
+    $money_needed= (20000*$vehicles);
+
+    if($money_needed>$user_stats['money'])
+    {
+        echo"
+                <script>
+                alert('you dont have enough money');
+                window.location.href='army.php';
+                </script>
+                ";
+    }
+    elseif($money_needed<=$user_stats['money'])
+    {
+        $money_left=$user_stats['money']-$money_needed;
+        $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+        $new_vehicles= $user_forces['vehicles']+$vehicles;
+        $query="UPDATE `forces` SET `vehicles`='$new_vehicles' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$query);
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('vehicles saved sucessfully');
             window.location.href='army.php';
             </script>
             ";
@@ -337,6 +421,47 @@ if(isset($_POST['createsoldiers']))
 } 
 
 
+if(isset($_POST['createweapons']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    $weapons=$_POST['weapons'];
+    $money_needed= (500*$weapons);
+
+    if($money_needed>$user_stats['money'])
+    {
+        echo"
+                <script>
+                alert('you dont have enough money');
+                window.location.href='army.php';
+                </script>
+                ";
+    }
+    elseif($money_needed<=$user_stats['money'])
+    {
+        $money_left=$user_stats['money']-$money_needed;
+        $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+        $new_weapons= $user_forces['weapons']+$weapons;
+        $query="UPDATE `forces` SET `weapons`='$new_weapons' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$query);
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('weapons saved sucessfully');
+            window.location.href='army.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+  
+} 
 
 
 

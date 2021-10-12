@@ -29,7 +29,16 @@
          <span class="tooltip">Dashboard</span>
       </li>
       <li>
-            <a href="#">
+            <a href="index.php">
+                
+            <i class='bx bxs-home-circle'></i>
+                <span class="links_name">Home</span>
+            </a>
+            <span class="tooltip">Home</span>
+
+        </li>
+      <li>
+            <a href="playerstats.php">
                 
             <i class='bx bxs-user' ></i>
                 <span class="links_name">user</span>
@@ -38,12 +47,12 @@
 
         </li>
         <li>
-            <a href="#">
+            <a href="battle.php">
                 
             <i class='bx bx-bullseye'></i>
-                <span class="links_name">Army</span>
+                <span class="links_name">Battle</span>
             </a>
-            <span class="tooltip">Army</span>
+            <span class="tooltip">Battle</span>
 
         </li>
         <li>
@@ -55,9 +64,18 @@
             <span class="tooltip">Money</span>
 
         </li>
+        <li>
+            <a href="logout.php">
+                
+            <i class='bx bx-log-out-circle' id="log_out" ></i>
+                <span class="links_name">Logout</span>
+            </a>
+            <span class="tooltip">Logout</span>
+
+        </li>
         
     </ul>
-    <i class='bx bx-log-out-circle' id="log_out"></i>
+    
 </div>
 
 

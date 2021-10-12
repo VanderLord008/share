@@ -22,7 +22,7 @@ include("data.php");
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 ?>
 
-
+<section class="home-section">
 
 <div class="continent_choice">
 
@@ -93,7 +93,20 @@ echo "log in first to see this page";
 }
 ?>
 
-
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</div>
+</section>
 
 </body>
 </html>
