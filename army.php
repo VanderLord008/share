@@ -27,6 +27,10 @@ include("data.php");
     <br>
     <br>
     <br>
+    <a href="internal_forces.php">internal forces</a>
+    <br>
+    <br>
+    <br>
 <p>this is the army page</p>
 <p>you are new so not all things are unlocked for you which will unlock as you progress through the story for now you can make soldiers</p>
 <br>

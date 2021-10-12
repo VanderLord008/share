@@ -798,6 +798,143 @@ if(isset($_POST['createmissiles']))
     }
   
 } 
+
+if(isset($_POST['createpropagandists']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    $propagandists=$_POST['propagandists'];
+    $money_needed= (1000*$propagandists);
+
+    if($money_needed>$user_stats['money'])
+    {
+        echo"
+                <script>
+                alert('you dont have enough money');
+                window.location.href='navy.php';
+                </script>
+                ";
+    }
+    elseif($money_needed<=$user_stats['money'])
+    {
+        $money_left=$user_stats['money']-$money_needed;
+        $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+        $new_propagandists= $user_forces['propagandists']+$propagandists;
+        $query="UPDATE `forces` SET `propagandists`='$new_propagandists' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$query);
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('propagandists saved sucessfully');
+            window.location.href='internal_forces.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['createpolice']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    $police=$_POST['police'];
+    $money_needed= (1000*$police);
+
+    if($money_needed>$user_stats['money'])
+    {
+        echo"
+                <script>
+                alert('you dont have enough money');
+                window.location.href='navy.php';
+                </script>
+                ";
+    }
+    elseif($money_needed<=$user_stats['money'])
+    {
+        $money_left=$user_stats['money']-$money_needed;
+        $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+        $new_police= $user_forces['police']+$police;
+        $query="UPDATE `forces` SET `police`='$new_police' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$query);
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('police saved sucessfully');
+            window.location.href='internal_forces.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['createspies']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    $spies=$_POST['spies'];
+    $money_needed= (1000*$spies);
+
+    if($money_needed>$user_stats['money'])
+    {
+        echo"
+                <script>
+                alert('you dont have enough money');
+                window.location.href='navy.php';
+                </script>
+                ";
+    }
+    elseif($money_needed<=$user_stats['money'])
+    {
+        $money_left=$user_stats['money']-$money_needed;
+        $q2="UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+        $new_spies= $user_forces['spies']+$spies;
+        $query="UPDATE `forces` SET `spies`='$new_spies' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$query);
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('spies saved sucessfully');
+            window.location.href='internal_forces.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+  
+} 
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
 
