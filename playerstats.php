@@ -12,9 +12,18 @@
 include("connection.php");
 include("header.php");
 include("data.php");
+?>
 
+
+
+
+<?php 
+if($user_data['username']==$_SESSION['username'])
+{
 
 ?>
+
+
 <section class="home-section">
 username = <?php echo $user_data['username'] ?>
 <br>
@@ -24,11 +33,11 @@ verified = <?php echo $user_data['verified'] ?>
 <br>
 
 
-army = <?php echo $user_forces['army'] ?>
+soldiers = <?php echo $user_forces['soldiers'] ?>
 <br>
-navy = <?php echo $user_forces['navy'] ?>
+artillery = <?php echo $user_forces['artillery'] ?>
 <br>
-airforce = <?php echo $user_forces['airforce'] ?>
+armoured vehicles = <?php echo $user_forces['vehicles'] ?>
 <br>
 
 
@@ -61,3 +70,11 @@ popularity = <?php echo $user_stats['popularity'] ?>
 money = <?php echo $user_stats['money'] ?>
 <br>
 </section>
+<?php
+}
+else
+{
+    echo "too bad";
+
+}
+?>

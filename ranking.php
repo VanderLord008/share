@@ -27,7 +27,7 @@ hello this is the ranking page
 
 <?php
 $con=new mysqli("localhost","root","","test");
-$rankingnumber=$user_forces['army']+$user_forces['airforce']+$user_forces['navy'];
+$rankingnumber=$user_forces['soldiers']+$user_forces['vehicles']+$user_forces['artillery'];
 $query="UPDATE `stats` SET `ranking`='$rankingnumber' WHERE `username`='$_SESSION[username]'";
 mysqli_query($con,$query);
 ?>
@@ -42,8 +42,10 @@ while($row = mysqli_fetch_assoc($p)){
     $get_user="SELECT `username` FROM `stats` WHERE `username`='$row[username]'";
     $get_use=mysqli_query($con,$get_user);
     $rank_name=mysqli_fetch_assoc($get_use);
-    ?>user= <?php echo $rank_name['username'];
-    ?><br><?php
+    ?>
+    user= <?php echo" <a href=\"external_page.php?username=" .$row['username']."\">" .$rank_name['username'] . "</a>";?>
+    <br>
+    <?php
     $get_money="SELECT `money` FROM `stats` WHERE `username`='$row[username]'";
     $get_mone=mysqli_query($con,$get_money);
     $rank_money=mysqli_fetch_assoc($get_mone);
