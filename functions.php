@@ -926,12 +926,895 @@ if(isset($_POST['createspies']))
 } 
 
 
+if(isset($_POST['implement_gun_control']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['gun_control']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['gun_control']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `gun_control`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_gun_control']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['gun_control']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['gun_control']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `gun_control`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
 
 
 
+if(isset($_POST['implement_gun_control']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['gun_control']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['gun_control']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `gun_control`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
 
+if(isset($_POST['repeal_gun_control']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['gun_control']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['gun_control']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `gun_control`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
 
+if(isset($_POST['implement_abortion_law']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['abortion']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['abortion']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `abortion`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
 
+if(isset($_POST['repeal_abortion_law']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['abortion']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['abortion']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `abortion`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_religious_freedom']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['religious_freedom']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['religious_freedom']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `religious_freedom`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_religious_freedome']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['religious_freedome']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['religious_freedome']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `religious_freedome`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_privacy_rights']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['privacy_rights']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['privacy_rights']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `privacy_rights`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_privacy_rights']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['privacy_rights']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['privacy_rights']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `privacy_rights`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_climate_change']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['climate_change']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['climate_change']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `climate_change`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_climate_change']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['climate_change']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['climate_change']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `climate_change`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_recreational_drugs']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['recreational_drugs']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['recreational_drugs']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `recreational_drugs`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_recreational_drugs']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['recreational_drugs']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['recreational_drugs']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `recreational_drugs`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_marriage']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['marriage_equality']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['marriage_equality']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `marriage_equality`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_marriage']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['marriage_equality']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['marriage_equality']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `marriage_equality`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_capital_punishment']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['capital_punishment']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['capital_punishment']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `capital_punishment`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_capital_punishment']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['capital_punishment']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['capital_punishment']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `capital_punishment`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_universal_healthcare']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['universal_healthcare']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['universal_healthcare']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `universal_healthcare`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_universal_healthcare']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['universal_healthcare']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['universal_healthcare']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `universal_healthcare`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_universal_education']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['universal_education']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['universal_education']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `universal_education`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_universal_education']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['universal_education']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['universal_education']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `universal_education`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['implement_universal_income']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['universal_income']=='implemented')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['universal_income']!='implemented')
+    {
+        
+        $q2="UPDATE `stats` SET `universal_income`='implemented' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
+
+if(isset($_POST['repeal_universal_income']))
+{   $con=new mysqli("localhost","root","","test");
+    
+    
+    if($user_stats['universal_income']=='repealed')
+    {
+        echo"
+                <script>
+                alert('you already have done this');
+                window.location.href='policies.php';
+                </script>
+                ";
+    }
+    elseif($user_stats['universal_income']!='repealed')
+    {
+        
+        $q2="UPDATE `stats` SET `universal_income`='repealed' WHERE `username`='$_SESSION[username]'";
+        
+        mysqli_query($con,$q2);
+            echo"
+            <script>
+            alert('policy implemented sucessfully');
+            window.location.href='policies.php';
+            </script>
+            ";
+    }
+    else{
+        echo"
+        <script>
+        alert('god help me');
+        window.location.href='policies.php';
+        </script>
+        ";
+    }
+  
+} 
 
 
 
