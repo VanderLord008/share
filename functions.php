@@ -1816,6 +1816,57 @@ if(isset($_POST['repeal_universal_income']))
   
 } 
 
+if(isset($_POST['sell_soldiers']))
+{   $con=new mysqli("localhost","root","","test");
+
+    $sell_soldiers=$_POST['soldier_sell_number'];
+    $soldier_sell_price=$_POST['soldier_sell_price'];
+    $query="INSERT INTO `trade`(`username`, `email`, `sell_soldiers`, `soldier_sell_price`) VALUES ('$_SESSION[username]','$user_data[email]','$sell_soldiers','$soldier_sell_price')";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('trade offered sucessfully');
+                window.location.href='trade.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='trade.php';
+                    </script>
+                    ";
+                }
+}   
+if(isset($_POST['buy_soldiers']))
+{   $con=new mysqli("localhost","root","","test");
+
+    $buy_soldiers=$_POST['soldier_buy_number'];
+    $soldier_buy_price=$_POST['soldier_buy_price'];
+    $query="INSERT INTO `trade`(`username`, `email`, `buy_soldiers`, `soldier_buy_price`) VALUES ('$_SESSION[username]','$user_data[email]','$buy_soldiers','$soldier_buy_price')";
+        if(mysqli_query($con,$query))
+            {
+                echo"
+                <script>
+                alert('trade offered sucessfully');
+                window.location.href='trade.php';
+                </script>
+                ";
+                }
+                else{
+                    echo"
+                    <script>
+                    alert('error');
+                    window.location.href='trade.php';
+                    </script>
+                    ";
+                }
+}  
+
+
+
 
 
 ?>
