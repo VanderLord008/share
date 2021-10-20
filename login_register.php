@@ -129,7 +129,7 @@ if(isset($_POST['register']))
             $username=test_input($_POST['username']);
             $email=test_input($_POST['email']);
             $query="INSERT INTO `registered_user`(`username`, `email`, `password`, `verification_code`, `verified`) VALUES ('$username','$email','$password','$vcode','0')";
-            $q2=mysqli_query($con,"INSERT INTO `forces`(`email`, `username`, `army`, `navy`, `airforce`) VALUES ('$email','$username','0','0','0')");
+            $q2=mysqli_query($con,"INSERT INTO `forces`(`email`, `username`, `soldiers`, `artillery`, `vehicles`, `weapons`, `ships`, `destroyers`, `submarines`, `carriers`, `planes`, `helicopters`, `bombers`, `missiles`, `spies`, `police`, `propagandists`) VALUES ('$email','$username','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0')");
             $q3=mysqli_query($con,"INSERT INTO `stats`(`username`, `email`, `population`, `government` ,`corruption`,`happiness`,`popularity`,`money`) VALUES ('$username','$email','10000000','dictatorship','3','80','90','5000000')");
             $q4=mysqli_query($con,"INSERT INTO `states`(`username`, `email`) VALUES ('$username','$email')");
             $q5=mysqli_query($con,"INSERT INTO `budget`(`username`, `email`) VALUES ('$username','$email')");
