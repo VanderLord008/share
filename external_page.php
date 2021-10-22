@@ -29,6 +29,7 @@ include("data.php");
 
 
 <section class="home-section">
+    this is the page to see the enemies nation
 <?php
 if(!isset($_SESSION['username'])){
     echo "you must be logged in to see this page";
@@ -47,6 +48,10 @@ else
         {
             echo "not your fault for this behaviour";
         }
+        if($un==$user_data['username'])
+        {
+            echo "dont attack yourself smh";
+        }
         else
         {
             $s_user=mysqli_fetch_assoc($user_check);
@@ -55,7 +60,20 @@ else
             $stats_rank=mysqli_query($con,"SELECT * FROM `stats` WHERE `username`='$un'");
             $s_rank=mysqli_fetch_assoc($stats_rank);
             echo $s_user['username'];
+            ?><br><?php
             echo $s_rank['money'];
+            ?>
+            want to attack this nation? 
+            <br>
+            
+                
+             
+            <form method="POST" action="attack_page.php">
+                
+        
+            <?php echo " <a href=\"attack_page.php?username=" . $un . "\">"  ?>attack<?php "</a>"; ?>
+            
+            <?php
         }
     }
 }
