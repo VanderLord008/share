@@ -29,7 +29,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 <h2>here you can choose what continent you want to start in</h2>    
 
 <div class="Asia">
-    <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
+    <p>Asia = food,oil and natural gas, forestry, coal, lead ,precious metals (fish)</p>
 <form method="POST" action="functions.php">
                 
              
@@ -46,7 +46,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
                 <button type="submit" class="Antarticabtn" name="Antartica">Antartica</button>
 
 <div class="Africa">
-    <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
+<p>Africa = Food, percious metals, bauxite ,iron , coal (diamonds)</p>
 <form method="POST" action="functions.php">
                 
 
@@ -55,21 +55,21 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 </div>
 
 <div class="Australia">
-    <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
+<p>Australia =  bauxite, coal , food ,precious metals ,uranium and lead ()</p>
 <form method="POST" action="functions.php">
                 
              
                 <button type="submit" class="Australiabtn" name="Australia">Australia</button>
         
 <div class="Europe">
-    <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
+<p>Europe = food, forestry, uranium ,iron ,coal ,natural oil and gas ()</p>
 <form method="POST" action="functions.php">
                 
              
                 <button type="submit" class="Europebtn" name="Europe">Europe</button>
 
 <div class="North America">
-    <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
+<p>NA = Food, oil and natural gas ,forestry ,coal ,iron , bauxite ()</p>
 <form method="POST" action="functions.php">
                 
              
@@ -77,7 +77,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 
 
 <div class="South America">
-    <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
+<p>SA = food, oil and natural gas,precious metals, drugs, steel, uranium ()</p>
 <form method="POST" action="functions.php">
                 
              
