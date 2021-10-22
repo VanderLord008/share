@@ -1,10 +1,3 @@
-<?php
-include("connection.php");
-include("header.php");
-include("data.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +6,12 @@ include("data.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<?php
+include("connection.php");
+include("header.php");
+include("data.php");
+
+?>
 <body>
     
 

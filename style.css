@@ -485,7 +485,7 @@ text-decoration: none;}
    */
 
    .sidebar{
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     height: 100%;
