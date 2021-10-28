@@ -25,62 +25,63 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 
 <div class="continent_choice">
 
-<h2>here you can choose what continent you want to start in</h2>    
+<h2>Please choose the continent where your nation will be located.</h2>
+<p>Hover over each continent to see what resources and industry are available.  You cannot change continents once you have submitted your choice.</P>
 
-<div class="Asia">
-    <p>Asia = food,oil and natural gas, forestry, coal, lead ,precious metals (fish)</p>
+<img src="../images/continents.png" alt="Map of the world" width=100%>
+
+
+<div class="Australia">
+
 <form method="POST" action="functions.php">
                 
              
-                <button type="submit" class="Asiabtn" name="Asia">Asia</button>
+                <button type="submit" class="australiabtn" name="Australia">Australia</button>
+
+<div class="Asia">
+
+
+    
+<form method="POST" action="functions.php">
+                
+             
+                <button type="submit" class="asiabtn" name="Asia">Asia</button>
               
 
 
 
-<div class="Antartica">
-    <p>this is the dictator Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
-<form method="POST" action="functions.php">
-                
-             
-                <button type="submit" class="Antarticabtn" name="Antartica">Antartica</button>
-
 <div class="Africa">
-<p>Africa = Food, percious metals, bauxite ,iron , coal (diamonds)</p>
+
 <form method="POST" action="functions.php">
                 
 
-                <button type="submit" class="Africabtn" name="Africa">Africa</button>
+                <button type="submit" class="africabtn" name="Africa">Africa</button>
 
 </div>
 
-<div class="Australia">
-<p>Australia =  bauxite, coal , food ,precious metals ,uranium and lead ()</p>
-<form method="POST" action="functions.php">
-                
-             
-                <button type="submit" class="Australiabtn" name="Australia">Australia</button>
+
         
 <div class="Europe">
-<p>Europe = food, forestry, uranium ,iron ,coal ,natural oil and gas ()</p>
+
 <form method="POST" action="functions.php">
                 
              
-                <button type="submit" class="Europebtn" name="Europe">Europe</button>
+                <button type="submit" class="europebtn" name="Europe">Europe</button>
 
 <div class="North America">
-<p>NA = Food, oil and natural gas ,forestry ,coal ,iron , bauxite ()</p>
+
 <form method="POST" action="functions.php">
                 
              
-                <button type="submit" class="North Americabtn" name="North_America">North America</button>
+                <button type="submit" class="namericabtn" name="North_America">North America</button>
 
 
 <div class="South America">
-<p>SA = food, oil and natural gas,precious metals, drugs, steel, uranium ()</p>
+
 <form method="POST" action="functions.php">
                 
              
-                <button type="submit" class="South Americabtn" name="South_America">South America</button>
+                <button type="submit" class="samericabtn" name="South_America">South America</button>
 
 <?php
 

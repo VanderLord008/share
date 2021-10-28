@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: 'bpmonoregular';
-    src: url('BPmono-webfont.woff') format('woff');
+    src: url('fonts/BPmono-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -177,10 +177,16 @@ div.user a{
     color: #30475e;
 }
 
+div.landing {
+  background-color: #ffffff;
+  background-image: src('../images/landing.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 div.landing div.title{
     width: 40%;
     float: left;
-    background-image: radial-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.2) );
     border: none;
     color: #242424;
     border-radius: 0;
@@ -257,20 +263,30 @@ div.savestatebtn button{
     background-color: #242424;
 } */
 
+map {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-family: bpmonoregular;
+  z-index: 90;
+  position: relative;
+}
 
-.Africabtn{
+.africabtn{
     background-color: #112122 !important;
+    position:absolute;
 border: none;
 border-radius: 5px;
 box-sizing: inherit;
 color: #ffffff;
 cursor: pointer;
 display: inline-block;
-font-family: "Source Sans Pro", sans-serif;
+font-family: bpmonoregular,"Source Sans Pro", sans-serif;
 font-size: 17px;
 line-height: 1.5;
-margin-bottom: 16px !important;
-margin-top: 16px !important;
+top: 50% !important;
+left: 50%;
+z-index: 99;
 overflow: hidden;
 overflow-x: hidden;
 padding: 6px 18px;
@@ -281,53 +297,214 @@ vertical-align: middle;
 white-space: nowrap;
 }
 
-.Africabtn:hover{
-    background-color: rgb(5, 152, 98) !important;
+.africabtn:hover{
+    background-color: rgb(187, 19, 9, .8) !important;
 color: #ffffff;
 }
 
-.Africabtn:active{
-    background-color: rgb(5, 152, 98) !important;
+.africabtn:active{
+    background-color: rgb(187, 19, 9) !important;
 color: #ffffff;
 }
-.Africabtn:focus{
-    background-color: rgb(5, 152, 98) !important;
+.africabtn:focus{
+    background-color: rgb(187, 19, 9) !important;
 box-shadow: none;
 }
 
-
-
-
-.Asiabtn{
-    background-color: #797775;
-border-radius: 13px;
-box-sizing: border-box;
-color: #ffccff;
-margin: 0px;
-margin-left: 8px;
-margin-right: 0px;
-
-padding: 0px;
-padding-left: 1.6rem !important;
-padding-right: 1.6rem !important;
+.asiabtn{
+  background-color: #112122 !important;
+  position:absolute;
+border: none;
+border-radius: 5px;
+box-sizing: inherit;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: bpmonoregular,"Source Sans Pro", sans-serif;
+font-size: 17px;
+line-height: 1.5;
+top: 30% !important;
+left: 70%;
+z-index: 99;
+overflow: hidden;
+overflow-x: hidden;
+padding: 6px 18px;
+text-align: center;
 text-decoration: none;
-touch-action: manipulation;
+user-select: none;
+vertical-align: middle;
+white-space: nowrap;
 }
 
-.Asiabtn:hover{
-background-color: beige;
-color: black;
-text-decoration: none;}
-.Asiabtn:active{
-background-color: yellow;
-color: orange;
-text-decoration: none;}
-.Asiabtn:focus{
-background-color: palegoldenrod;
-color: magenta;
-text-decoration: none;}
+.asiabtn:hover{
+  background-color: rgb(187, 19, 9, .8) !important;
+color: #ffffff;
+}
 
+.asiabtn:active{
+  background-color: rgb(187, 19, 9) !important;
+color: #ffffff;
+}
+.asiabtn:focus{
+  background-color: rgb(187, 19, 9) !important;
+box-shadow: none;
+}
 
+.australiabtn{
+  background-color: #112122 !important;
+  position:absolute;
+border: none;
+border-radius: 5px;
+box-sizing: inherit;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: bpmonoregular,"Source Sans Pro", sans-serif;
+font-size: 17px;
+line-height: 1.5;
+top: 65% !important;
+left: 82%;
+z-index: 99;
+overflow: hidden;
+overflow-x: hidden;
+padding: 6px 18px;
+text-align: center;
+text-decoration: none;
+user-select: none;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.australiabtn:hover{
+  background-color: rgb(187, 19, 9, .8) !important;
+color: #ffffff;
+}
+
+.australiabtn:active{
+  background-color: rgb(187, 19, 9) !important;
+color: #ffffff;
+}
+.australiabtn:focus{
+  background-color: rgb(187, 19, 9) !important;
+box-shadow: none;
+}
+
+.europebtn{
+  background-color: #112122 !important;
+  position:absolute;
+border: none;
+border-radius: 5px;
+box-sizing: inherit;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: bpmonoregular,"Source Sans Pro", sans-serif;
+font-size: 17px;
+line-height: 1.5;
+top: 25% !important;
+left: 55%;
+z-index: 99;
+overflow: hidden;
+overflow-x: hidden;
+padding: 6px 18px;
+text-align: center;
+text-decoration: none;
+user-select: none;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.europebtn:hover{
+  background-color: rgb(187, 19, 9, .8) !important;
+color: #ffffff;
+}
+
+.europebtn:active{
+  background-color: rgb(187, 19, 9) !important;
+color: #ffffff;
+}
+.europebtn:focus{
+  background-color: rgb(187, 19, 9) !important;
+box-shadow: none;
+}
+
+.namericabtn{
+  background-color: #112122 !important;
+  position:absolute;
+border: none;
+border-radius: 5px;
+box-sizing: inherit;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: bpmonoregular,"Source Sans Pro", sans-serif;
+font-size: 17px;
+line-height: 1.5;
+top: 35% !important;
+left: 15%;
+z-index: 99;
+overflow: hidden;
+overflow-x: hidden;
+padding: 6px 18px;
+text-align: center;
+text-decoration: none;
+user-select: none;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.namericabtn:hover{
+  background-color: rgb(187, 19, 9, .8) !important;
+color: #ffffff;
+}
+
+.namericabtn:active{
+  background-color: rgb(187, 19, 9) !important;
+color: #ffffff;
+}
+.namericabtn:focus{
+  background-color: rgb(187, 19, 9) !important;
+box-shadow: none;
+}
+
+.samericabtn{
+  background-color: #112122 !important;
+  position:absolute;
+border: none;
+border-radius: 5px;
+box-sizing: inherit;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: bpmonoregular,"Source Sans Pro", sans-serif;
+font-size: 17px;
+line-height: 1.5;
+top: 60% !important;
+left: 25%;
+z-index: 99;
+overflow: hidden;
+overflow-x: hidden;
+padding: 6px 18px;
+text-align: center;
+text-decoration: none;
+user-select: none;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.samericabtn:hover{
+  background-color: rgb(187, 19, 9, .8) !important;
+color: #ffffff;
+}
+
+.samericabtn:active{
+  background-color: rgb(187, 19, 9) !important;
+color: #ffffff;
+}
+.samericabtn:focus{
+  background-color: rgb(187, 19, 9) !important;
+box-shadow: none;
+}
 /* :root {
     --gray200: #26273b;
     --gray400: #454560;
