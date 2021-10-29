@@ -21,8 +21,8 @@ include("data.php");
 <a href="budget.php">budget.php</a><br>
 <a href="continents.php">continents.php</a><br>
 <a href="economy_type.php">economy_type.php</a><br>
-<a href="govt_type">govt_type</a><br>
-<a href="internal_forces">internal_forces</a><br>
+<a href="govt_type.php">govt_type</a><br>
+<a href="internal_forces.php">internal_forces</a><br>
 <a href="market.php">market.php</a><br>
 <a href="navy.php">navy.php</a><br>
 <a href="playerstats.php">playerstats.php</a><br>

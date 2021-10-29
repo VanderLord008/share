@@ -17,8 +17,7 @@ include("data.php");
 <section class="home-section">
 
 
-this is the navy page
-<br>
+this is the internal forces page
 <br>
 spies
 police

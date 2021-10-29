@@ -36,22 +36,28 @@ $user_check=mysqli_query($con,"SELECT * from `registered_user` WHERE `username`=
             <br>
 
 
-            soldiers= <?php    $stats_rank=mysqli_query($con,"SELECT * FROM `forces` WHERE `username`='$un'");
-            $s_rank=mysqli_fetch_assoc($stats_rank);
-            echo $s_rank['soldiers'];?>
+           
 
             <form method="POST" action="functions.php">
                 
                 <input type="hidden" name="enemyusername" value="<?php echo $un; ?>">
-                <button type="submit" class="attack_soldiers_btn" name="attack_soldiers" >Attack soldiers</button>
+                <button type="submit" class="attack_land_forces_btn" name="attack_land_forces" >Attack land forces</button>
+            </form>
+            <form method="POST" action="functions.php">
+                
+                <input type="hidden" name="enemyusername" value="<?php echo $un; ?>">
+                <button type="submit" class="attack_air_forces_btn" name="attack_air_forces" >Attack air forces</button>
+            </form>
+            <form method="POST" action="functions.php">
+                
+                <input type="hidden" name="enemyusername" value="<?php echo $un; ?>">
+                <button type="submit" class="attack_navy_forces_btn" name="attack_navy_forces" >Attack navy</button>
             </form>
 
             <br>
-            artillery= <?php    $stats_rank=mysqli_query($con,"SELECT * FROM `forces` WHERE `username`='$un'");
-            $s_rank=mysqli_fetch_assoc($stats_rank);
-            echo $s_rank['artillery'];
-
-?>
-
+           
+          
+        </form>
+ 
 
 </section>
