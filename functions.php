@@ -1844,7 +1844,7 @@ if (isset($_POST['attack_air_forces'])) {
     $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
     $enemy_stats = mysqli_fetch_assoc($new_stats);
 
-  
+
 
     if ($user_forces['planes'] - $enemy_stats['planes'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `planes`='0' WHERE `username`='$user_data[username]'");
@@ -1945,17 +1945,236 @@ if (isset($_POST['attack_navy_forces'])) {
 
 
 
+if (isset($_POST['host_soccer'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $money_needed = (100000 * ($user_stats['corruption'] / 100));
+    $happiness = 0;
+    if ($money_needed > $user_stats['money']) {
+        echo "
+                <script>
+                alert('you dont have enough money to host this tounament');
+                window.location.href='sports.php';
+                </script>
+                ";
+    } elseif ($money_needed <= $user_stats['money']) {
+
+        $money_generated = (1000 * ($user_stats['happiness'] / 10));
+        $actual_money = $money_generated - $money_needed;
+        $money_left = $user_stats['money'] + $actual_money;
+        $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+
+
+        $happiness = $user_stats['happiness'] + ($user_stats['fear'] / 10) + 3;
+        if ($happiness > 100) {
+            $happiness = 100;
+        }
+
+        $query = "UPDATE `stats` SET `happiness`='$happiness' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con, $query);
+        mysqli_query($con, $q2);
+        echo "
+            <script>
+            alert('soccer match hosted sucessfully');
+            window.location.href='sports.php';
+            </script>
+            ";
+    } else {
+        echo "
+        <script>
+        alert('idk');
+        window.location.href='sports.php';
+        </script>
+        ";
+    }
+}
+
+
+
+if (isset($_POST['host_cricket'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $money_needed = (100000 * ($user_stats['corruption'] / 100));
+    $happiness = 0;
+    if ($money_needed > $user_stats['money']) {
+        echo "
+                    <script>
+                    alert('you dont have enough money to host this tounament');
+                    window.location.href='sports.php';
+                    </script>
+                    ";
+    } elseif ($money_needed <= $user_stats['money']) {
+
+        $money_generated = (1000 * ($user_stats['happiness'] / 10));
+        $actual_money = $money_generated - $money_needed;
+        $money_left = $user_stats['money'] + $actual_money;
+        $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+
+
+        $happiness = $user_stats['happiness'] + ($user_stats['fear'] / 10) + 3;
+        if ($happiness > 100) {
+            $happiness = 100;
+        }
+
+        $query = "UPDATE `stats` SET `happiness`='$happiness' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con, $query);
+        mysqli_query($con, $q2);
+        echo "
+                <script>
+                alert('cricket match hosted sucessfully');
+                window.location.href='sports.php';
+                </script>
+                ";
+    } else {
+        echo "
+            <script>
+            alert('idk');
+            window.location.href='sports.php';
+            </script>
+            ";
+    }
+}
+
+
+
+if (isset($_POST['host_baseball'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $money_needed = (100000 * ($user_stats['corruption'] / 100));
+    $happiness = 0;
+    if ($money_needed > $user_stats['money']) {
+        echo "
+                        <script>
+                        alert('you dont have enough money to host this tounament');
+                        window.location.href='sports.php';
+                        </script>
+                        ";
+    } elseif ($money_needed <= $user_stats['money']) {
+
+        $money_generated = (1000 * ($user_stats['happiness'] / 10));
+        $actual_money = $money_generated - $money_needed;
+        $money_left = $user_stats['money'] + $actual_money;
+        $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+
+
+        $happiness = $user_stats['happiness'] + ($user_stats['fear'] / 10) + 3;
+        if ($happiness > 100) {
+            $happiness = 100;
+        }
+
+        $query = "UPDATE `stats` SET `happiness`='$happiness' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con, $query);
+        mysqli_query($con, $q2);
+        echo "
+                    <script>
+                    alert('baseball match hosted sucessfully');
+                    window.location.href='sports.php';
+                    </script>
+                    ";
+    } else {
+        echo "
+                <script>
+                alert('idk');
+                window.location.href='sports.php';
+                </script>
+                ";
+    }
+}
 
 
 
 
 
 
+if (isset($_POST['host_hockey'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $money_needed = (100000 * ($user_stats['corruption'] / 100));
+    $happiness = 0;
+    if ($money_needed > $user_stats['money']) {
+        echo "
+                            <script>
+                            alert('you dont have enough money to host this tounament');
+                            window.location.href='sports.php';
+                            </script>
+                            ";
+    } elseif ($money_needed <= $user_stats['money']) {
+
+        $money_generated = (1000 * ($user_stats['happiness'] / 10));
+        $actual_money = $money_generated - $money_needed;
+        $money_left = $user_stats['money'] + $actual_money;
+        $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+
+
+        $happiness = $user_stats['happiness'] + ($user_stats['fear'] / 10) + 3;
+        if ($happiness > 100) {
+            $happiness = 100;
+        }
+
+        $query = "UPDATE `stats` SET `happiness`='$happiness' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con, $query);
+        mysqli_query($con, $q2);
+        echo "
+                        <script>
+                        alert('hockey match hosted sucessfully');
+                        window.location.href='sports.php';
+                        </script>
+                        ";
+    } else {
+        echo "
+                    <script>
+                    alert('idk');
+                    window.location.href='sports.php';
+                    </script>
+                    ";
+    }
+}
 
 
 
+if (isset($_POST['host_tennis'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $money_needed = (100000 * ($user_stats['corruption'] / 100));
+    $happiness = 0;
+    if ($money_needed > $user_stats['money']) {
+        echo "
+                                <script>
+                                alert('you dont have enough money to host this tounament');
+                                window.location.href='sports.php';
+                                </script>
+                                ";
+    } elseif ($money_needed <= $user_stats['money']) {
+
+        $money_generated = (1000 * ($user_stats['happiness'] / 10));
+        $actual_money = $money_generated - $money_needed;
+        $money_left = $user_stats['money'] + $actual_money;
+        $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
 
 
+        $happiness = $user_stats['happiness'] + ($user_stats['fear'] / 10) + 3;
+        if ($happiness > 100) {
+            $happiness = 100;
+        }
+
+        $query = "UPDATE `stats` SET `happiness`='$happiness' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con, $query);
+        mysqli_query($con, $q2);
+        echo "
+                            <script>
+                            alert('tennis match hosted sucessfully');
+                            window.location.href='sports.php';
+                            </script>
+                            ";
+    } else {
+        echo "
+                        <script>
+                        alert('idk');
+                        window.location.href='sports.php';
+                        </script>
+                        ";
+    }
+}
 
 
 

@@ -32,4 +32,5 @@ include("data.php");
 <a href="states.php">states.php</a><br>
 <a href="taxes.php">taxes.php</a><br>
 <a href="trade.php">trade.php</a><br>
+<a href="sports.php">sports.php</a><br>
 </section>
