@@ -2383,7 +2383,7 @@ if (isset($_POST['createoilandnaturalgasmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['oil_and_natural_gas_mine'];
+    $mines = $_POST['oil_and_natural_gas'];
 
     if ($mines == '') {
         echo "
@@ -2409,7 +2409,6 @@ if (isset($_POST['createoilandnaturalgasmine'])) {
             $query = "UPDATE `stats` SET `oil and natural gas mine`='$new_oil_and_natural_gas_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $query);
             mysqli_query($con, $q2);
-            
             echo "
             <script>
             alert('mines built sucessfully');
@@ -2432,7 +2431,52 @@ if (isset($_POST['createoilandnaturalgasmine'])) {
 
 
 
+if (isset($_POST['createforestrymine'])) {
+    $con = new mysqli("localhost", "root", "", "test");
 
+
+    $mines = $_POST['forestry_mine'];
+
+    if ($mines == '') {
+        echo "
+            <script>
+            alert('try again with a valid number');
+            window.location.href='raws.php';
+            </script>
+            ";
+    } else {
+        $money_needed = (1000 * $mines);
+
+        if ($money_needed > $user_stats['money']) {
+            echo "
+                <script>
+                alert('you dont have enough money');
+                window.location.href='raws.php';
+                </script>
+                ";
+        } elseif ($money_needed <= $user_stats['money']) {
+            $money_left = $user_stats['money'] - $money_needed;
+            $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+            $new_forestry_mines = $user_stats['forestry mine'] + $mines;
+            $query = "UPDATE `stats` SET `forestry mine`='$new_forestry_mines' WHERE `username`='$_SESSION[username]'";
+            mysqli_query($con, $query);
+            mysqli_query($con, $q2);
+            echo "
+            <script>
+            alert('mines built sucessfully');
+            window.location.href='raws.php';
+            </script>
+            ";
+        } else {
+            echo "
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='raws.php';
+        </script>
+        ";
+        }
+    }
+}
 
 
 if (isset($_POST['createironmine'])) {
@@ -2482,8 +2526,99 @@ if (isset($_POST['createironmine'])) {
     }
 }
 
+if (isset($_POST['createleadmine'])) {
+    $con = new mysqli("localhost", "root", "", "test");
 
 
+    $mines = $_POST['lead_mine'];
+
+    if ($mines == '') {
+        echo "
+            <script>
+            alert('try again with a valid number');
+            window.location.href='raws.php';
+            </script>
+            ";
+    } else {
+        $money_needed = (1000 * $mines);
+
+        if ($money_needed > $user_stats['money']) {
+            echo "
+                <script>
+                alert('you dont have enough money');
+                window.location.href='raws.php';
+                </script>
+                ";
+        } elseif ($money_needed <= $user_stats['money']) {
+            $money_left = $user_stats['money'] - $money_needed;
+            $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+            $new_lead_mines = $user_stats['lead mines'] + $mines;
+            $query = "UPDATE `stats` SET `lead mines`='$new_lead_mines' WHERE `username`='$_SESSION[username]'";
+            mysqli_query($con, $query);
+            mysqli_query($con, $q2);
+            echo "
+            <script>
+            alert('mines built sucessfully');
+            window.location.href='raws.php';
+            </script>
+            ";
+        } else {
+            echo "
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='raws.php';
+        </script>
+        ";
+        }
+    }
+}
+
+if (isset($_POST['createpreciousmetalmine'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+
+    $mines = $_POST['precious_metal_mine'];
+
+    if ($mines == '') {
+        echo "
+            <script>
+            alert('try again with a valid number');
+            window.location.href='raws.php';
+            </script>
+            ";
+    } else {
+        $money_needed = (1000 * $mines);
+
+        if ($money_needed > $user_stats['money']) {
+            echo "
+                <script>
+                alert('you dont have enough money');
+                window.location.href='raws.php';
+                </script>
+                ";
+        } elseif ($money_needed <= $user_stats['money']) {
+            $money_left = $user_stats['money'] - $money_needed;
+            $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
+            $new_precious_metal_mines = $user_stats['precious metal mines'] + $mines;
+            $query = "UPDATE `stats` SET `precious_metal_mines`='$new_coal_mines' WHERE `username`='$_SESSION[username]'";
+            mysqli_query($con, $query);
+            mysqli_query($con, $q2);
+            echo "
+            <script>
+            alert('mines built sucessfully');
+            window.location.href='raws.php';
+            </script>
+            ";
+        } else {
+            echo "
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='raws.php';
+        </script>
+        ";
+        }
+    }
+}
 
 
 
