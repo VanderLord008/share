@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login and register</title>
+    <title>links</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,4 +33,6 @@ include("data.php");
 <a href="taxes.php">taxes.php</a><br>
 <a href="trade.php">trade.php</a><br>
 <a href="sports.php">sports.php</a><br>
+<a href="raws.php">raws.php</a><br>
+<a href="industry.php">industry.php</a><br>
 </section>
