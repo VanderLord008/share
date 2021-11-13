@@ -2234,7 +2234,7 @@ if (isset($_POST['createbauxitemine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['bauxite_mine'];
+    $mines = $_POST['bauxitemine'];
 
     if ($mines == '') {
         echo "
@@ -2284,7 +2284,7 @@ if (isset($_POST['createcoalmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['coal_mine'];
+    $mines = $_POST['coalmine'];
 
     if ($mines == '') {
         echo "
@@ -2333,7 +2333,7 @@ if (isset($_POST['createuraniummine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['uranium_mine'];
+    $mines = $_POST['uraniummine'];
 
     if ($mines == '') {
         echo "
@@ -2383,7 +2383,7 @@ if (isset($_POST['createoilandnaturalgasmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['oil_and_natural_gas'];
+    $mines = $_POST['oilandnaturalgasmine'];
 
     if ($mines == '') {
         echo "
@@ -2435,7 +2435,7 @@ if (isset($_POST['createforestrymine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['forestry_mine'];
+    $mines = $_POST['forestrymine'];
 
     if ($mines == '') {
         echo "
@@ -2457,8 +2457,8 @@ if (isset($_POST['createforestrymine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_forestry_mines = $user_stats['forestry mine'] + $mines;
-            $query = "UPDATE `stats` SET `forestry mine`='$new_forestry_mines' WHERE `username`='$_SESSION[username]'";
+            $new_forestry_mines = $user_stats['lumbermine'] + $mines;
+            $query = "UPDATE `stats` SET `lumbermine`='$new_forestry_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $query);
             mysqli_query($con, $q2);
             echo "
@@ -2483,7 +2483,7 @@ if (isset($_POST['createironmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['iron_mine'];
+    $mines = $_POST['ironmine'];
 
     if ($mines == '') {
         echo "
@@ -2530,7 +2530,7 @@ if (isset($_POST['createleadmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['lead_mine'];
+    $mines = $_POST['leadmine'];
 
     if ($mines == '') {
         echo "
@@ -2577,7 +2577,7 @@ if (isset($_POST['createpreciousmetalmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['precious_metal_mine'];
+    $mines = $_POST['preciousmetalmine'];
 
     if ($mines == '') {
         echo "
@@ -2599,8 +2599,8 @@ if (isset($_POST['createpreciousmetalmine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_precious_metal_mines = $user_stats['precious metal mines'] + $mines;
-            $query = "UPDATE `stats` SET `precious_metal_mines`='$new_coal_mines' WHERE `username`='$_SESSION[username]'";
+            $new_precious_metal_mines = $user_stats['precious_metal_mines'] + $mines;
+            $query = "UPDATE `stats` SET `precious_metal_mines`='$new_precious_metal_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $query);
             mysqli_query($con, $q2);
             echo "

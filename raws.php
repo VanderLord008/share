@@ -71,7 +71,7 @@ your current bauxite mines are <?php echo $user_stats['bauxite mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxite_mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxitemine" >
 
                 <button type="submit" class="createbauxiteminebtm" name="createbauxitemine">build the mine</button>
 
@@ -89,7 +89,7 @@ your current coal mines are <?php echo $user_stats['coal mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coal_mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coalmine" >
 
                 <button type="submit" class="createcoalminebtm" name="createcoalmine">build the mine</button>
 
@@ -108,7 +108,7 @@ your current uranium mines are <?php echo $user_stats['uranium mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a uranium mine" name="uranium_mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a uranium mine" name="uraniummine" >
 
                 <button type="submit" class="createuraniumminebtm" name="createuraniummine">build the mine</button>
 
@@ -129,7 +129,7 @@ your current iron mines are <?php echo $user_stats['iron mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build an iron mine" name="iron_mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build an iron mine" name="ironmine" >
 
                 <button type="submit" class="createironminebtm" name="createironmine">build the mine</button>
 
@@ -148,7 +148,7 @@ your current oil and natural mines are <?php echo $user_stats['oil and natural g
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oil and natural gas mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oilandnaturalgasmine" >
 <button type="submit" class="createoilandnaturalgasminebtm" name="createoilandnaturalgasmine">build the mine</button>
 </form>
 
@@ -194,12 +194,12 @@ precious metals
 <br>
 <p>cost of creating one forestry mine is 1000</p>
 <br>
-your current precious metal mines are <?php echo $user_stats['precious metal mines']?>
+your current precious metal mines are <?php echo $user_stats['precious_metal_mines']?>
 <br>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="precious metal mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="preciousmetalmine" >
 <button type="submit" class="createpreciousmetalminebtm" name="createpreciousmetalmine">build the mine</button>
 </form>
                             <br>
@@ -215,7 +215,7 @@ your current bauxite mines are <?php echo $user_stats['bauxite mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxite mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxitemine" >
 
                 <button type="submit" class="createbauxiteminebtm" name="createbauxitemine">build the mine</button>
 
@@ -233,7 +233,7 @@ your current iron mines are <?php echo $user_stats['iron mines']?>
 your curren money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a iron mine" name="iron mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a iron mine" name="ironmine" >
 <button type="submit" class="createironminebtm" name="createironmine">build the mine</button>
 </form>
 <br>
@@ -247,7 +247,7 @@ your current coal mines are <?php echo $user_stats['coal mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coal mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coalmine" >
 
                 <button type="submit" class="createcoalminebtm" name="createcoalmine">build the mine</button>
 
@@ -296,7 +296,7 @@ your current uranium mines are <?php echo $user_stats['uranium mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a uranium mine" name="uranium mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a uranium mine" name="uraniummine" >
 
                 <button type="submit" class="createuraniumminebtm" name="createuraniummine">build the mine</button>
 
@@ -314,7 +314,7 @@ your current lead mines are <?php echo $user_stats['lead mines']?>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a lead mine" name="lead mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a lead mine" name="leadmine" >
 <button type="submit" class="createleadminebtm" name="createleadmine">build the mine</button>
 </form>
 <br>
@@ -324,12 +324,12 @@ precious metals
 <br>
 <p>cost of creating one forestry mine is 1000</p>
 <br>
-your current precious metal mines are <?php echo $user_stats['precious metal mines']?>
+your current precious metal mines are <?php echo $user_stats['precious_metal_mines']?>
 <br>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="precious metal mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="preciousmetalmine" >
 <button type="submit" class="createpreciousmetalminebtm" name="createpreciousmetalmine">build the mine</button>
 </form>
 <br>
@@ -344,7 +344,7 @@ your current bauxite mines are <?php echo $user_stats['bauxite mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxite mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxitemine" >
 
                 <button type="submit" class="createbauxiteminebtm" name="createbauxitemine">build the mine</button>
 
@@ -361,7 +361,7 @@ your current coal mines are <?php echo $user_stats['coal mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coal mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coalmine" >
 
                 <button type="submit" class="createcoalminebtm" name="createcoalmine">build the mine</button>
 
@@ -413,7 +413,7 @@ your current coal mines are <?php echo $user_stats['coal mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coal mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coalmine" >
 
                 <button type="submit" class="createcoalminebtm" name="createcoalmine">build the mine</button>
 
@@ -431,7 +431,7 @@ your current oil and natural mines are <?php echo $user_stats['oil and natural g
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oil and natural gas mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oilandnaturalgasmine" >
 <button type="submit" class="createoilandnaturalgasminebtm" name="createoilandnaturalgasmine">build the mine</button>
 </form>
 
@@ -447,7 +447,7 @@ your current forestry mines are <?php echo $user_stats['lumbermine']?>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a forestry mine" name="forestry mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a forestry mine" name="forestrymine" >
 <button type="submit" class="createforestryminebtm" name="createforestrymine">build the mine</button>
 </form>
 <br>
@@ -462,9 +462,9 @@ your current lead mines are <?php echo $user_stats['lead mines']?>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a lead mine" name="lead mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a lead mine" name="leadmine" >
 
-                <button type="submit" class="createcoalminebtm" name="createcoalmine">build the mine</button>
+                <button type="submit" class="createleadminebtm" name="createleadmine">build the mine</button>
 
                 <br>
 </form>
@@ -482,7 +482,7 @@ your current precious metal mines are <?php echo $user_stats['precious_metal_min
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="precious metal mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="preciousmetalmine" >
 <button type="submit" class="createpreciousmetalminebtm" name="createpreciousmetalmine">build the mine</button>
 </form>
 
@@ -535,7 +535,7 @@ your current bauxite mines are <?php echo $user_stats['bauxite mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxite mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxitemine" >
 
                 <button type="submit" class="createbauxiteminebtm" name="createbauxitemine">build the mine</button>
 
@@ -553,7 +553,7 @@ your current iron mines are <?php echo $user_stats['iron mines']?>
 your curren money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a iron mine" name="iron mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a iron mine" name="ironmine" >
 <button type="submit" class="createironminebtm" name="createironmine">build the mine</button>
 </form>
 <br>
@@ -567,7 +567,7 @@ your current coal mines are <?php echo $user_stats['coal mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coal mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coalmine" >
 
                 <button type="submit" class="createcoalminebtm" name="createcoalmine">build the mine</button>
 
@@ -585,7 +585,7 @@ your current oil and natural mines are <?php echo $user_stats['oil and natural g
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oil and natural gas mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oilandnaturalgasmine" >
 <button type="submit" class="createoilandnaturalgasminebtm" name="createoilandnaturalgasmine">build the mine</button>
 </form>
 <br>
@@ -595,12 +595,12 @@ forestry
 <br>
 <p>cost of creating one forestry mine is 1000</p>
 <br>
-your current forestry mines are <?php echo $user_stats['forestry mine']?>
+your current forestry mines are <?php echo $user_stats['lumbermine']?>
 <br>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a forestry mine" name="forestry mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a forestry mine" name="forestrymine" >
 <button type="submit" class="createforestryminebtm" name="createforestrymine">build the mine</button>
 </form>
 
@@ -653,7 +653,7 @@ your current uranium mines are <?php echo $user_stats['uranium mines'] ?>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min="-10000000000000" max="100000000000" placeholder="build a uranium mine" name="uranium mine" >
+<input type="number" min="-10000000000000" max="100000000000" placeholder="build a uranium mine" name="uraniummine" >
 
                 <button type="submit" class="createuraniumminebtm" name="createuraniummine">build the mine</button>
 
@@ -671,7 +671,7 @@ your current oil and natural mines are <?php echo $user_stats['oil and natural g
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oil and natural gas mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oilandnaturalgasmine" >
 <button type="submit" class="createoilandnaturalgasminebtm" name="createoilandnaturalgasmine">build the mine</button>
 </form>
 <br>
@@ -680,12 +680,12 @@ precious metals
 <br>
 <p>cost of creating one forestry mine is 1000</p>
 <br>
-your current precious metal mines are <?php echo $user_stats['precious metal mines']?>
+your current precious metal mines are <?php echo $user_stats['precious_metal_mines']?>
 <br>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="precious metal mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a precious metal mine" name="preciousmetalmine" >
 <button type="submit" class="createpreciousmetalminebtm" name="createpreciousmetalmine">build the mine</button>
 </form>
                             <br>
@@ -696,12 +696,12 @@ forestry
 <br>
 <p>cost of creating one forestry mine is 1000</p>
 <br>
-your current forestry mines are <?php echo $user_stats['forestry mine']?>
+your current forestry mines are <?php echo $user_stats['lumbermine']?>
 <br>
 your current money is <?php echo $user_stats['money']?>
 <br>
 <form method="POST" action="functions.php">
-<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a forestry mine" name="forestry mine" >
+<input type="number" min ="-10000000000000" max="100000000000" placeholder="build a forestry mine" name="forestrymine" >
 <button type="submit" class="createforestryminebtm" name="createforestrymine">build the mine</button>
 </form>
                                 <?php
