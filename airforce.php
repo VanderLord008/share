@@ -13,78 +13,97 @@
     <?php
     include("connection.php");
     include("header.php");
-    include("data.php");
+    
 
     ?>
     <section class="home-section">
-        this is the airforce page
+    <?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
 
-        Fighter Planes
+this is the airforce page
 
-        Attack helicopters
+Fighter Planes
 
-        Bombers
+Attack helicopters
 
-        missiles
-        <br>
-        <br>
-        <br>
-        <p>cost of creating one fighter plane is 1000</p>
-        <br>
-        your current fighting planes are <?php echo $user_forces['planes'] ?>
-        <br>
-        your current money is <?php echo $user_stats['money'] ?>
-        <br>
+Bombers
 
-        <form method="POST" action="functions.php">
-            <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the fighter planes" name="planes">
+missiles
+<br>
+<br>
+<br>
+<p>cost of creating one fighter plane is 1000</p>
+<br>
+your current fighting planes are <?php echo $user_forces['planes'] ?>
+<br>
+your current money is <?php echo $user_stats['money'] ?>
+<br>
 
-            <button type="submit" class="createplanesbtm" name="createplanes">create fighter planes</button>
-        </form>
+<form method="POST" action="functions.php">
+    <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the fighter planes" name="planes">
 
-        <br>
-        <br>
-        <p>cost of creating one attack helicopter is 1000</p>
-        <br>
-        your current attack helicopters are <?php echo $user_forces['helicopters'] ?>
-        <br>
-        your current money is <?php echo $user_stats['money'] ?>
-        <br>
+    <button type="submit" class="createplanesbtm" name="createplanes">create fighter planes</button>
+</form>
 
-        <form method="POST" action="functions.php">
-            <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the attack helicopters" name="helicopters">
+<br>
+<br>
+<p>cost of creating one attack helicopter is 1000</p>
+<br>
+your current attack helicopters are <?php echo $user_forces['helicopters'] ?>
+<br>
+your current money is <?php echo $user_stats['money'] ?>
+<br>
 
-            <button type="submit" class="createhelicoptersbtm" name="createhelicopters">create attack helicopters</button>
-        </form>
+<form method="POST" action="functions.php">
+    <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the attack helicopters" name="helicopters">
 
-        <br>
-        <br>
-        <p>cost of creating one bomber is 1000</p>
-        <br>
-        your current bombers are <?php echo $user_forces['bombers'] ?>
-        <br>
-        your current money is <?php echo $user_stats['money'] ?>
-        <br>
+    <button type="submit" class="createhelicoptersbtm" name="createhelicopters">create attack helicopters</button>
+</form>
 
-        <form method="POST" action="functions.php">
-            <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the bombers" name="bombers">
+<br>
+<br>
+<p>cost of creating one bomber is 1000</p>
+<br>
+your current bombers are <?php echo $user_forces['bombers'] ?>
+<br>
+your current money is <?php echo $user_stats['money'] ?>
+<br>
 
-            <button type="submit" class="createbombersbtm" name="createbombers">create bombers</button>
-        </form>
+<form method="POST" action="functions.php">
+    <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the bombers" name="bombers">
 
-        <br>
-        <br>
-        <p>cost of creating one missile is 1000</p>
-        <br>
-        your current missiles are <?php echo $user_forces['missiles'] ?>
-        <br>
-        your current money is <?php echo $user_stats['money'] ?>
-        <br>
+    <button type="submit" class="createbombersbtm" name="createbombers">create bombers</button>
+</form>
 
-        <form method="POST" action="functions.php">
-            <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the missiles" name="missiles">
+<br>
+<br>
+<p>cost of creating one missile is 1000</p>
+<br>
+your current missiles are <?php echo $user_forces['missiles'] ?>
+<br>
+your current money is <?php echo $user_stats['money'] ?>
+<br>
 
-            <button type="submit" class="createmissilesbtm" name="createmissiles">create missiles</button>
-        </form>
+<form method="POST" action="functions.php">
+    <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the missiles" name="missiles">
 
+    <button type="submit" class="createmissilesbtm" name="createmissiles">create missiles</button>
+</form>
+
+
+
+
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
     </section>

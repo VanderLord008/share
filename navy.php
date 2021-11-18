@@ -15,6 +15,13 @@ include("data.php");
 
 ?>
 <section class="home-section">
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
+
 this is the navy page
 <br>
 <br>
@@ -85,5 +92,16 @@ your current money is <?php echo $user_stats['money'] ?>
 
                 <button type="submit" class="createcarriersbtm" name="createcarriers">create aircraft carriers</button>
 </form>
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
 
 </section>

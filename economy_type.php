@@ -15,6 +15,12 @@ include("data.php");
 
 ?>
 <section class="home-section">
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
 <p>hello <?php echo $_SESSION['username'] ?> here you can select which type of economic system you want to have.</p>
 <div class="capitalism">
     <p>this is the capitalism option Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quas voluptates maiores, facilis eius exercitationem, veniam ducimus similique nisi libero quod omnis iste neque consectetur harum magnam delectus soluta vel vitae mollitia ratione. Tenetur. choice</p>
@@ -36,4 +42,19 @@ include("data.php");
                 <button type="submit" class="communismbtm" name="communism">communism</button>
 
 </div>
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
+
+
+
+
 </section>

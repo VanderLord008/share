@@ -17,14 +17,15 @@ include("data.php");
 
 
 
-<?php 
-if($user_data['username']==$_SESSION['username'])
-{
 
+<section class="home-section">
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
 ?>
 
 
-<section class="home-section">
 username = <?php echo $user_data['username'] ?>
 <br>
 email = <?php echo $user_data['email'] ?>
@@ -69,12 +70,17 @@ popularity = <?php echo $user_stats['popularity'] ?>
 <br>
 money = <?php echo $user_stats['money'] ?>
 <br>
-</section>
+
+
 <?php
-}
-else
-{
-    echo "too bad";
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
 
 }
 ?>
+
+
+</section>

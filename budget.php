@@ -16,6 +16,12 @@ include("data.php");
 
 ?>
 <section class="home-section">
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
 <p>here you distribute your budget</p>
 
 
@@ -31,4 +37,16 @@ include("data.php");
                 
                 <button type="submit" class="budget" name="budget">save</button>
             </form>
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
+
 </section>

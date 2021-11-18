@@ -11,7 +11,7 @@
 <?php
 include("connection.php");
 include("header.php");
-include("data.php");
+
 
 
 ?>
@@ -20,18 +20,19 @@ include("data.php");
 <section class="home-section">
 
 
+
+
+
+
 <?php
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
 ?>
-
-
 
 <div class="democracychoice">
 
     <p>as a new player you can only have dictatorship type og govt as you progress through the game you will unlock all others different types</p>
     <button onclick="window.location.href = 'continents.php';">click here to select which continent you want to start in</button>
-
-
 
 
 <?php
@@ -43,4 +44,12 @@ echo "log in first to see this page";
 
 }
 ?>
+
+
+
+
+
+
+
+
 </section>

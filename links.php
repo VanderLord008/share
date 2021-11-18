@@ -11,10 +11,16 @@
 <?php
 include("connection.php");
 include("header.php");
-include("data.php");
+
 
 ?>
 <section class="home-section">
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
 <a href="airforce.php">airforce.php</a><br>
 <a href="army.php">army.php</a><br>
 <a href="battle.php">battle.php</a><br>
@@ -35,4 +41,16 @@ include("data.php");
 <a href="sports.php">sports.php</a><br>
 <a href="raws.php">raws.php</a><br>
 <a href="industry.php">industry.php</a><br>
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
+
 </section>

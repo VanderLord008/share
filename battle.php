@@ -17,7 +17,12 @@
 
     ?>
     <section class="home-section">
-        These are the nations you can fight
+
+    <?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+ These are the nations you can fight
         <br>
         <br>
         <?php
@@ -116,6 +121,20 @@
     <?php
         }
     ?>
+
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
+
+       
 
 
     </section>

@@ -148,7 +148,29 @@ if (isset($_POST['South_America'])) {
 
 if (isset($_POST['save_first_state'])) {
     $con = new mysqli("localhost", "root", "", "test");
-    $query = "UPDATE `states` SET `state1`='$_POST[first]' WHERE `username`='$_SESSION[username]'";
+    $name=$_POST['first'];
+    if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $name))
+        {
+            echo "
+            <script>
+            alert('try a valid name without special characters again');
+            window.location.href='state_creater.php';
+            </script>
+            ";
+        }
+    elseif($name=='')
+    {
+        echo "
+                <script>
+                alert('try not leaving name empty again');
+                window.location.href='state_creater.php';
+                </script>
+                ";
+    }
+    else
+    {
+        $newstatecounter=$user_states['statecounter']+1;
+    $query = "UPDATE `states` SET `state1`='$_POST[first]' , `statecounter`='$newstatecounter' WHERE `username`='$_SESSION[username]'";
     if (mysqli_query($con, $query)) {
         echo "
                 <script>
@@ -156,7 +178,7 @@ if (isset($_POST['save_first_state'])) {
                 window.location.href='budget.php';
                 </script>
                 ";
-    } else {
+        } else {
         echo "
                     <script>
                     alert('error');
@@ -165,7 +187,102 @@ if (isset($_POST['save_first_state'])) {
                     ";
     }
 }
+}
+
+
+
+
+function append_string ($str1, $str2) {
+      
+    // Using Concatenation assignment
+    // operator (.=)
+    $str1 .=$str2;
+      
+    // Returning the result 
+    return $str1;
+}
+
+
+
+
+
+
+
+
+
+if (isset($_POST['save_new_state'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+    $name=$_POST['newstate'];
+    if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $name))
+        {
+            echo "
+            <script>
+            alert('try a valid name without special characters again');
+            window.location.href='state_creater.php';
+            </script>
+            ";
+        }
+    elseif($name=='')
+    {
+        echo "
+                <script>
+                alert('try not leaving name empty again');
+                window.location.href='state_creater.php';
+                </script>
+                ";
+    }
+    else
+    {
+        $newstatecounter=$user_states['statecounter']+1;
+        $string1="state";
+        $string2=$user_states['statecounter'];
+        $string3 = append_string ($string1, $string2);
+    
+    $query = "ALTER TABLE states ADD COLUMN @tbl_name=$string3 VARCHAR(15) AFTER state6";
+    if (mysqli_query($con, $query)) {
+        echo "
+                <script>
+                alert('state added sucessfully');
+                window.location.href='budget.php';
+                </script>
+                ";
+        } else {
+        echo "
+                    <script>
+                    alert('error');
+                    window.location.href='index.php';
+                    </script>
+                    ";
+    }
+}
+}
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <?php
@@ -197,7 +314,7 @@ if (isset($_POST['capitalism'])) {
         echo "
                 <script>
                 alert('economic policy  selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='state_creater.php';
                 </script>
                 ";
     } else {
@@ -216,7 +333,7 @@ if (isset($_POST['socialism'])) {
         echo "
                 <script>
                 alert('economic policy  selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='state_creater.php';
                 </script>
                 ";
     } else {
@@ -235,7 +352,7 @@ if (isset($_POST['communism'])) {
         echo "
                 <script>
                 alert('economic policy  selected sucessfully');
-                window.location.href='state_creator.php';
+                window.location.href='state_creater.php';
                 </script>
                 ";
     } else {

@@ -11,7 +11,7 @@
 <?php
 include("connection.php");
 include("header.php");
-include("data.php");
+
 
 ?>
 
@@ -29,7 +29,14 @@ include("data.php");
 
 
 <section class="home-section">
-    this is the page to see the enemies nation
+
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
+this is the page to see the enemies nation
 <?php
 if(!isset($_SESSION['username'])){
     echo "you must be logged in to see this page";
@@ -78,4 +85,18 @@ else
     }
 }
 ?>
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
+
+
+    
 </section>

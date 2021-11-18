@@ -9,7 +9,7 @@
 <?php
 include("connection.php");
 include("header.php");
-include("data.php");
+
 
 ?>
 <body>
@@ -17,11 +17,14 @@ include("data.php");
 
 
 
-<?php
-if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
-?>
+
 
 <section class="home-section">
+    
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
 
 <div class="continent_choice">
 
@@ -83,6 +86,23 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
              
                 <button type="submit" class="samericabtn" name="South_America">South America</button>
 
+
+
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</form>
+</div>
+</div>
+
+
 <?php
 
 } else {
@@ -93,19 +113,8 @@ echo "log in first to see this page";
 }
 ?>
 
-</form>
-</div>
-</form>
-</div>
-</form>
-</div>
-</form>
-</div>
-</form>
-</div>
-</form>
-</div>
-</div>
+
+
 </section>
 
 </body>

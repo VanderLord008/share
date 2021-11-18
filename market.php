@@ -16,6 +16,10 @@ include("data.php");
 ?>
 <section class="home-section">
 
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
 
 following offers are on the market
 
@@ -58,6 +62,18 @@ while($row = mysqli_fetch_assoc($p)){
 
 
 
+
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
 
 
 

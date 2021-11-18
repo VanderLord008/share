@@ -15,6 +15,13 @@ include("data.php");
 
 ?>
 <section class="home-section">
+
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
 this is the attack page
 
 <br>
@@ -59,5 +66,17 @@ $user_check=mysqli_query($con,"SELECT * from `registered_user` WHERE `username`=
           
         </form>
  
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
+
 
 </section>

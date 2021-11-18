@@ -11,12 +11,19 @@
 <?php
 include("connection.php");
 include("header.php");
-include("data.php");
+
 
 
 ?>
+
 <section class="home-section">
-    click on this links below to go to other pages of the military
+
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
+click on this links below to go to other pages of the military
     <br>
     <br>
     <br>
@@ -82,6 +89,19 @@ your current money is <?php echo $user_stats['money'] ?>
 
                 <button type="submit" class="createweaponsbtm" name="createweapons">create weapons</button>
 </form>
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
+
+
 
 </section>
 </body>

@@ -15,6 +15,14 @@ include("data.php");
 
 ?>
 <section class="home-section">
+    
+<?php
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
+    include("data.php");
+?>
+
+
+
 <p>this is the industry page. not sure what it will be in actuality but for now i will placeholders for this page and implement the backend. we can change the names later</p>
 <br>
 <br>
@@ -35,5 +43,16 @@ your current money is <?php echo $user_stats['money'] ?>
                 <button type="submit" class="createfarmbtm" name="createfarm">create farm</button>
 
                 <br>
+
+
+<?php
+
+} else {
+?>
+<?php 
+echo "log in first to see this page";
+
+}
+?>
 
 </section>
