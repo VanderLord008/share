@@ -13,7 +13,7 @@ include("connection.php");
 include("header.php");
 ?>          
 
-    sfdfds
+    
     <section class="home-section">
     <div class="popup-container" id="login popup">
         <div class="popup">
