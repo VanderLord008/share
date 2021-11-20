@@ -194,11 +194,10 @@ if (isset($_POST['save_first_state'])) {
 
 function append_string ($str1, $str2) {
       
-    // Using Concatenation assignment
-    // operator (.=)
+    
     $str1 .=$str2;
       
-    // Returning the result 
+    
     return $str1;
 }
 
@@ -235,11 +234,15 @@ if (isset($_POST['save_new_state'])) {
     {
         $newstatecounter=$user_states['statecounter']+1;
         $string1="state";
-        $string2=$user_states['statecounter'];
-        $string3 = append_string ($string1, $string2);
+        $string2=$newstatecounter;
+        $string3=append_string($string1, $string2);
     
-    $query = "ALTER TABLE states ADD COLUMN @tbl_name=$string3 VARCHAR(15) AFTER state6";
-    if (mysqli_query($con, $query)) {
+    $query = "ALTER TABLE states ADD COLUMN ".$string3." VARCHAR(15) AFTER statecounter";
+    mysqli_query($con, $query);
+    $q1="UPDATE `states` SET `$string3`='$name' WHERE `username`='$_SESSION[username]'";
+    $q2="UPDATE `states` SET `statecounter`='$newstatecounter' WHERE `username`='$_SESSION[username]'";
+    mysqli_query($con, $q2);
+    if (mysqli_query($con, $q1)) {
         echo "
                 <script>
                 alert('state added sucessfully');
@@ -250,7 +253,7 @@ if (isset($_POST['save_new_state'])) {
         echo "
                     <script>
                     alert('error');
-                    window.location.href='index.php';
+                    window.location.href='state_creater.php';
                     </script>
                     ";
     }

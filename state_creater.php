@@ -53,61 +53,9 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
             
 <?php
         }
-    else if($user_states['statecounter']==1)
-    {
-        ?>
-        click here to create your second state in your state
-
-
-
-
-        <?php
-    }
     
-    else if($user_states['statecounter']==2)
-    {
-        ?>
-        click here to create your third state in your state
 
-
-
-
-        <?php
-    }
-
-    else if($user_states['statecounter']==3)
-    {
-        ?>
-        click here to create your fourth state in your state
-
-
-
-
-        <?php
-    }
-    else if($user_states['statecounter']==4)
-    {
-        ?>
-        click here to create your fifth state in your state
-
-
-
-
-        <?php
-    }
-
-    else if($user_states['statecounter']==5)
-    {
-        ?>
-        click here to create your sixth state in your state
-
-
-
-
-        <?php
-    }
-
-    else if($user_states['statecounter']=='6')
+    else if($user_states['statecounter']!='0')
     {
         ?>
         click here to create a new in your state
