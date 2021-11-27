@@ -47,7 +47,7 @@ your current soldiers are <?php echo $user_forces['soldiers'] ?>
 <br>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
-<button onclick="window.location.href='taxes.php'">Continue</button>
+
 <form method="POST" action="functions.php">
 <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the soldiers" name="soldiers" >
 

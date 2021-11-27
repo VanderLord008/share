@@ -53,9 +53,9 @@ else
         $user_check=mysqli_query($con,"SELECT * from `registered_user` WHERE `username`='$un'");
         if(mysqli_num_rows($user_check)==0)
         {
-            echo "not your fault for this behaviour";
+            echo "this user doesnt exist";
         }
-        if($un==$user_data['username'])
+        else if($un==$user_data['username'])
         {
             echo "dont attack yourself smh";
         }

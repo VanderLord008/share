@@ -35,7 +35,8 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 <a href="policies.php">policies.php</a><br>
 <a href="ranking.php">ranking.php</a><br>
 <a href="state_creater.php">state_creater.php</a><br>
-<a href="states.php">states.php</a><br>
+<a href="stateslist.php">stateslist.php</a><br>
+<a href="statepage.php">statepage.php</a><br>
 <a href="taxes.php">taxes.php</a><br>
 <a href="trade.php">trade.php</a><br>
 <a href="sports.php">sports.php</a><br>
