@@ -39,12 +39,28 @@ else
     else
     {
         $un=$_GET['state'];
-        $check="SELECT * FROM `states` WHERE `username` = '$_SESSION[username]' AND (`state1`='$_GET[state]' OR `state2`='$_GET[state]' OR `state3`='$_GET[state]' OR `state4`='$_GET[state]' OR `state5`='$_GET[state]' )";
+        $statenumber=0;
+        $check="SELECT * FROM `states` WHERE `username` = '$_SESSION[username]' AND (`state1`='$_GET[state]' OR `state2`='$_GET[state]' OR `state3`='$_GET[state]' )";
         $state_check=mysqli_query($con,$check);
         if(mysqli_num_rows($state_check)>0)
         {
-            
+            if($un==$user_states['state1'])
+            {
+                $statenumber=1;
+            }
+            else if($un==$user_states['state2'])
+            {
+                $statenumber=2;
+            }
+            else if($un==$user_states['state3'])
+            {
+                $statenumber=3;
+            }
                  echo "this is  $un";
+                 ?>
+                 iron mines <br>
+                 you have <?php echo $user_states['state'.$statenumber.'ironmines'];
+                 
         }
         
         else

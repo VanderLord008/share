@@ -32,14 +32,14 @@ include("data.php");
     if($result)
     {
         $result_fetch=mysqli_fetch_assoc($result);
-        ?>state2 = <?php echo $result_fetch['state2'];
+        ?>state2 = <?php echo " <a href=\"statepage.php?state=" . $result_fetch['state2'] . "\">" . $result_fetch['state2'] . "</a>";
     }
     ?><br><?php
     $result = mysqli_query($con,"select `state3` FROM `states` where `username`='$_SESSION[username]'");
     if($result)
     {
         $result_fetch=mysqli_fetch_assoc($result);
-        ?>state3 = <?php echo $result_fetch['state3'];
+        ?>state3 = <?php echo " <a href=\"statepage.php?state=" . $result_fetch['state3'] . "\">" . $result_fetch['state3'] . "</a>";
     }
     ?>
     

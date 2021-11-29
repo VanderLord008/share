@@ -271,6 +271,186 @@ if (isset($_POST['save_new_state'])) {
         mysqli_query($con,$qbauxite);
 
     }
+
+
+
+
+
+    else if($user_stats['continent']='South America')
+    {
+        $stringforfarm="farms";
+        $stringfarm=$string3."".$stringforfarm;
+        $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
+        mysqli_query($con,$qfarm);
+        
+        $stringforoil="oil_and_natural_gas_mines";
+        $stringoil=$string3."".$stringforoil;
+        $qoil = "ALTER TABLE states ADD COLUMN ".$stringoil." TEXT AFTER statecounter";
+        mysqli_query($con,$qoil);
+        
+        $stringforlumber="lumbermines";
+        $stringlumber=$string3."".$stringforlumber;
+        $qlumber="ALTER TABLE states ADD COLUMN ".$stringlumber." TEXT AFTER statecounter";
+        mysqli_query($con,$qlumber);
+
+        $stringforprecious="precious_metal_mines";
+        $stringprecious=$string3."".$stringforprecious;
+        $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
+        mysqli_query($con,$qprecious);
+
+        $stringforuranium="uranium_mines";
+        $stringuranium=$string3."".$stringforuranium;
+        $quranium="ALTER TABLE states ADD COLUMN ".$stringuranium." TEXT AFTER statecounter";
+        mysqli_query($con,$qiron);
+
+    }
+
+
+
+
+    else if($user_stats['continent']='Europe')
+    {
+        $stringforfarm="farms";
+        $stringfarm=$string3."".$stringforfarm;
+        $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
+        mysqli_query($con,$qfarm);
+        
+        $stringforoil="oil_and_natural_gas_mines";
+        $stringoil=$string3."".$stringforoil;
+        $qoil = "ALTER TABLE states ADD COLUMN ".$stringoil." TEXT AFTER statecounter";
+        mysqli_query($con,$qoil);
+
+        $stringforcoal="coalmines";
+        $stringcoal=$string3."".$stringforcoal;
+        $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
+        mysqli_query($con,$qcoal);
+
+        $stringforiron="ironmines";
+        $stringiron=$string3."".$stringforiron;
+        $qiron="ALTER TABLE states ADD COLUMN ".$stringiron." TEXT AFTER statecounter";
+        mysqli_query($con,$qiron);
+
+        $stringforbauxite="bauxitemines";
+        $stringbauxite=$string3."".$stringforbauxite;
+        $qbauxite="ALTER TABLE states ADD COLUMN ".$stringbauxite." TEXT AFTER statecounter";
+        mysqli_query($con,$qbauxite);
+
+        $stringforuranium="uranium_mines";
+        $stringuranium=$string3."".$stringforuranium;
+        $quranium="ALTER TABLE states ADD COLUMN ".$stringuranium." TEXT AFTER statecounter";
+        mysqli_query($con,$qiron);
+
+    }
+
+
+
+    else if($user_stats['continent']='Asia')
+    {
+        $stringforfarm="farms";
+        $stringfarm=$string3."".$stringforfarm;
+        $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
+        mysqli_query($con,$qfarm);
+        
+        $stringforoil="oil_and_natural_gas_mines";
+        $stringoil=$string3."".$stringforoil;
+        $qoil = "ALTER TABLE states ADD COLUMN ".$stringoil." TEXT AFTER statecounter";
+        mysqli_query($con,$qoil);
+
+        $stringforcoal="coalmines";
+        $stringcoal=$string3."".$stringforcoal;
+        $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
+        mysqli_query($con,$qcoal);
+
+        $stringforprecious="precious_metal_mines";
+        $stringprecious=$string3."".$stringforprecious;
+        $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
+        mysqli_query($con,$qprecious);
+
+        $stringforlead="lead_mines";
+        $stringlead=$string3."".$stringforlead;
+        $qlead="ALTER TABLE states ADD COLUMN ".$stringlead." TEXT AFTER statecounter";
+        mysqli_query($con,$qlead);
+      
+
+        $stringforlumber="lumbermines";
+        $stringlumber=$string3."".$stringforlumber;
+        $qlumber="ALTER TABLE states ADD COLUMN ".$stringlumber." TEXT AFTER statecounter";
+        mysqli_query($con,$qlumber);
+
+    }
+
+    else if($user_stats['continent']='Africa')
+    {
+        $stringforfarm="farms";
+        $stringfarm=$string3."".$stringforfarm;
+        $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
+        mysqli_query($con,$qfarm);
+        
+        
+
+        $stringforcoal="coalmines";
+        $stringcoal=$string3."".$stringforcoal;
+        $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
+        mysqli_query($con,$qcoal);
+
+        $stringforprecious="precious_metal_mines";
+        $stringprecious=$string3."".$stringforprecious;
+        $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
+        mysqli_query($con,$qprecious);
+
+        $stringforiron="ironmines";
+        $stringiron=$string3."".$stringforiron;
+        $qiron="ALTER TABLE states ADD COLUMN ".$stringiron." TEXT AFTER statecounter";
+        mysqli_query($con,$qiron);
+
+        $stringforbauxite="bauxitemines";
+        $stringbauxite=$string3."".$stringforbauxite;
+        $qbauxite="ALTER TABLE states ADD COLUMN ".$stringbauxite." TEXT AFTER statecounter";
+        mysqli_query($con,$qbauxite);
+
+    }
+
+
+
+
+    else if($user_stats['continent']='Australia')
+    {
+        $stringforfarm="farms";
+        $stringfarm=$string3."".$stringforfarm;
+        $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
+        mysqli_query($con,$qfarm);
+        
+        $stringforbauxite="bauxitemines";
+        $stringbauxite=$string3."".$stringforbauxite;
+        $qbauxite="ALTER TABLE states ADD COLUMN ".$stringbauxite." TEXT AFTER statecounter";
+        mysqli_query($con,$qbauxite);
+
+        $stringforcoal="coalmines";
+        $stringcoal=$string3."".$stringforcoal;
+        $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
+        mysqli_query($con,$qcoal);
+
+        $stringforprecious="precious_metal_mines";
+        $stringprecious=$string3."".$stringforprecious;
+        $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
+        mysqli_query($con,$qprecious);
+
+        $stringforlead="lead_mines";
+        $stringlead=$string3."".$stringforlead;
+        $qlead="ALTER TABLE states ADD COLUMN ".$stringlead." TEXT AFTER statecounter";
+        mysqli_query($con,$qlead);
+      
+
+        $stringforbauxite="bauxitemines";
+        $stringbauxite=$string3."".$stringforbauxite;
+        $qbauxite="ALTER TABLE states ADD COLUMN ".$stringbauxite." TEXT AFTER statecounter";
+        mysqli_query($con,$qbauxite);
+    }
+
+
+
+
+
     $query = "ALTER TABLE states ADD COLUMN ".$string3." TEXT AFTER statecounter";
     
     mysqli_query($con, $query);
