@@ -236,8 +236,43 @@ if (isset($_POST['save_new_state'])) {
         $string1="state";
         $string2=$newstatecounter;
         $string3=append_string($string1, $string2);
+        
+
+    if($user_stats['continent']='North America')
+    {
+        $stringforfarm="farms";
+        $stringfarm=$string3."".$stringforfarm;
+        $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
+        mysqli_query($con,$qfarm);
+        
+        $stringforoil="oil_and_natural_gas_mines";
+        $stringoil=$string3."".$stringforoil;
+        $qoil = "ALTER TABLE states ADD COLUMN ".$stringoil." TEXT AFTER statecounter";
+        mysqli_query($con,$qoil);
+        
+        $stringforlumber="lumbermines";
+        $stringlumber=$string3."".$stringforlumber;
+        $qlumber="ALTER TABLE states ADD COLUMN ".$stringlumber." TEXT AFTER statecounter";
+        mysqli_query($con,$qlumber);
+
+        $stringforcoal="coalmines";
+        $stringcoal=$string3."".$stringforcoal;
+        $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
+        mysqli_query($con,$qcoal);
+
+        $stringforiron="ironmines";
+        $stringiron=$string3."".$stringforiron;
+        $qiron="ALTER TABLE states ADD COLUMN ".$stringiron." TEXT AFTER statecounter";
+        mysqli_query($con,$qiron);
+
+        $stringforbauxite="bauxitemines";
+        $stringbauxite=$string3."".$stringforbauxite;
+        $qbauxite="ALTER TABLE states ADD COLUMN ".$stringbauxite." TEXT AFTER statecounter";
+        mysqli_query($con,$qbauxite);
+
+    }
+    $query = "ALTER TABLE states ADD COLUMN ".$string3." TEXT AFTER statecounter";
     
-    $query = "ALTER TABLE states ADD COLUMN ".$string3." VARCHAR(15) AFTER statecounter";
     mysqli_query($con, $query);
     $q1="UPDATE `states` SET `$string3`='$name' WHERE `username`='$_SESSION[username]'";
     $q2="UPDATE `states` SET `statecounter`='$newstatecounter' WHERE `username`='$_SESSION[username]'";
