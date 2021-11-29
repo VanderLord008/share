@@ -25,7 +25,7 @@ else if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
     include("data.php");
 ?>
 
-this is the page to see each state the user have <br>
+this is the page to see each state the user have. <br>
 <?php
 if(!isset($_SESSION['username'])){
     echo "you must be logged in to see this page";
@@ -38,31 +38,26 @@ else
     }
     else
     {
-        $un=$_POST['state'];
-        $check="SELECT COUNT('$un') FROM `states` WHERE `username` = '$_SESSION[username]'";
+        $un=$_GET['state'];
+        $check="SELECT * FROM `states` WHERE `username` = '$_SESSION[username]' AND (`state1`='$_GET[state]' OR `state2`='$_GET[state]' OR `state3`='$_GET[state]' OR `state4`='$_GET[state]' OR `state5`='$_GET[state]' )";
         $state_check=mysqli_query($con,$check);
-        if(mysqli_num_rows($state_check)==0)
+        if(mysqli_num_rows($state_check)>0)
         {
-            echo "this state doesnt exist";
+            
+                 echo "this is  $un";
         }
         
-        else if(mysqli_num_rows($state_check)>0)
+        else
         {
-            echo "this page is $un";
+            echo "this page gives an error";
         }
     }
+
+
+
+} 
 }
-?>
 
-
-<?php
-
-} else {
-?>
-<?php 
-echo "log in first to see this page";
-
-}
 ?>
 
 

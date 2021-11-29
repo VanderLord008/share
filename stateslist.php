@@ -51,11 +51,10 @@ include("data.php");
     if($result)
     {
         $result_fetch=mysqli_fetch_assoc($result);
-        $number=4;
-    }?>state4
-    <form method="POST" action="statepage.php?state">
-  <input type="hidden" name="state" value="<?php $result_fetch['state4'] ?>" /> 
-  <a onclick="this.parentNode.submit();"> <?php echo $result_fetch['state4'] ?></a>
+        
+    ?>state4= <?php echo " <a href=\"statepage.php?state=" . $result_fetch['state4'] . "\">" . $result_fetch['state4'] . "</a>";
+    }
+    ?>
 </form>
     
     
