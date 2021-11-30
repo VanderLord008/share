@@ -58,9 +58,138 @@ else
             }
                  echo "this is  $un";
                  ?>
-                 iron mines <br>
-                 you have <?php echo $user_states['state'.$statenumber.'ironmines'];
+                 <br><br>
+                iron mines <br>
+                 you have <?php echo $user_states['state'.$statenumber.'ironmines']; echo " iron mines";
+                 ?>
+                 <br>
+                do you want to build more? if so <br>
+
+                 your current money is <?php echo $user_stats['money'] ?>
+                 <br>
+                 and your current state number is <?php echo $statenumber?>
+                 <form method="POST" action="functions.php">
+                 <input type="number" min="-10000000000000" max="100000000000" placeholder="build an iron mine" name="ironmines" >
                  
+                 <input type="hidden" name="statenum" value="<?php echo $statenumber?>">
+                 <input type="hidden" name="statename" value="<?php echo $un?>">
+                                 <button type="submit" class="createironminebtm" name="createironmine">build the mine</button>
+                 
+                                 <br>
+                 </form>
+
+
+<br>
+
+                 farms <br>
+                 you have <?php echo $user_states['state'.$statenumber.'farms']; echo " farms";
+                 ?>
+                 <br>
+                do you want to build more? if so <br>
+
+                 your current money is <?php echo $user_stats['money'] ?>
+                 <br>
+                 and your current state number is <?php echo $statenumber?>
+                 <form method="POST" action="functions.php">
+                 <input type="number" min="-10000000000000" max="100000000000" placeholder="build a farm" name="farms" >
+                 
+                 <input type="hidden" name="statenum" value="<?php echo $statenumber?>">
+                 <input type="hidden" name="statename" value="<?php echo $un?>">
+                                 <button type="submit" class="createfarmbtm" name="createfarms">build the farms</button>
+                 
+                                 <br>
+                 </form>
+
+
+
+<br>
+                 bauxite mines <br>
+                 you have <?php echo $user_states['state'.$statenumber.'bauxitemines']; echo " bauxite mines";
+                 ?>
+                 <br>
+                do you want to build more? if so <br>
+
+                 your current money is <?php echo $user_stats['money'] ?>
+                 <br>
+                 and your current state number is <?php echo $statenumber?>
+                 <form method="POST" action="functions.php">
+                 <input type="number" min="-10000000000000" max="100000000000" placeholder="build a bauxite mine" name="bauxitemines" >
+                 
+                 <input type="hidden" name="statenum" value="<?php echo $statenumber?>">
+                 <input type="hidden" name="statename" value="<?php echo $un?>">
+                                 <button type="submit" class="createbauxiteminebtm" name="createbauxitemine">build the mine</button>
+                 
+                                 <br>
+                 </form>
+
+ <br>
+ <br>
+ uranium mines <br>
+                 you have <?php echo $user_states['state'.$statenumber.'uraniummines']; echo " uranium mines";
+                 ?>
+                 <br>
+                do you want to build more? if so <br>
+
+                 your current money is <?php echo $user_stats['money'] ?>
+                 <br>
+                 and your current state number is <?php echo $statenumber?>
+                 <form method="POST" action="functions.php">
+                 <input type="number" min="-10000000000000" max="100000000000" placeholder="build a uranium mine" name="uraniummines" >
+                 
+                 <input type="hidden" name="statenum" value="<?php echo $statenumber?>">
+                 <input type="hidden" name="statename" value="<?php echo $un?>">
+                                 <button type="submit" class="createuraniumminebtm" name="createuraniummine">build the mine</button>
+                 
+                                 <br>
+                 </form>
+
+                 <br>
+ <br>
+ coal mines <br>
+                 you have <?php echo $user_states['state'.$statenumber.'coalmines']; echo " coal mines";
+                 ?>
+                 <br>
+                do you want to build more? if so <br>
+
+                 your current money is <?php echo $user_stats['money'] ?>
+                 <br>
+                 and your current state number is <?php echo $statenumber?>
+                 <form method="POST" action="functions.php">
+                 <input type="number" min="-10000000000000" max="100000000000" placeholder="build a coal mine" name="coalmines" >
+                 
+                 <input type="hidden" name="statenum" value="<?php echo $statenumber?>">
+                 <input type="hidden" name="statename" value="<?php echo $un?>">
+                                 <button type="submit" class="createcoalminebtm" name="createcoalmine">build the mine</button>
+                 
+                                 <br>
+                 </form>
+
+                 <br>
+ <br>
+ oil_and_natural_gas_ mines <br>
+                 you have <?php echo $user_states['state'.$statenumber.'oil_and_natural_gas_mines']; echo " oil and natural gas mines";
+                 ?>
+                 <br>
+                do you want to build more? if so <br>
+
+                 your current money is <?php echo $user_stats['money'] ?>
+                 <br>
+                 and your current state number is <?php echo $statenumber?>
+                 <form method="POST" action="functions.php">
+                 <input type="number" min="-10000000000000" max="100000000000" placeholder="build a oil and natural gas mine" name="oil_and_natural_gas_mines" >
+                 
+                 <input type="hidden" name="statenum" value="<?php echo $statenumber?>">
+                 <input type="hidden" name="statename" value="<?php echo $un?>">
+                                 <button type="submit" class="createoil_and_natural_gas_minebtm" name="createoil_and_natural_gas_mine">build the mine</button>
+                 
+                                 <br>
+                 </form>
+
+
+
+
+
+                 <?php
         }
         
         else

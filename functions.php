@@ -238,7 +238,7 @@ if (isset($_POST['save_new_state'])) {
         $string3=append_string($string1, $string2);
         
 
-    if($user_stats['continent']='North America')
+    if($user_stats['continent']=='North America')
     {
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
@@ -276,7 +276,7 @@ if (isset($_POST['save_new_state'])) {
 
 
 
-    else if($user_stats['continent']='South America')
+    else if($user_stats['continent']=='South America')
     {
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
@@ -301,14 +301,14 @@ if (isset($_POST['save_new_state'])) {
         $stringforuranium="uranium_mines";
         $stringuranium=$string3."".$stringforuranium;
         $quranium="ALTER TABLE states ADD COLUMN ".$stringuranium." TEXT AFTER statecounter";
-        mysqli_query($con,$qiron);
+        mysqli_query($con,$quranium);
 
     }
 
 
 
 
-    else if($user_stats['continent']='Europe')
+    else if($user_stats['continent']=='Europe')
     {
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
@@ -335,16 +335,16 @@ if (isset($_POST['save_new_state'])) {
         $qbauxite="ALTER TABLE states ADD COLUMN ".$stringbauxite." TEXT AFTER statecounter";
         mysqli_query($con,$qbauxite);
 
-        $stringforuranium="uranium_mines";
+        $stringforuranium="uraniummines";
         $stringuranium=$string3."".$stringforuranium;
         $quranium="ALTER TABLE states ADD COLUMN ".$stringuranium." TEXT AFTER statecounter";
-        mysqli_query($con,$qiron);
+        mysqli_query($con,$quranium);
 
     }
 
 
 
-    else if($user_stats['continent']='Asia')
+    else if($user_stats['continent']=='Asia')
     {
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
@@ -379,7 +379,7 @@ if (isset($_POST['save_new_state'])) {
 
     }
 
-    else if($user_stats['continent']='Africa')
+    else if($user_stats['continent']=='Africa')
     {
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
@@ -413,7 +413,7 @@ if (isset($_POST['save_new_state'])) {
 
 
 
-    else if($user_stats['continent']='Australia')
+    else if($user_stats['continent']=='Australia')
     {
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
@@ -2514,18 +2514,19 @@ if (isset($_POST['host_tennis'])) {
 
 
 
-
-if (isset($_POST['createfarm'])) {
+if (isset($_POST['createfarms'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $farms = $_POST['farm'];
+    $farms = $_POST['farms'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($farms == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2541,21 +2542,23 @@ if (isset($_POST['createfarm'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_farms = $user_stats['farms'] + $farms;
-            $query = "UPDATE `stats` SET `farms`='$new_farms' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_farms = $user_states['state'.$statenumber.'farms'] + $farms;
+            $colname='state'.$statenumber.'farms';
+            $query = "UPDATE `states` SET `$colname`='$new_farms' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('farms updated sucessfully');
-            window.location.href='raws.php';
+            alert('farms built sucessfully ');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
@@ -2563,19 +2566,19 @@ if (isset($_POST['createfarm'])) {
 }
 
 
-
-
 if (isset($_POST['createbauxitemine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['bauxitemine'];
+    $mines = $_POST['bauxitemines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2591,21 +2594,23 @@ if (isset($_POST['createbauxitemine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_bauxite_mines = $user_stats['bauxite mines'] + $mines;
-            $query = "UPDATE `stats` SET `bauxite mines`='$new_bauxite_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_bauxite_mines = $user_states['state'.$statenumber.'bauxitemines'] + $mines;
+            $colname='state'.$statenumber.'bauxitemines';
+            $query = "UPDATE `states` SET `$colname`='$new_bauxite_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully ');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
@@ -2619,13 +2624,15 @@ if (isset($_POST['createcoalmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['coalmine'];
+    $mines = $_POST['coalmines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2641,26 +2648,29 @@ if (isset($_POST['createcoalmine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_coal_mines = $user_stats['coal mines'] + $mines;
-            $query = "UPDATE `stats` SET `coal mines`='$new_coal_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_coal_mines = $user_states['state'.$statenumber.'coalmines'] + $mines;
+            $colname='state'.$statenumber.'coalmines';
+            $query = "UPDATE `states` SET `$colname`='$new_coal_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully ');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
     }
 }
+
 
 
 
@@ -2668,13 +2678,15 @@ if (isset($_POST['createuraniummine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['uraniummine'];
+    $mines = $_POST['uraniummines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2690,21 +2702,23 @@ if (isset($_POST['createuraniummine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_uranium_mines = $user_stats['uranium mines'] + $mines;
-            $query = "UPDATE `stats` SET `uranium mines`='$new_uranium_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_uranium_mines = $user_states['state'.$statenumber.'uraniummines'] + $mines;
+            $colname='state'.$statenumber.'uraniummines';
+            $query = "UPDATE `states` SET `$colname`='$new_uranium_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully ');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
@@ -2714,17 +2728,19 @@ if (isset($_POST['createuraniummine'])) {
 
 
 
-if (isset($_POST['createoilandnaturalgasmine'])) {
+if (isset($_POST['createoil_and_natural_gas_mine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['oilandnaturalgasmine'];
+    $mines = $_POST['oil_and_natural_gas_mines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2740,26 +2756,29 @@ if (isset($_POST['createoilandnaturalgasmine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_oil_and_natural_gas_mines = $user_stats['oil and natural gas mine'] + $mines;
-            $query = "UPDATE `stats` SET `oil and natural gas mine`='$new_oil_and_natural_gas_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_oil_and_natural_gas_mines = $user_states['state'.$statenumber.'oil_and_natural_gas_mines'] + $mines;
+            $colname='state'.$statenumber.'oil_and_natural_gas_mines';
+            $query = "UPDATE `states` SET `$colname`='$new_oil_and_natural_gas_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully ');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
     }
 }
+
 
 
 
@@ -2818,13 +2837,15 @@ if (isset($_POST['createironmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['ironmine'];
+    $mines = $_POST['ironmines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2840,21 +2861,23 @@ if (isset($_POST['createironmine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_iron_mines = $user_stats['iron mines'] + $mines;
-            $query = "UPDATE `stats` SET `iron mines`='$new_iron_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_iron_mines = $user_states['state'.$statenumber.'ironmines'] + $mines;
+            $colname='state'.$statenumber.'ironmines';
+            $query = "UPDATE `states` SET `$colname`='$new_iron_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully $statenumber');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
