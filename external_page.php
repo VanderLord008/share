@@ -37,6 +37,8 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 ?>
 
 this is the page to see the enemies nation
+<br>
+this page belongs to 
 <?php
 if(!isset($_SESSION['username'])){
     echo "you must be logged in to see this page";
@@ -57,7 +59,11 @@ else
         }
         else if($un==$user_data['username'])
         {
-            echo "dont attack yourself smh";
+            echo "
+                <script>
+                window.location.href='index.php';
+                </script>
+                ";
         }
         else
         {
@@ -67,9 +73,12 @@ else
             $stats_rank=mysqli_query($con,"SELECT * FROM `stats` WHERE `username`='$un'");
             $s_rank=mysqli_fetch_assoc($stats_rank);
             echo $s_user['username'];
-            ?><br><?php
+            ?><br>
+             <?php
+             echo $s_user['username'];?> has <?php
             echo $s_rank['money'];
-            ?>
+            ?> dollars
+            <br>
             want to attack this nation? 
             <br>
             

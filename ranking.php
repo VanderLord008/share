@@ -28,6 +28,7 @@
 
 
         <?php
+        $rankforshow=0;
         $con = new mysqli("localhost", "root", "", "test");
         $rankingnumber = $user_forces['soldiers'] + $user_forces['vehicles'] + $user_forces['artillery'];
         $query = "UPDATE `stats` SET `ranking`='$rankingnumber' WHERE `username`='$_SESSION[username]'";
@@ -39,7 +40,8 @@
         $players = "SELECT `username`, `money`, `ranking` FROM `stats` WHERE `ranking`>'0' ORDER BY `ranking` DESC";
         $p = mysqli_query($con, $players);
         while ($row = mysqli_fetch_assoc($p)) {
-        ?>rank= <?php echo $row['ranking'];
+            
+        ?>rank= <?php echo ++$rankforshow;
             ?><br><?php
             $get_user = "SELECT `username` FROM `stats` WHERE `username`='$row[username]'";
             $get_use = mysqli_query($con, $get_user);
@@ -52,7 +54,7 @@
             $get_mone = mysqli_query($con, $get_money);
             $rank_money = mysqli_fetch_assoc($get_mone);
         ?>money= <?php echo $rank_money['money'];
-                ?><br><?php
+                ?><br><br><?php
 
         }
             ?>

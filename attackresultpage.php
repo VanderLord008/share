@@ -13,7 +13,6 @@ include("connection.php");
 include("header.php");
 include("data.php");
 
-
 ?>
 <section class="home-section">
 
@@ -22,24 +21,19 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
     include("data.php");
 ?>
 
-<p>here you distribute your budget</p>
-
-
-
-
-<form method="POST" action="functions.php">
-                
-<input type="number" placeholder="healthcare" name="healthcare" >
-<input type="number" placeholder="welfare" name="welfare" >
-<input type="number" placeholder="military" name="military" >
-<input type="number" placeholder="research" name="research" >
-                
-                
-                <button type="submit" class="budget" name="budget">save</button>
-            </form>
+this is the page which shows the result of the attack you just did.
+<br>
 
 
 <?php
+echo 'you have destroyed ';echo $_GET['username'];echo "'s ";echo $_GET['loss'];echo " things";
+
+
+
+
+
+
+
 
 } else {
 ?>
@@ -48,5 +42,8 @@ echo "log in first to see this page";
 
 }
 ?>
+
+
+
 
 </section>

@@ -293,7 +293,7 @@ if (isset($_POST['save_new_state'])) {
         $qlumber="ALTER TABLE states ADD COLUMN ".$stringlumber." TEXT AFTER statecounter";
         mysqli_query($con,$qlumber);
 
-        $stringforprecious="precious_metal_mines";
+        $stringforprecious="precious_metals_mines";
         $stringprecious=$string3."".$stringforprecious;
         $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
         mysqli_query($con,$qprecious);
@@ -361,7 +361,7 @@ if (isset($_POST['save_new_state'])) {
         $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
         mysqli_query($con,$qcoal);
 
-        $stringforprecious="precious_metal_mines";
+        $stringforprecious="precious_metals_mines";
         $stringprecious=$string3."".$stringforprecious;
         $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
         mysqli_query($con,$qprecious);
@@ -393,7 +393,7 @@ if (isset($_POST['save_new_state'])) {
         $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
         mysqli_query($con,$qcoal);
 
-        $stringforprecious="precious_metal_mines";
+        $stringforprecious="precious_metals_mines";
         $stringprecious=$string3."".$stringforprecious;
         $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
         mysqli_query($con,$qprecious);
@@ -430,7 +430,7 @@ if (isset($_POST['save_new_state'])) {
         $qcoal="ALTER TABLE states ADD COLUMN ".$stringcoal." TEXT AFTER statecounter";
         mysqli_query($con,$qcoal);
 
-        $stringforprecious="precious_metal_mines";
+        $stringforprecious="precious_metals_mines";
         $stringprecious=$string3."".$stringforprecious;
         $qprecious="ALTER TABLE states ADD COLUMN ".$stringprecious." TEXT AFTER statecounter";
         mysqli_query($con,$qprecious);
@@ -441,10 +441,10 @@ if (isset($_POST['save_new_state'])) {
         mysqli_query($con,$qlead);
       
 
-        $stringforbauxite="bauxitemines";
-        $stringbauxite=$string3."".$stringforbauxite;
-        $qbauxite="ALTER TABLE states ADD COLUMN ".$stringbauxite." TEXT AFTER statecounter";
-        mysqli_query($con,$qbauxite);
+        $stringforuranium="uranium_mines";
+        $stringuranium=$string3."".$stringforuranium;
+        $quranium="ALTER TABLE states ADD COLUMN ".$stringuranium." TEXT AFTER statecounter";
+        mysqli_query($con,$quranium);
     }
 
 
@@ -585,6 +585,16 @@ if (isset($_POST['communism'])) {
 
 if (isset($_POST['budget'])) {
     $con = new mysqli("localhost", "root", "", "test");
+    if($_POST['healthcare']=="" || $_POST['military']==""||$_POST['military']==""||$_POST['research']=="")
+    {
+        echo "
+        <script>
+        alert('yoy have to fill all the spaces');
+        window.location.href='budget.php';
+        </script>
+        ";
+    }
+    else{
     $query = "UPDATE `budget` SET `healthcare`='$_POST[healthcare]',`welfare`='$_POST[welfare]',`military`='$_POST[military]',`research`='$_POST[research]' WHERE `username`='$_SESSION[username]'";
     if (mysqli_query($con, $query) && ($_POST['healthcare'] + $_POST['welfare'] + $_POST['military'] + $_POST['research'] == 100)) {
         echo "
@@ -601,6 +611,7 @@ if (isset($_POST['budget'])) {
                     </script>
                     ";
     }
+}
 }
 
 
@@ -2116,164 +2127,232 @@ if (isset($_POST['buy_soldiers'])) {
 }
 
 
-
-if (isset($_POST['attack_land_forces'])) {
+if (isset($_POST['attack_army_soldiers'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
     $un = $_POST['enemyusername'];
     $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
     $enemy_stats = mysqli_fetch_assoc($new_stats);
-
+$soldiers_destroyed=0;
     if ($user_forces['soldiers'] - $enemy_stats['soldiers'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `soldiers`='0' WHERE `username`='$user_data[username]'");
         $left_soldiers_for_enemy = $enemy_stats['soldiers'] - $user_forces['soldiers'];
         mysqli_query($con, "UPDATE `forces` SET `soldiers`='$left_soldiers_for_enemy' WHERE `username`='$un'");
+        $soldiers_destroyed=$user_forces['soldiers'];
     } else {
         $left_soldiers_for_player = $user_forces['soldiers'] - $enemy_stats['soldiers'];
         mysqli_query($con, "UPDATE `forces` SET `soldiers`='$left_soldiers_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `soldiers`='0' WHERE `username`='$un'");
+        $soldiers_destroyed=$enemy_stats['soldiers'];
     }
+            echo header("location:attackresultpage.php?username=$un&loss=$soldiers_destroyed");            
+}
+if (isset($_POST['attack_army_artillery'])) {
+    $con = new mysqli("localhost", "root", "", "test");
 
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$artillery_destroyed=0;
     if ($user_forces['artillery'] - $enemy_stats['artillery'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `artillery`='0' WHERE `username`='$user_data[username]'");
         $left_artillery_for_enemy = $enemy_stats['artillery'] - $user_forces['artillery'];
         mysqli_query($con, "UPDATE `forces` SET `artillery`='$left_artillery_for_enemy' WHERE `username`='$un'");
+        $artillery_destroyed=$user_forces['artillery'];
     } else {
         $left_artillery_for_player = $user_forces['artillery'] - $enemy_stats['artillery'];
         mysqli_query($con, "UPDATE `forces` SET `artillery`='$left_artillery_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `artillery`='0' WHERE `username`='$un'");
+        $artillery_destroyed=$enemy_stats['artillery'];
     }
+            echo header("location:attackresultpage.php?username=$un&loss=$artillery_destroyed");            
+}
+if (isset($_POST['attack_army_vehicles'])) {
+    $con = new mysqli("localhost", "root", "", "test");
 
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$vehicles_destroyed=0;
     if ($user_forces['vehicles'] - $enemy_stats['vehicles'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `vehicles`='0' WHERE `username`='$user_data[username]'");
         $left_vehicles_for_enemy = $enemy_stats['vehicles'] - $user_forces['vehicles'];
-        mysqli_query($con, "UPDATE `forces` SET `vehicles`='$left_vehicles_for_enemy' WHERE `username`='$un'");
+        mysqli_query($con, "UPDATE `forces` SET `vehicles`='$left_soldiers_for_enemy' WHERE `username`='$un'");
+        $vehicles_destroyed=$user_forces['vehicles'];
     } else {
         $left_vehicles_for_player = $user_forces['vehicles'] - $enemy_stats['vehicles'];
         mysqli_query($con, "UPDATE `forces` SET `vehicles`='$left_vehicles_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `vehicles`='0' WHERE `username`='$un'");
+        $vehicles_destroyed=$enemy_stats['vehicles'];
     }
+            echo header("location:attackresultpage.php?username=$un&loss=$vehicles_destroyed");            
+}
+if (isset($_POST['attack_army_weapons'])) {
+    $con = new mysqli("localhost", "root", "", "test");
 
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$weapons_destroyed=0;
     if ($user_forces['weapons'] - $enemy_stats['weapons'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `weapons`='0' WHERE `username`='$user_data[username]'");
         $left_weapons_for_enemy = $enemy_stats['weapons'] - $user_forces['weapons'];
-        mysqli_query($con, "UPDATE `forces` SET `weapons`='$left_weapons_for_enemy' WHERE `username`='$un'");
+        mysqli_query($con, "UPDATE `forces` SET `weapons`='$left_soldiers_for_enemy' WHERE `username`='$un'");
+        $weapons_destroyed=$user_forces['weapons'];
     } else {
         $left_weapons_for_player = $user_forces['weapons'] - $enemy_stats['weapons'];
         mysqli_query($con, "UPDATE `forces` SET `weapons`='$left_weapons_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `weapons`='0' WHERE `username`='$un'");
+        $weapons_destroyed=$enemy_stats['weapons'];
     }
-
-    echo "
-            <script>
-            alert('boom');
-            window.location.href='attack_page.php?username=$un';
-            </script>
-            ";
+            echo header("location:attackresultpage.php?username=$un&loss=$weapons_destroyed");            
 }
 
-
-if (isset($_POST['attack_air_forces'])) {
+if (isset($_POST['attack_air_planes'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
     $un = $_POST['enemyusername'];
     $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
     $enemy_stats = mysqli_fetch_assoc($new_stats);
-
-
-
+$planes_destroyed=0;
     if ($user_forces['planes'] - $enemy_stats['planes'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `planes`='0' WHERE `username`='$user_data[username]'");
         $left_planes_for_enemy = $enemy_stats['planes'] - $user_forces['planes'];
         mysqli_query($con, "UPDATE `forces` SET `planes`='$left_planes_for_enemy' WHERE `username`='$un'");
+        $planes_destroyed=$user_forces['planes'];
     } else {
         $left_planes_for_player = $user_forces['planes'] - $enemy_stats['planes'];
         mysqli_query($con, "UPDATE `forces` SET `planes`='$left_planes_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `planes`='0' WHERE `username`='$un'");
+        $planes_destroyed=$enemy_stats['planes'];
     }
-
-    if ($user_forces['helicopters'] - $enemy_stats['helicopters'] < 0) {
-        mysqli_query($con, "UPDATE `forces` SET `helicopters`='0' WHERE `username`='$user_data[username]'");
-        $left_helicopters_for_enemy = $enemy_stats['helicopters'] - $user_forces['helicopters'];
-        mysqli_query($con, "UPDATE `forces` SET `helicopters`='$left_helicopters_for_enemy' WHERE `username`='$un'");
-    } else {
-        $left_helicopters_for_player = $user_forces['helicopters'] - $enemy_stats['helicopters'];
-        mysqli_query($con, "UPDATE `forces` SET `helicopters`='$left_vehicles_for_player' WHERE `username`='$user_data[username]'");
-        mysqli_query($con, "UPDATE `forces` SET `helicopters`='0' WHERE `username`='$un'");
-    }
-
-    if ($user_forces['bombers'] - $enemy_stats['bombers'] < 0) {
-        mysqli_query($con, "UPDATE `forces` SET `bombers`='0' WHERE `username`='$user_data[username]'");
-        $left_bombers_for_enemy = $enemy_stats['bombers'] - $user_forces['bombers'];
-        mysqli_query($con, "UPDATE `forces` SET `bombers`='$left_bombers_for_enemy' WHERE `username`='$un'");
-    } else {
-        $left_weapons_for_player = $user_forces['bombers'] - $enemy_stats['bombers'];
-        mysqli_query($con, "UPDATE `forces` SET `bombers`='$left_bombers_for_player' WHERE `username`='$user_data[username]'");
-        mysqli_query($con, "UPDATE `forces` SET `bombers`='0' WHERE `username`='$un'");
-    }
-
-    echo "
-            <script>
-            alert('boom');
-            window.location.href='attack_page.php?username=$un';
-            </script>
-            ";
+            echo header("location:attackresultpage.php?username=$un&loss=$planes_destroyed");            
 }
-
-
-if (isset($_POST['attack_navy_forces'])) {
+if (isset($_POST['attack_air_helicopters'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
     $un = $_POST['enemyusername'];
     $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
     $enemy_stats = mysqli_fetch_assoc($new_stats);
+$helicopters_destroyed=0;
+    if ($user_forces['helicopters'] - $enemy_stats['helicopters'] < 0) {
+        mysqli_query($con, "UPDATE `forces` SET `helicopters`='0' WHERE `username`='$user_data[username]'");
+        $left_helicopters_for_enemy = $enemy_stats['helicopters'] - $user_forces['helicopters'];
+        mysqli_query($con, "UPDATE `forces` SET `helicopters`='$left_helicopters_for_enemy' WHERE `username`='$un'");
+        $helicopters_destroyed=$user_forces['helicopters'];
+    } else {
+        $left_helicopters_for_player = $user_forces['helicopters'] - $enemy_stats['helicopters'];
+        mysqli_query($con, "UPDATE `forces` SET `helicopters`='$left_helicopters_for_player' WHERE `username`='$user_data[username]'");
+        mysqli_query($con, "UPDATE `forces` SET `helicopters`='0' WHERE `username`='$un'");
+        $helicopters_destroyed=$enemy_stats['helicopters'];
+    }
+            echo header("location:attackresultpage.php?username=$un&loss=$helicopters_destroyed");            
+}
+if (isset($_POST['attack_air_bombers'])) {
+    $con = new mysqli("localhost", "root", "", "test");
 
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$bombers_destroyed=0;
+    if ($user_forces['bombers'] - $enemy_stats['bombers'] < 0) {
+        mysqli_query($con, "UPDATE `forces` SET `bombers`='0' WHERE `username`='$user_data[username]'");
+        $left_bombers_for_enemy = $enemy_stats['bombers'] - $user_forces['bombers'];
+        mysqli_query($con, "UPDATE `forces` SET `bombers`='$left_bombers_for_enemy' WHERE `username`='$un'");
+        $bombers_destroyed=$user_forces['bombers'];
+    } else {
+        $left_bombers_for_player = $user_forces['bombers'] - $enemy_stats['bombers'];
+        mysqli_query($con, "UPDATE `forces` SET `bombers`='$left_bombers_for_player' WHERE `username`='$user_data[username]'");
+        mysqli_query($con, "UPDATE `forces` SET `bombers`='0' WHERE `username`='$un'");
+        $bombers_destroyed=$enemy_stats['bombers'];
+    }
+            echo header("location:attackresultpage.php?username=$un&loss=$bombers_destroyed");            
+}
+
+if (isset($_POST['attack_navy_ships'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$ships_destroyed=0;
     if ($user_forces['ships'] - $enemy_stats['ships'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `ships`='0' WHERE `username`='$user_data[username]'");
         $left_ships_for_enemy = $enemy_stats['ships'] - $user_forces['ships'];
         mysqli_query($con, "UPDATE `forces` SET `ships`='$left_ships_for_enemy' WHERE `username`='$un'");
+        $ships_destroyed=$user_forces['ships'];
     } else {
         $left_ships_for_player = $user_forces['ships'] - $enemy_stats['ships'];
         mysqli_query($con, "UPDATE `forces` SET `ships`='$left_ships_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `ships`='0' WHERE `username`='$un'");
+        $ships_destroyed=$enemy_stats['ships'];
     }
+            echo header("location:attackresultpage.php?username=$un&loss=$ships_destroyed");            
+}
 
-    if ($user_forces['destroyers'] - $enemy_stats['destroyers'] < 0) {
-        mysqli_query($con, "UPDATE `forces` SET `destroyers`='0' WHERE `username`='$user_data[username]'");
-        $left_destroyers_for_enemy = $enemy_stats['destroyers'] - $user_forces['destroyers'];
-        mysqli_query($con, "UPDATE `forces` SET `destroyers`='$left_destroyers_for_enemy' WHERE `username`='$un'");
-    } else {
-        $left_destroyers_for_player = $user_forces['destroyers'] - $enemy_stats['destroyers'];
-        mysqli_query($con, "UPDATE `forces` SET `destroyers`='$left_destroyers_for_player' WHERE `username`='$user_data[username]'");
-        mysqli_query($con, "UPDATE `forces` SET `destroyers`='0' WHERE `username`='$un'");
-    }
+if (isset($_POST['attack_navy_submarines'])) {
+    $con = new mysqli("localhost", "root", "", "test");
 
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$submarines_destroyed=0;
     if ($user_forces['submarines'] - $enemy_stats['submarines'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `submarines`='0' WHERE `username`='$user_data[username]'");
         $left_submarines_for_enemy = $enemy_stats['submarines'] - $user_forces['submarines'];
         mysqli_query($con, "UPDATE `forces` SET `submarines`='$left_submarines_for_enemy' WHERE `username`='$un'");
+        $submarines_destroyed=$user_forces['submarines'];
     } else {
         $left_submarines_for_player = $user_forces['submarines'] - $enemy_stats['submarines'];
         mysqli_query($con, "UPDATE `forces` SET `submarines`='$left_submarines_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `submarines`='0' WHERE `username`='$un'");
+        $submarines_destroyed=$enemy_stats['submarines'];
     }
+            echo header("location:attackresultpage.php?username=$un&loss=$submarines_destroyed");            
+}
 
+
+if (isset($_POST['attack_navy_destroyers'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$destroyers_destroyed=0;
+    if ($user_forces['destroyers'] - $enemy_stats['destroyers'] < 0) {
+        mysqli_query($con, "UPDATE `forces` SET `destroyers`='0' WHERE `username`='$user_data[username]'");
+        $left_destroyers_for_enemy = $enemy_stats['destroyers'] - $user_forces['destroyers'];
+        mysqli_query($con, "UPDATE `forces` SET `destroyers`='$left_destroyers_for_enemy' WHERE `username`='$un'");
+        $destroyers_destroyed=$user_forces['destroyers'];
+    } else {
+        $left_destroyers_for_player = $user_forces['destroyers'] - $enemy_stats['destroyers'];
+        mysqli_query($con, "UPDATE `forces` SET `destroyers`='$left_destroyers_for_player' WHERE `username`='$user_data[username]'");
+        mysqli_query($con, "UPDATE `forces` SET `destroyers`='0' WHERE `username`='$un'");
+        $destroyers_destroyed=$enemy_stats['destroyers'];
+    }
+            echo header("location:attackresultpage.php?username=$un&loss=$destroyers_destroyed");            
+}
+
+
+if (isset($_POST['attack_navy_carriers'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $un = $_POST['enemyusername'];
+    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_stats = mysqli_fetch_assoc($new_stats);
+$carriers_destroyed=0;
     if ($user_forces['carriers'] - $enemy_stats['carriers'] < 0) {
         mysqli_query($con, "UPDATE `forces` SET `carriers`='0' WHERE `username`='$user_data[username]'");
         $left_carriers_for_enemy = $enemy_stats['carriers'] - $user_forces['carriers'];
         mysqli_query($con, "UPDATE `forces` SET `carriers`='$left_carriers_for_enemy' WHERE `username`='$un'");
+        $carriers_destroyed=$user_forces['carriers'];
     } else {
         $left_carriers_for_player = $user_forces['carriers'] - $enemy_stats['carriers'];
         mysqli_query($con, "UPDATE `forces` SET `carriers`='$left_carriers_for_player' WHERE `username`='$user_data[username]'");
         mysqli_query($con, "UPDATE `forces` SET `carriers`='0' WHERE `username`='$un'");
+        $carriers_destroyed=$enemy_stats['carriers'];
     }
-
-    echo "
-            <script>
-            alert('boom');
-            window.location.href='attack_page.php?username=$un';
-            </script>
-            ";
+            echo header("location:attackresultpage.php?username=$un&loss=$carriers_destroyed");            
 }
 
 
@@ -2674,11 +2753,11 @@ if (isset($_POST['createcoalmine'])) {
 
 
 
-if (isset($_POST['createuraniummine'])) {
+if (isset($_POST['createuraniummines'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['uraniummines'];
+    $mines = $_POST['uranium_mines'];
     $statenumber=$_POST['statenum'];
     $un=$_POST['statename'];
 
@@ -2702,8 +2781,8 @@ if (isset($_POST['createuraniummine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_uranium_mines = $user_states['state'.$statenumber.'uraniummines'] + $mines;
-            $colname='state'.$statenumber.'uraniummines';
+            $new_uranium_mines = $user_states['state'.$statenumber.'uranium_mines'] + $mines;
+            $colname='state'.$statenumber.'uranium_mines';
             $query = "UPDATE `states` SET `$colname`='$new_uranium_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
             mysqli_query($con, $query);
@@ -2785,17 +2864,19 @@ if (isset($_POST['createoil_and_natural_gas_mine'])) {
 
 
 
-if (isset($_POST['createforestrymine'])) {
+if (isset($_POST['createlumbermine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['forestrymine'];
+    $mines = $_POST['lumbermines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2811,21 +2892,23 @@ if (isset($_POST['createforestrymine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_forestry_mines = $user_stats['lumbermine'] + $mines;
-            $query = "UPDATE `stats` SET `lumbermine`='$new_forestry_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_lumber_mines = $user_states['state'.$statenumber.'lumbermines'] + $mines;
+            $colname='state'.$statenumber.'lumbermines';
+            $query = "UPDATE `states` SET `$colname`='$new_lumber_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully $statenumber');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
@@ -2888,13 +2971,15 @@ if (isset($_POST['createleadmine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['leadmine'];
+    $mines = $_POST['leadmines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2910,38 +2995,42 @@ if (isset($_POST['createleadmine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_lead_mines = $user_stats['lead mines'] + $mines;
-            $query = "UPDATE `stats` SET `lead mines`='$new_lead_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_lead_mines = $user_states['state'.$statenumber.'lead_mines'] + $mines;
+            $colname='state'.$statenumber.'lead_mines';
+            $query = "UPDATE `states` SET `$colname`='$new_lead_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully $statenumber');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
     }
 }
 
-if (isset($_POST['createpreciousmetalmine'])) {
+if (isset($_POST['createprecious_metals_mine'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
 
-    $mines = $_POST['preciousmetalmine'];
+    $mines = $_POST['precious_metals_mines'];
+    $statenumber=$_POST['statenum'];
+    $un=$_POST['statename'];
 
     if ($mines == '') {
         echo "
             <script>
             alert('try again with a valid number');
-            window.location.href='raws.php';
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
     } else {
@@ -2957,21 +3046,23 @@ if (isset($_POST['createpreciousmetalmine'])) {
         } elseif ($money_needed <= $user_stats['money']) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
-            $new_precious_metal_mines = $user_stats['precious_metal_mines'] + $mines;
-            $query = "UPDATE `stats` SET `precious_metal_mines`='$new_precious_metal_mines' WHERE `username`='$_SESSION[username]'";
-            mysqli_query($con, $query);
+            $new_preciousmetals_mines = $user_states['state'.$statenumber.'precious_metals_mines'] + $mines;
+            $colname='state'.$statenumber.'precious_metals_mines';
+            $query = "UPDATE `states` SET `$colname`='$new_preciousmetals_mines' WHERE `username`='$_SESSION[username]'";
             mysqli_query($con, $q2);
+            mysqli_query($con, $query);
             echo "
             <script>
-            alert('mines built sucessfully');
-            window.location.href='raws.php';
+            alert('mines built sucessfully $statenumber');
+
+            window.location.href='statepage.php?state=".$un."';
             </script>
             ";
         } else {
             echo "
         <script>
         alert('please make sure the sum is 100%');
-        window.location.href='raws.php';
+        window.location.href='statepage.php?state=".$un."';
         </script>
         ";
         }
