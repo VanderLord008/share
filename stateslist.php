@@ -21,75 +21,18 @@ include("data.php");
     
    
     ?><br><?php
-    $result = mysqli_query($con,"select `state1`,`state1id` FROM `states` where `username`='$_SESSION[username]'");
+    $result = mysqli_query($con,"select * FROM `states` where `username`='$_SESSION[username]'");
     if($result)
     {
         $result_fetch=mysqli_fetch_assoc($result);
-    ?>state1 = <a href="statepage.php?stateid=<?php echo "$result_fetch[state1id]"; ?>"><?php echo $result_fetch['state1'] ?></a>
-    <?php }
-    ?><br><?php
-    $result = mysqli_query($con,"select `state2`,`state2id` FROM `states` where `username`='$_SESSION[username]'");
-    if($result)
-    {
-        $result_fetch=mysqli_fetch_assoc($result);
-        ?>state2 = <a href="statepage.php?stateid=<?php echo "$result_fetch[state2id]"; ?>"><?php echo $result_fetch['state2'] ?></a>
-        <?php }
-    ?><br><?php
-    $result = mysqli_query($con,"select `state3`,`state3id` FROM `states` where `username`='$_SESSION[username]'");
-    if($result)
-    {
-        $result_fetch=mysqli_fetch_assoc($result);
-        ?>state3 = <a href="statepage.php?stateid=<?php echo "$result_fetch[state3id]"; ?>"><?php echo $result_fetch['state3'] ?></a>
-        <?php }
+        for($i=1;$i<=$result_fetch['statecounter'];$i++)
+        {
+            ?>
+            state<?php echo $i ?> = <a href="statepage.php?stateid=<?php echo $result_fetch['state'.$i.'id']; ?>"><?php echo $result_fetch['state'.$i] ?></a>
+           <br> <?php
+        }
+    }
     ?>
-    
-    
-    
-    <br>
-    <?php
-    $result = mysqli_query($con,"select `state4` FROM `states` where `username`='$_SESSION[username]'");
-    if($result)
-    {
-        $result_fetch=mysqli_fetch_assoc($result);
-        
-    ?>state4=<a href="statepage.php?stateid=<?php echo "$result_fetch[state4id]"; ?>"><?php $result_fetch['state4'] ?>"</a>";
-   <?php }
-    ?>
-</form>
-    
-    
-    
-    
-    
-    <br><?php
-    $result = mysqli_query($con,"select `state5` FROM `states` where `username`='$_SESSION[username]'");
-    if($result)
-    {
-        $result_fetch=mysqli_fetch_assoc($result);
-        ?>state5 = <?php echo $result_fetch['state5'];
-    }
-    ?><br><?php
-    $result = mysqli_query($con,"select `state6` FROM `states` where `username`='$_SESSION[username]'");
-    if($result)
-    {
-        $result_fetch=mysqli_fetch_assoc($result);
-        ?>state6 = <?php  echo $result_fetch['state6'];
-    }
-    ?><br><?php
-    $result = mysqli_query($con,"select `state7` FROM `states` where `username`='$_SESSION[username]'");
-    if($result)
-    {
-        $result_fetch=mysqli_fetch_assoc($result);
-        ?>state7 = <?php echo $result_fetch['state7'];
-    }
-    ?><br><?php
-    $result = mysqli_query($con,"select `state8` FROM `states` where `username`='$_SESSION[username]'");
-    if($result)
-    {
-        $result_fetch=mysqli_fetch_assoc($result);
-        ?>state8 = <?php echo $result_fetch['state8'];
-    }
-
-?>
-
+</section>
+</body>
 </html>
