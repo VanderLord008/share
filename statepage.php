@@ -34,31 +34,28 @@
             if (!isset($_SESSION['username'])) {
                 echo "you must be logged in to see this page";
             } else {
-                if (!isset($_GET['state'])) {
-                    echo "incorrect way to see this";
-                }
+                
 
-
-                $un = $_GET['state'];
+                $gid=$_GET['stateid'];
                 $statenumber = 0;
                 //check to see if the given state exists in the database
 
-                $check = "SELECT * FROM `states`,`stats` WHERE `state1`='$_GET[state]' OR `state2`='$_GET[state]' OR `state3`='$_GET[state]'";
+                $check = "SELECT * FROM `states`,`stats` WHERE `state1id`='$_GET[stateid]' OR `state2id`='$_GET[stateid]' OR `state3id`='$_GET[stateid]'";
                 $state_check = mysqli_query($con, $check);
                 if (mysqli_num_rows($state_check) > 0) {
                     //check to see if the given state belongs to the user
-                    $ustatecheck = "SELECT * FROM `states` WHERE `username` = '$_SESSION[username]' AND (`state1`='$_GET[state]' OR `state2`='$_GET[state]' OR `state3`='$_GET[state]' )";
+                    $ustatecheck = "SELECT * FROM `states` WHERE `username` = '$_SESSION[username]' AND (`state1id`='$_GET[stateid]' OR `state2id`='$_GET[stateid]' OR `state3id`='$_GET[stateid]' )";
                     $user_state_check = mysqli_query($con, $ustatecheck);
                     if (mysqli_num_rows($user_state_check) > 0) {
 
-                        if ($un == $user_states['state1']) {
+                        if ($gid == $user_states['state1id']) {
                             $statenumber = 1;
-                        } else if ($un == $user_states['state2']) {
+                        } else if ($gid == $user_states['state2id']) {
                             $statenumber = 2;
-                        } else if ($un == $user_states['state3']) {
+                        } else if ($gid == $user_states['state3id']) {
                             $statenumber = 3;
                         }
-                        echo "this is  $un";
+                        echo "this is ";echo $user_states['state'.$statenumber];
             ?>
                         <br><br>
                         <?php
@@ -994,17 +991,17 @@
                         
                         
                         else if (mysqli_num_rows($user_state_check) <= 0) {
-                            $un = $_GET['state'];
+                            $un = $_GET['stateid'];
                             $statenumber = 0;
                             $stateownername = mysqli_fetch_assoc($state_check);
 
 
 
-                            if ($un == $stateownername['state1']) {
+                            if ($un == $stateownername['state1id']) {
                                 $statenumber = 1;
-                            } else if ($un == $stateownername['state2']) {
+                            } else if ($un == $stateownername['state2id']) {
                                 $statenumber = 2;
-                            } else if ($un == $stateownername['state3']) {
+                            } else if ($un == $stateownername['state3id']) {
                                 $statenumber = 3;
                             }
                             echo "this is not your state this is ";

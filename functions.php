@@ -146,48 +146,6 @@ if (isset($_POST['South_America'])) {
 }
 
 
-if (isset($_POST['save_first_state'])) {
-    $con = new mysqli("localhost", "root", "", "test");
-    $name=$_POST['first'];
-    if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $name))
-        {
-            echo "
-            <script>
-            alert('try a valid name without special characters again');
-            window.location.href='state_creater.php';
-            </script>
-            ";
-        }
-    elseif($name=='')
-    {
-        echo "
-                <script>
-                alert('try not leaving name empty again');
-                window.location.href='state_creater.php';
-                </script>
-                ";
-    }
-    else
-    {
-        $newstatecounter=$user_states['statecounter']+1;
-    $query = "UPDATE `states` SET `state1`='$_POST[first]' , `statecounter`='$newstatecounter' WHERE `username`='$_SESSION[username]'";
-    if (mysqli_query($con, $query)) {
-        echo "
-                <script>
-                alert('state saved sucessfully');
-                window.location.href='budget.php';
-                </script>
-                ";
-        } else {
-        echo "
-                    <script>
-                    alert('error');
-                    window.location.href='index.php';
-                    </script>
-                    ";
-    }
-}
-}
 
 
 
@@ -240,6 +198,15 @@ if (isset($_POST['save_new_state'])) {
 
     if($user_stats['continent']=='North America')
     {
+        $stringforstateid="id";
+        
+        $stringstateid=$string3."".$stringforstateid;
+        $qstateid="ALTER TABLE states ADD COLUMN ".$stringstateid." TEXT UNIQUE AFTER statecounter";
+        mysqli_query($con,$qstateid);
+        $rannumber=rand()+rand();
+        $qup="UPDATE `states` SET `$stringstateid`='$rannumber' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$qup);
+
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
         $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
@@ -278,6 +245,15 @@ if (isset($_POST['save_new_state'])) {
 
     else if($user_stats['continent']=='South America')
     {
+        $stringforstateid="id";
+        
+        $stringstateid=$string3."".$stringforstateid;
+        $qstateid="ALTER TABLE states ADD COLUMN ".$stringstateid." TEXT UNIQUE AFTER statecounter";
+        mysqli_query($con,$qstateid);
+        $rannumber=rand()+rand();
+        $qup="UPDATE `states` SET `$stringstateid`='$rannumber' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$qup);
+        
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
         $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
@@ -310,6 +286,15 @@ if (isset($_POST['save_new_state'])) {
 
     else if($user_stats['continent']=='Europe')
     {
+        $stringforstateid="id";
+        
+        $stringstateid=$string3."".$stringforstateid;
+        $qstateid="ALTER TABLE states ADD COLUMN ".$stringstateid." TEXT UNIQUE AFTER statecounter";
+        mysqli_query($con,$qstateid);
+        $rannumber=rand()+rand();
+        $qup="UPDATE `states` SET `$stringstateid`='$rannumber' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$qup);
+
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
         $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
@@ -346,6 +331,15 @@ if (isset($_POST['save_new_state'])) {
 
     else if($user_stats['continent']=='Asia')
     {
+        $stringforstateid="id";
+        
+        $stringstateid=$string3."".$stringforstateid;
+        $qstateid="ALTER TABLE states ADD COLUMN ".$stringstateid." TEXT UNIQUE AFTER statecounter";
+        mysqli_query($con,$qstateid);
+        $rannumber=rand()+rand();
+        $qup="UPDATE `states` SET `$stringstateid`='$rannumber' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$qup);
+
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
         $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
@@ -381,6 +375,15 @@ if (isset($_POST['save_new_state'])) {
 
     else if($user_stats['continent']=='Africa')
     {
+        $stringforstateid="id";
+        
+        $stringstateid=$string3."".$stringforstateid;
+        $qstateid="ALTER TABLE states ADD COLUMN ".$stringstateid." TEXT UNIQUE AFTER statecounter";
+        mysqli_query($con,$qstateid);
+        $rannumber=rand()+rand();
+        $qup="UPDATE `states` SET `$stringstateid`='$rannumber' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$qup);
+
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
         $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";
@@ -415,6 +418,15 @@ if (isset($_POST['save_new_state'])) {
 
     else if($user_stats['continent']=='Australia')
     {
+        $stringforstateid="id";
+        
+        $stringstateid=$string3."".$stringforstateid;
+        $qstateid="ALTER TABLE states ADD COLUMN ".$stringstateid." TEXT UNIQUE AFTER statecounter";
+        mysqli_query($con,$qstateid);
+        $rannumber=rand()+rand();
+        $qup="UPDATE `states` SET `$stringstateid`='$rannumber' WHERE `username`='$_SESSION[username]'";
+        mysqli_query($con,$qup);
+
         $stringforfarm="farms";
         $stringfarm=$string3."".$stringforfarm;
         $qfarm = "ALTER TABLE states ADD COLUMN ".$stringfarm." TEXT AFTER statecounter";

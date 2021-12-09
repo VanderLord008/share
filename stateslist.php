@@ -21,26 +21,26 @@ include("data.php");
     
    
     ?><br><?php
-    $result = mysqli_query($con,"select `state1` FROM `states` where `username`='$_SESSION[username]'");
+    $result = mysqli_query($con,"select `state1`,`state1id` FROM `states` where `username`='$_SESSION[username]'");
     if($result)
     {
         $result_fetch=mysqli_fetch_assoc($result);
-    ?>state1 = <?php echo $result_fetch['state1'];
-    }
+    ?>state1 = <a href="statepage.php?stateid=<?php echo "$result_fetch[state1id]"; ?>"><?php echo $result_fetch['state1'] ?></a>
+    <?php }
     ?><br><?php
-    $result = mysqli_query($con,"select `state2` FROM `states` where `username`='$_SESSION[username]'");
+    $result = mysqli_query($con,"select `state2`,`state2id` FROM `states` where `username`='$_SESSION[username]'");
     if($result)
     {
         $result_fetch=mysqli_fetch_assoc($result);
-        ?>state2 = <?php echo " <a href=\"statepage.php?state=" . $result_fetch['state2'] . "\">" . $result_fetch['state2'] . "</a>";
-    }
+        ?>state2 = <a href="statepage.php?stateid=<?php echo "$result_fetch[state2id]"; ?>"><?php echo $result_fetch['state2'] ?></a>
+        <?php }
     ?><br><?php
-    $result = mysqli_query($con,"select `state3` FROM `states` where `username`='$_SESSION[username]'");
+    $result = mysqli_query($con,"select `state3`,`state3id` FROM `states` where `username`='$_SESSION[username]'");
     if($result)
     {
         $result_fetch=mysqli_fetch_assoc($result);
-        ?>state3 = <?php echo " <a href=\"statepage.php?state=" . $result_fetch['state3'] . "\">" . $result_fetch['state3'] . "</a>";
-    }
+        ?>state3 = <a href="statepage.php?stateid=<?php echo "$result_fetch[state3id]"; ?>"><?php echo $result_fetch['state3'] ?></a>
+        <?php }
     ?>
     
     
@@ -52,8 +52,8 @@ include("data.php");
     {
         $result_fetch=mysqli_fetch_assoc($result);
         
-    ?>state4= <?php echo " <a href=\"statepage.php?state=" . $result_fetch['state4'] . "\">" . $result_fetch['state4'] . "</a>";
-    }
+    ?>state4=<a href="statepage.php?stateid=<?php echo "$result_fetch[state4id]"; ?>"><?php $result_fetch['state4'] ?>"</a>";
+   <?php }
     ?>
 </form>
     

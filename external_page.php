@@ -70,6 +70,8 @@ else
             $s_user=mysqli_fetch_assoc($user_check);
             $stats_stats=mysqli_query($con,"SELECT * FROM `registered_user` WHERE `username`='$un'");
             $s_stats=mysqli_fetch_assoc($stats_stats);
+            $states_states=mysqli_query($con,"SELECT * FROM `states` WHERE `username`='$un'");
+            $s_states=mysqli_fetch_assoc($states_states);
             $stats_rank=mysqli_query($con,"SELECT * FROM `stats` WHERE `username`='$un'");
             $s_rank=mysqli_fetch_assoc($stats_rank);
             echo $s_user['username'];
@@ -78,6 +80,23 @@ else
              echo $s_user['username'];?> has <?php
             echo $s_rank['money'];
             ?> dollars
+            <br><br><br>
+            this player has following states
+            <br>
+            <?php
+            
+            $snum=$s_states['statecounter'];
+for($i=1;$i<=$snum;$i++)
+{
+?>
+state= <a href="statepage.php?stateid=<?php echo $s_states['state'.$i.'id']; ?>"><?php echo $s_states['state'.$i]?></a>
+<br><?php
+}
+
+?>
+            <br>
+            <br>
+            <br>
             <br>
             want to attack this nation? 
             <br>

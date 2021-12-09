@@ -33,23 +33,15 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
             create your first state here 
             name it here
                         
-                        <input type="text" placeholder="first state name" name="first" >
+            click here to create a new in your state
+        <form method="POST" action="functions.php">                        
+                        <input type="text" placeholder="input state name" name="newstate" >
                      <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                    all the buildings will come here
-        
-                    ??
-                    ??
-                    ??
-                    ??
         <div class="savestatebtn">
-                    <button type="submit" class="save_statebtn" name="save_first_state">submit</button>
+                    <button type="submit" class="save_statebtn" name="save_new_state">submit</button>
                     </div>
                     </form>
-                </body>
+              
             
 <?php
         }
@@ -99,3 +91,4 @@ echo "log in first to see this page";
 }
 ?>
 </section>
+</body>
