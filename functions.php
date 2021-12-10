@@ -625,11 +625,50 @@ if (isset($_POST['budget'])) {
     }
 }
 }
-
+if (isset($_POST['forcedMilitaryHiring'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+    if($user_forces['forcedMilitaryHiring']=="1")
+    {
+        echo "
+        <script>
+        alert('I don't know how you did this but please don't');
+        window.location.href='army.php';
+        </script>
+        ";
+    }
+    elseif($user_stats['fear']<10)
+    {
+                echo "
+                    <script>
+                    alert('people don't fear you enough to be forced');
+                    window.location.href='army.php';
+                    </script>
+                    ";
+        }
+    else{
+        $newsoldiers=$user_forces['soldiers']+10000;
+    $query = "UPDATE `forces` SET `forcedMilitaryHiring`=1,`soldiers`='$newsoldiers' WHERE `username`='$_SESSION[username]'";
+    if (mysqli_query($con, $query)){
+        echo "
+                <script>
+                alert('people forced sucessfully');
+                window.location.href='army.php';
+                </script>
+                ";
+    } else {
+        echo "
+                    <script>
+                    alert('people refused bruh.tough luck');
+                    window.location.href='army.php';
+                    </script>
+                    ";
+    }
+}
+}
 
 if (isset($_POST['createsoldiers'])) {
     $con = new mysqli("localhost", "root", "", "test");
-    $soldiers_limit = ((5 * $user_stats['population']) / 100) - ($number_of_wars * 10000);
+    $soldiers_limit = ($user_forces['numberOfWars']+1)*$user_stats['happiness']*$user_stats['popularity']*$user_stats['fear']*10;
 
     $soldiers = $_POST['soldiers'];
     if ($soldiers == '') {
@@ -649,7 +688,17 @@ if (isset($_POST['createsoldiers'])) {
                 window.location.href='army.php';
                 </script>
                 ";
-        } elseif ($money_needed <= $user_stats['money'] && $soldiers < $soldiers_limit) {
+        } 
+        elseif($money_needed<=$user_stats['money'] && $soldiers_limit<$soldiers)
+        {
+            echo "
+            <script>
+            alert('you cannot hire that many soldiers');
+            window.location.href='army.php';
+            </script>
+            ";
+        }
+        elseif ($money_needed <= $user_stats['money'] && $soldiers < $soldiers_limit) {
             $money_left = $user_stats['money'] - $money_needed;
             $q2 = "UPDATE `stats` SET `money`='$money_left' WHERE `username`='$_SESSION[username]'";
             $new_soldiers = $user_forces['soldiers'] + $soldiers;
@@ -2143,22 +2192,36 @@ if (isset($_POST['attack_army_soldiers'])) {
     $con = new mysqli("localhost", "root", "", "test");
 
     $un = $_POST['enemyusername'];
-    $new_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $new_forces = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
+    $enemy_forces = mysqli_fetch_assoc($new_forces);
+    $new_stats = mysqli_query($con, "SELECT * FROM `stats` WHERE `username`='$un'");
     $enemy_stats = mysqli_fetch_assoc($new_stats);
 $soldiers_destroyed=0;
-    if ($user_forces['soldiers'] - $enemy_stats['soldiers'] < 0) {
+$newenemysoldiers=0;
+if($enemy_stats['popularity']>80)
+{
+    $newenemysoldiers=$enemy_forces['soldiers']+10000;
+}
+else
+{
+    $newenemysoldiers=$enemy_forces['soldiers'];
+}
+    if ($user_forces['soldiers'] - $newenemysoldiers < 0) {
         mysqli_query($con, "UPDATE `forces` SET `soldiers`='0' WHERE `username`='$user_data[username]'");
-        $left_soldiers_for_enemy = $enemy_stats['soldiers'] - $user_forces['soldiers'];
+        $left_soldiers_for_enemy = $newenemysoldiers - $user_forces['soldiers'];
         mysqli_query($con, "UPDATE `forces` SET `soldiers`='$left_soldiers_for_enemy' WHERE `username`='$un'");
         $soldiers_destroyed=$user_forces['soldiers'];
     } else {
-        $left_soldiers_for_player = $user_forces['soldiers'] - $enemy_stats['soldiers'];
-        mysqli_query($con, "UPDATE `forces` SET `soldiers`='$left_soldiers_for_player' WHERE `username`='$user_data[username]'");
+        $left_soldiers_for_player = $user_forces['soldiers'] - $newenemysoldiers;
+        mysqli_query($con, "UPDATE `forces` SET `soldiers`='$left_soldiers_for_player' WHERE `username`='$_SESSION[username]'");
         mysqli_query($con, "UPDATE `forces` SET `soldiers`='0' WHERE `username`='$un'");
-        $soldiers_destroyed=$enemy_stats['soldiers'];
+        $soldiers_destroyed=$newenemysoldiers;
     }
             echo header("location:attackresultpage.php?username=$un&loss=$soldiers_destroyed");            
 }
+
+
+
 if (isset($_POST['attack_army_artillery'])) {
     $con = new mysqli("localhost", "root", "", "test");
 

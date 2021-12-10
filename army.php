@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login and register</title>
+    <title>army</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -47,7 +47,46 @@ your current soldiers are <?php echo $user_forces['soldiers'] ?>
 <br>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
+you can hire a total of <?php echo ($user_forces['numberOfWars']+1)*$user_stats['happiness']*$user_stats['popularity']*$user_stats['fear']*10;?> soldiers
+<br>
 
+<?php
+$soldiers_limit = ($user_forces['numberOfWars']+1)*$user_stats['happiness']*$user_stats['popularity']*$user_stats['fear']*10;
+
+if(($soldiers_limit-$user_forces['soldiers'])>0)
+{
+    ?>
+    you can hire <?php echo $soldiers_limit-$user_forces['soldiers'];?> more soldiers
+    <?php
+
+}
+else if(($soldiers_limit-$user_forces['soldiers'])<0)
+{
+
+?>
+you have to fire <?php echo $user_forces['soldiers']-$soldiers_limit;?> soldiers now
+<?php
+}
+?>
+<br>
+<br>
+<?php if($user_forces['forcedMilitaryHiring']==0)
+{
+    ?>
+you can force people to enlist in the army but it will decrease happiness and popularity
+<br>
+<form method="POST" action="functions.php">
+<button type="submit" class="createsoldiersbtm" name="forcedMilitaryHiring">force the peasants</button>
+</form>
+<?php
+}
+else if($user_forces['forcedMilitaryHiring']==1)
+{
+    ?>
+    you cannot force anymore people for now
+    <?php
+}
+?>
 <form method="POST" action="functions.php">
 <input type="number" min="-10000000000000" max="100000000000" placeholder="enter the soldiers" name="soldiers" >
 
