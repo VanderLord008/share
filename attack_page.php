@@ -157,7 +157,7 @@ else if (isset($_POST['attack_land_forces'])) {
     <?php
     $external_stats = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$un'");
     $enemy_stats = mysqli_fetch_assoc($external_stats);
-    echo $un?> has <?php echo $enemy_stats['soldiers']?> soldiers. you have <?php echo $user_forces['soldiers']?> soldiers.
+    echo $un?> has <?php echo $enemy_stats['soldiersLevelOne']?> soldiers. you have <?php echo $user_forces['soldiersLevelOne']?> soldiers.
     <br>
     do you want to attack <?php echo $un?>'s soldiers?
     <form method="POST" action="functions.php" >
@@ -167,7 +167,7 @@ else if (isset($_POST['attack_land_forces'])) {
                 </form>
                 <br>
     <?php
-    echo $un?> has <?php echo $enemy_stats['artillery']?> artillery. you have <?php echo $user_forces['artillery']?> artillery.
+    echo $un?> has <?php echo $enemy_stats['artillery']?> artillery. you have <?php echo $user_forces['artilleryLevelOne']?> artillery.
     
     <br>
     do you want to attack <?php echo $un?>'s artillery?

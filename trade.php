@@ -17,7 +17,7 @@ include("data.php");
 <section class="home-section">
 
 <?php echo $_SESSION['username'] ?>'s stuff <br>
-soldiers = <?php echo $user_forces['soldiers'] ?>
+soldiers = <?php echo $user_forces['soldiersLevelOne'] ?>
 <br>
 artillery = <?php echo $user_forces['artillery'] ?>
 <br>

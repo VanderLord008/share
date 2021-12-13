@@ -34,7 +34,7 @@ verified = <?php echo $user_data['verified'] ?>
 <br>
 
 
-soldiers = <?php echo $user_forces['soldiers'] ?>
+soldiers = <?php echo $user_forces['soldiersLevelOne'] ?>
 <br>
 artillery = <?php echo $user_forces['artillery'] ?>
 <br>

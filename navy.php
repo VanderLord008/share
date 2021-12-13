@@ -47,6 +47,46 @@ your current money is <?php echo $user_stats['money'] ?>
 
                 <button type="submit" class="createshipsbtm" name="createships">create battle ships</button>
 </form>
+<br>
+
+
+
+
+
+<?php
+if($user_stats['shipsLevelTwo']=='1')
+{
+    echo "you can improve your ships now";
+    ?>
+    <br>you have <?php echo $user_forces['weaponsLevelTwo'] ?> improved ships <br>
+    <form method="POST" action="functions.php">
+        <input type="number" min="0" max="100000000000" placeholder="enter the weapons" name="improveshipsnumber">
+
+        <button type="submit" class="improveshipsbtm" name="improveships">improve these ships</button>
+    </form>
+    <br>
+    <?php
+}
+
+elseif($user_stats['researchShipsLevelTwo']=='0')
+{
+echo "you can research further to improve your ships";
+?>
+
+<br>
+            <form method="POST" action="functions.php">
+                <button type="submit" class="researchshipsLevelTwobtm" name="researchShipsLevelTwo">improve your ships</button>
+            </form>
+            <br>
+
+<?php
+}    
+?>
+
+
+
+
+
 
 <br>
 <br>

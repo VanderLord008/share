@@ -30,7 +30,7 @@
         <?php
         $rankforshow=0;
         $con = new mysqli("localhost", "root", "", "test");
-        $rankingnumber = $user_forces['soldiers'] + $user_forces['vehicles'] + $user_forces['artillery'];
+        $rankingnumber = $user_forces['soldiersLevelOne'] + $user_forces['vehicles'] + $user_forces['artillery'];
         $query = "UPDATE `stats` SET `ranking`='$rankingnumber' WHERE `username`='$_SESSION[username]'";
         mysqli_query($con, $query);
         ?>

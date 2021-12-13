@@ -27,7 +27,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
         <br>
         <?php
         $con = new mysqli("localhost", "root", "", "test");
-        $rankingnumber = $user_forces['soldiers'] + $user_forces['vehicles'] + $user_forces['artillery'];
+        $rankingnumber = $user_forces['soldiersLevelOne'] + $user_forces['vehicles'] + $user_forces['artilleryLevelOne'];
         $query = "UPDATE `stats` SET `ranking`='$rankingnumber' WHERE `username`='$_SESSION[username]'";
         mysqli_query($con, $query);
         ?>
@@ -57,7 +57,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
             $get_soldiers = "SELECT `soldiers` FROM `forces` WHERE `username`='$row[username]'";
             $get_soldier = mysqli_query($con, $get_soldiers);
             $num_soldiers = mysqli_fetch_assoc($get_soldier);
-        ?>soldiers= <?php echo $num_soldiers['soldiers'];
+        ?>soldiers= <?php echo $num_soldiers['soldiersLevelOne'];
                 ?>
         <br>
 
