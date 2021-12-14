@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login and register</title>
+    <title>navy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,7 +37,10 @@ aircraft carriers
 <br>
 <p>cost of creating one battle ship is 1000</p>
 <br>
-your current battle ships are <?php echo $user_forces['ships'] ?>
+your current normal battle ships are <?php echo $user_forces['shipsLevelOne'] ?>
+<br>
+
+
 <br>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
@@ -54,13 +57,13 @@ your current money is <?php echo $user_stats['money'] ?>
 
 
 <?php
-if($user_stats['shipsLevelTwo']=='1')
+if($user_stats['researchShipsLevelTwo']=='1')
 {
     echo "you can improve your ships now";
     ?>
-    <br>you have <?php echo $user_forces['weaponsLevelTwo'] ?> improved ships <br>
+    <br>you have <?php echo $user_forces['shipsLevelTwo'] ?> special battle ships <br>
     <form method="POST" action="functions.php">
-        <input type="number" min="0" max="100000000000" placeholder="enter the weapons" name="improveshipsnumber">
+        <input type="number" min="-100000000000" max="100000000000" placeholder="enter the number of ships" name="improveshipsnumber">
 
         <button type="submit" class="improveshipsbtm" name="improveships">improve these ships</button>
     </form>
@@ -75,7 +78,7 @@ echo "you can research further to improve your ships";
 
 <br>
             <form method="POST" action="functions.php">
-                <button type="submit" class="researchshipsLevelTwobtm" name="researchShipsLevelTwo">improve your ships</button>
+                <button type="submit" class="researchshipsLevelTwobtm" name="researchShipsLevelTwo">research ships further</button>
             </form>
             <br>
 
@@ -92,7 +95,7 @@ echo "you can research further to improve your ships";
 <br>
 <p>cost of creating one destroyer is 1000</p>
 <br>
-your current destroyers are <?php echo $user_forces['destroyers'] ?>
+your current destroyers are <?php echo $user_forces['destroyersLevelOne'] ?>
 <br>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
@@ -105,9 +108,57 @@ your current money is <?php echo $user_stats['money'] ?>
 
 <br>
 <br>
+<?php
+if($user_stats['researchDestroyersLevelTwo']=='1')
+{
+    echo "you can improve your destroyers now";
+    ?>
+    <br>you have <?php echo $user_forces['destroyersLevelTwo'] ?> improved destroyers<br>
+    <form method="POST" action="functions.php">
+        <input type="number" min="-100000000000" max="100000000000" placeholder="enter the number of destroyers" name="improvedestroyersnumber">
+
+        <button type="submit" class="improvedestroyersbtm" name="improvedestroyers">improve these destroyers</button>
+    </form>
+    <br>
+    <?php
+}
+
+elseif($user_stats['researchDestroyersLevelTwo']=='0')
+{
+echo "you can research further to improve your destroyers";
+?>
+
+<br>
+            <form method="POST" action="functions.php">
+                <button type="submit" class="researchdestroyersLevelTwobtm" name="researchDestroyersLevelTwo">research destroyers further</button>
+            </form>
+            <br>
+
+<?php
+}    
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p>cost of creating one submarine is 1000</p>
 <br>
-your current submarines are <?php echo $user_forces['submarines'] ?>
+your current submarines are <?php echo $user_forces['submarinesLevelOne'] ?>
 <br>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
@@ -120,9 +171,57 @@ your current money is <?php echo $user_stats['money'] ?>
 
 <br>
 <br>
+<?php
+if($user_stats['researchSubmarinesLevelTwo']=='1')
+{
+    echo "you can improve your submarines now";
+    ?>
+    <br>you have <?php echo $user_forces['submarinesLevelTwo'] ?> special battle submarines <br>
+    <form method="POST" action="functions.php">
+        <input type="number" min="-100000000000" max="100000000000" placeholder="enter the number of submarines" name="improvesubmarinesnumber">
+
+        <button type="submit" class="improvesubmarinesbtm" name="improvesubmarines">improve these submarines</button>
+    </form>
+    <br>
+    <?php
+}
+
+elseif($user_stats['researchSubmarinesLevelTwo']=='0')
+{
+echo "you can research further to improve your submarines";
+?>
+
+<br>
+            <form method="POST" action="functions.php">
+                <button type="submit" class="researchsubmarinesLevelTwobtm" name="researchSubmarinesLevelTwo">research submarines further</button>
+            </form>
+            <br>
+
+<?php
+}    
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p>cost of creating one aircraft carrier is 1000</p>
 <br>
-your current aircraft carriers are <?php echo $user_forces['carriers'] ?>
+your current aircraft carriers are <?php echo $user_forces['carriersLevelOne'] ?>
 <br>
 your current money is <?php echo $user_stats['money'] ?>
 <br>
