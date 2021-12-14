@@ -30,7 +30,7 @@
         <?php
         $rankforshow=0;
         $con = new mysqli("localhost", "root", "", "test");
-        $rankingnumber = $user_forces['soldiersLevelOne'] + $user_forces['vehicles'] + $user_forces['artillery'];
+        $rankingnumber = $user_forces['soldiersLevelOne'] + $user_forces['vehiclesLevelOne'] + $user_forces['artilleryLevelOne'];
         $query = "UPDATE `stats` SET `ranking`='$rankingnumber' WHERE `username`='$_SESSION[username]'";
         mysqli_query($con, $query);
         ?>
@@ -47,7 +47,7 @@
             $get_use = mysqli_query($con, $get_user);
             $rank_name = mysqli_fetch_assoc($get_use);
             ?>
-        user= <?php echo " <a href=\"external_page.php?username=" . $row['username'] . "\">" . $rank_name['username'] . "</a>"; ?>
+        user= <?php echo " <a href=\"foreignnation.php?username=" . $row['username'] . "\">" . $rank_name['username'] . "</a>"; ?>
         <br>
         <?php
             $get_money = "SELECT `money` FROM `stats` WHERE `username`='$row[username]'";

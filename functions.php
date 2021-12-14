@@ -459,14 +459,30 @@ if (isset($_POST['save_new_state'])) {
 
 
 <?php
-if (isset($_POST['increase_army'])) {
+if (isset($_POST['attackForeignNation'])) {
+    $defendernation=$_POST['defendernation'];
+    $wartype=$_POST['warType'];
     $con = new mysqli("localhost", "root", "", "test");
-    $query = "UPDATE `forces` SET `army`='$_POST[increase_army]',`navy`='$_POST[increase_army]',`airforce`='$_POST[increase_army]' WHERE `username`='$_SESSION[username]'";
+$q1=mysqli_query($con,"SELECT * from `conflicts` WHERE (`attacker`='$_SESSION[username]' AND `defender`='$defendernation') OR (`attacker`='$defendernation' AND `defender`='$_SESSION[username]')");
+if(mysqli_num_rows($q1))
+{
+    echo "
+    <script>
+    alert('you are already engaged in combat with this nation');
+    window.location.href='foreignnation.php?username=$defendernation';
+    </script>
+    ";
+}
+
+
+else{
+    $rannumber = rand() + rand();
+    $query = "INSERT INTO `conflicts`(`attacker`, `defender`, `wartype`, `conflictid`) VALUES ('$_SESSION[username]','$defendernation','$wartype','$rannumber')";
     if (mysqli_query($con, $query)) {
         echo "
                 <script>
-                alert('army updated');
-                window.location.href='manage_army.php';
+                alert('successfully engaged in combat');
+                window.location.href='foreignnation.php?username=$defendernation';
                 </script>
                 ";
     } else {
@@ -477,6 +493,7 @@ if (isset($_POST['increase_army'])) {
                 </script>
                 ";
     }
+}
 }
 
 if (isset($_POST['capitalism'])) {

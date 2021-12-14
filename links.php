@@ -23,7 +23,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true) {
 
 <a href="airforce.php">airforce.php</a><br>
 <a href="army.php">army.php</a><br>
-<a href="battle.php">battle.php</a><br>
+<a href="conflicts.php">conflicts.php</a><br>
 <a href="budget.php">budget.php</a><br>
 <a href="continents.php">continents.php</a><br>
 <a href="economy_type.php">economy_type.php</a><br>

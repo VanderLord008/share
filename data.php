@@ -24,6 +24,9 @@ $user_get_stats="SELECT * FROM `stats` WHERE `username`='$_SESSION[username]'";
 $user_get_stats_result=mysqli_query($con,$user_get_stats);
 $user_stats=mysqli_fetch_assoc($user_get_stats_result);
 
+$user_get_conflicts="SELECT * FROM `stats` WHERE `username`='$_SESSION[username]'";
+$user_get_conflicts_result=mysqli_query($con,$user_get_conflicts);
+$user_conflicts=mysqli_fetch_assoc($user_get_conflicts_result);
 
 
 ?>
