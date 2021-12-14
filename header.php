@@ -46,12 +46,12 @@
 
             </li>
             <li>
-                <a href="battle.php">
+                <a href="conflicts.php">
 
                     <i class='bx bx-bullseye'></i>
-                    <span class="links_name">Battle</span>
+                    <span class="links_name">conflicts</span>
                 </a>
-                <span class="tooltip">Battle</span>
+                <span class="tooltip">conflicts</span>
 
             </li>
             <li>

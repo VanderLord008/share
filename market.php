@@ -38,7 +38,7 @@ while($row = mysqli_fetch_assoc($p)){
     $get_use=mysqli_query($con,$get_user);
     $name=mysqli_fetch_assoc($get_use);
     ?>
-    seller = <?php echo" <a href=\"external_page.php?username=" .$row['username']."\">" .$name['username'] . "</a>";?>
+    seller = <?php echo" <a href=\"foriegnnation.php?username=" .$row['username']."\">" .$name['username'] . "</a>";?>
     <br>
     <?php
     $get_soldierstosell="SELECT `sell_soldiers` FROM `trade` WHERE `offer_id`='$row[offer_id]'";
