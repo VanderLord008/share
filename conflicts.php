@@ -35,7 +35,6 @@ attacker=<?php echo $row['attacker'];?>
         }
         ?>
 
-<<<<<<< HEAD
 <?php
 
 $user_attacking_conflicts="SELECT * FROM `conflicts` WHERE `attacker`='$_SESSION[username]'";
@@ -49,9 +48,6 @@ wartype=<?php echo $row['wartype'];?><br>
 <?php
         }
         ?>
-=======
-
->>>>>>> 6cc7cffab53a173b510ad015b09577ee204084d2
 
 
 <?php

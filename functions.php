@@ -476,17 +476,12 @@ if(mysqli_num_rows($q1))
 
 
 else{
-    $rannumber = rand() + rand();
-<<<<<<< HEAD
-    
+    $rannumber = rand() + rand();    
     $query = "INSERT INTO `conflicts`(`attacker`, `defender`, `wartype`, `conflictid`) VALUES ('$_SESSION[username]','$defendernation','$wartype','$rannumber')";
    $q1="INSERT INTO `warstats`(`conflictid`) VALUES ('$rannumber')";
     $q2= mysqli_query($con,$q1);	
 
-=======
-    $query = "INSERT INTO `conflicts`(`attacker`, `defender`, `wartype`, `conflictid`) VALUES ('$_SESSION[username]','$defendernation','$wartype','$rannumber')";
->>>>>>> 6cc7cffab53a173b510ad015b09577ee204084d2
-    if (mysqli_query($con, $query)) {
+   if (mysqli_query($con, $query)) {
         echo "
                 <script>
                 alert('successfully engaged in combat');
