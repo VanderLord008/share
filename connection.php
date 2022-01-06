@@ -1,6 +1,7 @@
 <?php
 
     $con=new mysqli("localhost","root","","test");
+    date_default_timezone_set('Asia/kolkata');
     if(!isset($_SESSION)) 
      { 
          session_start(); 

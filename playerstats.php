@@ -36,9 +36,9 @@ verified = <?php echo $user_data['verified'] ?>
 
 soldiers = <?php echo $user_forces['soldiersLevelOne'] ?>
 <br>
-artillery = <?php echo $user_forces['artillery'] ?>
+artillery = <?php echo $user_forces['artilleryLevelOne'] ?>
 <br>
-armoured vehicles = <?php echo $user_forces['vehicles'] ?>
+armoured vehicles = <?php echo $user_forces['vehiclesLevelOne'] ?>
 <br>
 
 

@@ -478,10 +478,7 @@ if(mysqli_num_rows($q1))
 else{
     $rannumber = rand() + rand();    
     $query = "INSERT INTO `conflicts`(`attacker`, `defender`, `wartype`, `conflictid`) VALUES ('$_SESSION[username]','$defendernation','$wartype','$rannumber')";
-   $q1="INSERT INTO `warstats`(`conflictid`) VALUES ('$rannumber')";
-    $q2= mysqli_query($con,$q1);	
-
-   if (mysqli_query($con, $query)) {
+    if (mysqli_query($con, $query)) {
         echo "
                 <script>
                 alert('successfully engaged in combat');
@@ -498,6 +495,31 @@ else{
     }
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if (isset($_POST['capitalism'])) {
     $con = new mysqli("localhost", "root", "", "test");
@@ -4020,6 +4042,546 @@ if (isset($_POST['createprecious_metals_mine'])) {
         }
     }
 }
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//war mechanics
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//step=1
+//subtract the number of forces from the user
+//step=2
+//input this data to the conflict table as turn_1_attackers_attack
+//input the attack time in the conflict table
+//create a cron job to subtract the attack time from the current time
+//the attack takes 8 hours
+//after 8 hours run a cron job to update the values for both nations
+//now the defender has 8 hours to do his attack if he does attack then it will take another 8 hours to complete this attack 
+//
+//run a php file in this cron job that will update the attack results in the conflict table
+// 
+
+
+//16+16+16+16+16+16
+
+
+
+
+
+
+
+
+
+
+
+// if (isset($_POST['attackwithnavyforces'])) {
+//     $con = new mysqli("localhost", "root", "", "test");
+
+//     $enemy = $_POST['enemyusername'];
+//     $conflictid=$_POST['conflictid'];
+//     $normalships=$_POST['fightingnormalships'];
+//     $improvedships=$_POST['fightingimprovedships'];
+//     $normaldestroyers=$_POST['fightingnormaldestroyers'];
+//     $improveddestroyers=$_POST['fightingimproveddestroyers'];
+//     $normalsubmarines=$_POST['fightingnormalsubmarines'];
+//     $improvedsubmarines=$_POST['fightingimprovedsubmarines'];
+//     $normalcarriers=$_POST['fightingnormalcarriers'];
+
+
+
+
+//     $new_forces = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$enemy'");
+//     $enemy_forces = mysqli_fetch_assoc($new_forces);
+//     $new_stats = mysqli_query($con, "SELECT * FROM `stats` WHERE `username`='$enemy'");
+//     $enemy_stats = mysqli_fetch_assoc($new_stats);
+
+
+//     if($normalships>$enemy_forces['shipsLevelOne'])
+//     {
+//         echo "
+//         <script>
+//         alert('you dont have that many normal ships');
+//         window.location.href='attackpage.php?conflictid=" . $conflictid . "';
+//         </script>
+//         ";
+//     }
+//     if($improvedships>$enemy_forces['shipsLevelTwo'])
+//     {
+//         echo "
+//         <script>
+//         alert('you dont have that many improved ships');
+//         window.location.href='attackpage.php?conflictid=" . $conflictid . "';
+//         </script>
+//         ";
+//     }
+//    elseif($normaldestroyers>$enemy_forces['destroyersLevelOne'])
+//     {
+//         echo "
+//         <script>
+//         alert('you dont have that many normal destroyers');
+//         window.location.href='attackpage.php?conflictid=" . $conflictid . "';
+//         </script>
+//         ";
+//     }
+
+
+
+
+// else{
+//     $queryfornormalships="UPDATE `forces` SET `shipsLevelOne`='$user_forces[shipsLevelOne]-$normalships' WHERE `username`='$_SESSION[username]'";
+//     $queryforimprovedships="UPDATE `forces` SET `shipsLevelTwo`='$user_forces[shipsLevelTwo]-$improvedships' WHERE `username`='$_SESSION[username]'";
+    
+
+//     $queryfornormaldestroyers="UPDATE `forces` SET `destroyersLevelOne`='$user_forces[destroyersLevelOne]-$normaldestroyers' WHERE `username`='$_SESSION[username]'";
+//     $queryforimproveddestroyers="UPDATE `forces` SET `destroyersLevelTwo`='$user_forces[destroyersLevelTwo]-$improveddestroyers' WHERE `username`='$_SESSION[username]'";
+    
+
+//     $queryfornormalsubmarines="UPDATE `forces` SET `submarinesLevelOne`='$user_forces[submarinesLevelOne]-$normalsubmarines' WHERE `username`='$_SESSION[username]'";
+//     $queryforimprovedsubmarines="UPDATE `forces` SET `submarinesLevelTwo`='$user_forces[submarinesLevelTwo]-$improvedsubmarines' WHERE `username`='$_SESSION[username]'";
+    
+
+//     $queryfornormalcarriers="UPDATE `forces` SET `carriersLevelOne`='$user_forces[carriersLevelOne]-$normalcarriers' WHERE `username`='$_SESSION[username]'";
+    
+    
+   
+
+//     }
+// }
+
+// if ($enemy_stats['popularity'] > 80) {
+//     $newenemysoldiers = $enemy_forces['soldiersLevelOne'] + 10000;
+// } else {
+//     $newenemysoldiers = $enemy_forces['soldiersLevelOne'];
+// }
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//new2 file code. not related to the game
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+if (isset($_POST['timetrial'])) {
+    date_default_timezone_set('Asia/kolkata');
+ $starttime=date("Y-m-d H:i:s");
+ $new_time = date("Y-m-d H:i:s", strtotime('+3 hours', strtotime($starttime)));
+    $con = new mysqli("localhost", "root", "", "test");
+mysqli_query($con,"ALTER TABLE `registered_user` ADD COLUMN `starttime` DATETIME AFTER resettokenexpired");
+mysqli_query($con,"ALTER TABLE `registered_user` ADD COLUMN `endtime` DATETIME AFTER starttime");
+mysqli_query($con,"UPDATE `registered_user` SET `endtime`='$new_time' WHERE `username`='$_SESSION[username]'");
+$q1="UPDATE `registered_user` SET `starttime`='$starttime' WHERE `username`='$_SESSION[username]'";
+if(mysqli_query($con,$q1))
+{
+    echo "
+    <script>
+    alert('COLOUMN added');
+    window.location.href='new2.php';
+    </script>
+    ";
+}
+else{
+    echo "
+    <script>
+    alert('some problem');
+    window.location.href='new2.php';
+    </script>
+    ";
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (isset($_POST['attackwithnavyforces'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $enemy = $_POST['enemyusername'];
+    $conflictid=$_POST['conflictid'];
+    $normalships=$_POST['fightingnormalships'];
+    $improvedships=$_POST['fightingimprovedships'];
+    $normaldestroyers=$_POST['fightingnormaldestroyers'];
+    $improveddestroyers=$_POST['fightingimproveddestroyers'];
+    $normalsubmarines=$_POST['fightingnormalsubmarines'];
+    $improvedsubmarines=$_POST['fightingimprovedsubmarines'];
+    $normalcarriers=$_POST['fightingnormalcarriers'];
+
+
+
+
+    // $new_forces = mysqli_query($con, "SELECT * FROM `forces` WHERE `username`='$enemy'");
+    // $enemy_forces = mysqli_fetch_assoc($new_forces);
+    // $new_stats = mysqli_query($con, "SELECT * FROM `stats` WHERE `username`='$enemy'");
+    // $enemy_stats = mysqli_fetch_assoc($new_stats);
+
+
+    if($normalships>$user_forces['shipsLevelOne'])
+    {
+        echo "
+        <script>
+        alert('you dont have that many normal ships');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . "';
+        </script>
+        ";
+    }
+    if($improvedships>$user_forces['shipsLevelTwo'])
+    {
+        echo "
+        <script>
+        alert('you dont have that many improved ships');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . "';
+        </script>
+        ";
+    }
+   elseif($normaldestroyers>$user_forces['destroyersLevelOne'])
+    {
+        echo "
+        <script>
+        alert('you dont have that many normal destroyers');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . "';
+        </script>
+        ";
+    }
+    elseif($improveddestroyers>$user_forces['destroyersLevelTwo'])
+    {
+        echo "
+        <script>
+        alert('you dont have that many improved destroyers');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . "';
+        </script>
+        ";
+    } elseif($normalsubmarines>$user_forces['submarinesLevelOne'])
+    {
+        echo "
+        <script>
+        alert('you dont have that many normal submarines');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . "';
+        </script>
+        ";
+    } elseif($improvedsubmarines>$user_forces['submarinesLevelTwo'])
+    {
+        echo "
+        <script>
+        alert('you dont have that many inproved submarines');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . "';
+        </script>
+        ";
+    }
+    elseif($normalcarriers>$user_forces['carriersLevelOne'])
+    {
+        echo "
+        <script>
+        alert('you dont have that many carriers');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . "';
+        </script>
+        ";
+    }
+
+
+
+elseif($normalships<=$user_forces['shipsLevelOne'] && $improvedships<=$user_forces['shipsLevelTwo'] && $normaldestroyers<=$user_forces['destroyersLevelOne'] && $normaldestroyers<=$user_forces['destroyersLevelOne'] && $normalsubmarines<=$user_forces['submarinesLevelOne'] && $improvedsubmarines<=$user_forces['submarinesLevelTwo'] && $normalcarriers<=$user_forces['carriersLevelOne'] )
+{
+
+    //deploying the navy to fight the enemy 
+    $queryfornormalships="UPDATE `forces` SET `shipsLevelOne`='$user_forces[shipsLevelOne]'-'$normalships' WHERE `username`='$_SESSION[username]'";
+    $queryforimprovedships="UPDATE `forces` SET `shipsLevelTwo`='$user_forces[shipsLevelTwo]'-'$improvedships' WHERE `username`='$_SESSION[username]'";
+    mysqli_query($con,$queryfornormalships);
+    mysqli_query($con,$queryforimprovedships);
+    $queryfornormaldestroyers="UPDATE `forces` SET `destroyersLevelOne`='$user_forces[destroyersLevelOne]'-'$normaldestroyers' WHERE `username`='$_SESSION[username]'";
+    $queryforimproveddestroyers="UPDATE `forces` SET `destroyersLevelTwo`='$user_forces[destroyersLevelTwo]'-'$improveddestroyers' WHERE `username`='$_SESSION[username]'";
+    mysqli_query($con,$queryfornormaldestroyers);
+    mysqli_query($con,$queryforimproveddestroyers);
+
+    $queryfornormalsubmarines="UPDATE `forces` SET `submarinesLevelOne`='$user_forces[submarinesLevelOne]'-'$normalsubmarines' WHERE `username`='$_SESSION[username]'";
+    $queryforimprovedsubmarines="UPDATE `forces` SET `submarinesLevelTwo`='$user_forces[submarinesLevelTwo]'-'$improvedsubmarines' WHERE `username`='$_SESSION[username]'";
+    mysqli_query($con,$queryfornormalsubmarines);
+    mysqli_query($con,$queryforimproveddestroyers);
+
+    $queryfornormalcarriers="UPDATE `forces` SET `carriersLevelOne`='$user_forces[carriersLevelOne]'-'$normalcarriers' WHERE `username`='$_SESSION[username]'";
+    mysqli_query($con,$queryfornormalcarriers);
+
+
+    //starting the timer
+    //making coloumns for the values of first attack
+    
+    $makeStartTimeColoumnForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `startTimeForFirstAttack` DATETIME AFTER conflictid";
+    mysqli_query($con,$makeStartTimeColoumnForFirstAttack);
+
+    $levelOneShipsForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `levelOneShipsForFirstAttack` INT AFTER startTimeForFirstAttack";
+    mysqli_query($con,$levelOneShipsForFirstAttack);
+    $levelTwoShipsForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `levelTwoShipsForFirstAttack` INT AFTER levelOneShipsForFirstAttack";
+    mysqli_query($con,$levelTwoShipsForFirstAttack);
+    $levelOneDestroyersForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `levelOneDestroyersForFirstAttack` INT AFTER levelTwoShipsForFirstAttack";
+    mysqli_query($con,$levelOneDestroyersForFirstAttack);
+    $levelTwoDestroyersForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `levelTwoDestroyersForFirstAttack` INT AFTER levelOneDestroyersForFirstAttack";
+    mysqli_query($con,$levelTwoDestroyersForFirstAttack);
+    $levelOneSubmarinesForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `levelOneSubmarinesForFirstAttack` INT AFTER levelTwoDestroyersForFirstAttack";
+    mysqli_query($con,$levelOneSubmarinesForFirstAttack);
+    $levelTwoSubmarinesForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `levelTwoSubmarinesForFirstAttack` INT AFTER levelOneSubmarinesForFirstAttack";
+    mysqli_query($con,$levelTwoSubmarinesForFirstAttack);
+    $levelOneCarriersForFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `levelOneCarriersForFirstAttack` INT AFTER levelTwoSubmarinesForFirstAttack";
+    mysqli_query($con,$levelOneCarriersForFirstAttack);
+
+    //making the coloumn for maximum time to defend 
+    $maxTimeForDefendingFirstAttack="ALTER TABLE `conflicts` ADD COLUMN `MaxTimeForFirstAttackDefence` DATETIME AFTER levelOneCarriersForFirstAttack";
+    mysqli_query($con,$maxTimeForDefendingFirstAttack);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //setting the start time for the first attack
+
+    date_default_timezone_set('Asia/kolkata');
+    $startTimeForFirstAttack=date("Y-m-d H:i:s");
+    $maxTimeToDefendAgainstFirstAttack = date("Y-m-d H:i:s", strtotime('+6 hours', strtotime($startTimeForFirstAttack)));
+
+    //updating the values for the first attack
+   
+    $startTimeForFirstAttackQuery="UPDATE `conflicts` SET `startTimeForFirstAttack`='$startTimeForFirstAttack' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$startTimeForFirstAttackQuery);
+    $maxTimeForDefendingAgainstFirstAttackQuery="UPDATE `conflicts` SET `MaxTimeForFirstAttackDefence`='$maxTimeToDefendAgainstFirstAttack' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$maxTimeForDefendingAgainstFirstAttackQuery);
+
+
+
+
+    
+    $levelOneShipsForFirstAttackQuery="UPDATE `conflicts` SET `levelOneShipsForFirstAttack`='$normalships' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$levelOneShipsForFirstAttackQuery);
+    $levelTwoShipsForFirstAttackQuery="UPDATE `conflicts` SET `levelTwoShipsForFirstAttack`='$improvedships' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$levelTwoShipsForFirstAttackQuery);
+    $levelOneDestroyersForFirstAttackQuery="UPDATE `conflicts` SET `levelOneDestroyersForFirstAttack`='$normaldestroyers' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$levelOneDestroyersForFirstAttackQuery);
+    $levelTwoDestroyersForFirstAttackQuery="UPDATE `conflicts` SET `levelTwoDestroyersForFirstAttack`='$improveddestroyers' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$levelTwoDestroyersForFirstAttackQuery);
+    $levelOneSubmarinesForFirstAttackQuery="UPDATE `conflicts` SET `levelOneSubmarinesForFirstAttack`='$normalsubmarines' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$levelOneSubmarinesForFirstAttackQuery);
+    $levelTwoSubmarinesForFirstAttackQuery="UPDATE `conflicts` SET `levelTwoSubmarinesForFirstAttack`='$improvedsubmarines' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$levelTwoSubmarinesForFirstAttackQuery);
+    $levelOneCarriersForFirstAttackQuery="UPDATE `conflicts` SET `levelOneCarriersForFirstAttack`='$normalcarriers' WHERE `conflictid`='$conflictid'";
+    mysqli_query($con,$levelOneCarriersForFirstAttackQuery);
+
+
+
+    echo "
+    <script>
+    alert('forces deployed');
+
+    window.location.href='attack_page.php?conflictid=" . $conflictid . " ';
+    </script>
+    ";
+   
+
+    }
+    else{
+        echo "
+        <script>
+        alert('unknown error');
+        window.location.href='attack_page.php?conflictid=" . $conflictid . " ';
+        </script>
+        ";
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//deploying forces to defend against the first attack
+
+if (isset($_POST['deployForcesForFirstAttack'])) {
+    $con = new mysqli("localhost", "root", "", "test");
+
+    $cid = $_POST['cid'];
+    
+
+    if ($cid == '') {
+        echo "
+            <script>
+            alert('try again with a valid number');
+            window.location.href='attack_page.php?conflictid=" . $cid . " ';
+            </script>
+            ";
+    } elseif($cid!=""){
+//JourneyTimeForFirstAttack
+//TimeDefendingForcesDeployedForFirstAttack
+
+//creating the coloumn for these two
+mysqli_query($con," ALTER TABLE `conflicts` ADD COLUMN `TimeDefendingForcesDeployedForFirstAttack` DATETIME AFTER TimeForDefendingAgainstFirstAttack");
+mysqli_query($con," ALTER TABLE `conflicts` ADD COLUMN `JourneyTimeForFirstAttack` DATETIME AFTER TimeDefendingForcesDeployedForFirstAttack");
+          
+
+date_default_timezone_set('Asia/kolkata');
+    $currentTime=date("Y-m-d H:i:s");
+$defendingForcesDeployerQuery="UPDATE `conflicts` SET `TimeDefendingForcesDeployedForFirstAttack`='$currentTime' WHERE `conflictid`='$cid' ";
+mysqli_query($con,"$defendingForcesDeployerQuery");
+
+//updating first defence status
+mysqli_query($con,"UPDATE `conflicts` SET `TimeForDefendingAgainstFirstAttack`='over' WHERE `conflictid`='$cid'");
+mysqli_query($con,"UPDATE `conflicts` SET `forcesDeployedForFirstDefence`='deployed' WHERE `conflictid`='$cid'");
+//calulating the journey time for the first war
+
+$values=mysqli_query($con,"SELECT * FROM `conflicts` WHERE `conflictid`='$cid'");
+$userValues=mysqli_fetch_assoc($values);
+$timeInSeconds=((3600*6+(strtotime($currentTime)-strtotime($userValues['startTimeForFirstAttack'])))/2)+strtotime($userValues['startTimeForFirstAttack']);
+$timeInNormalWords=date("Y-m-d H:i:s",$timeInSeconds);
+
+//updating the journey time
+mysqli_query($con,"UPDATE `conflicts` SET `JourneyTimeForFirstAttack`='$timeInNormalWords' WHERE `conflictid`='$cid'");
+
+
+         
+            
+            echo "
+            <script>
+            alert('forces deployed sucessfully');
+
+            window.location.href='attack_page.php?conflictid=" . $cid . " ';
+            </script>
+            ";
+        } else {
+            echo "
+        <script>
+        alert('please make sure the sum is 100%');
+        window.location.href='attack_page.php?conflictid=" . $cid . " ';
+        </script>
+        ";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 
