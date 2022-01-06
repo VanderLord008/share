@@ -525,7 +525,7 @@
                 } else {
                     ?>
                 <?php
-                    echo "log in first to see this page";
+                    echo "log in first to see this page   ";
                 }
                 ?>
 
