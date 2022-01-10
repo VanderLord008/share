@@ -27,18 +27,20 @@ $conflicts = "SELECT * FROM `conflicts`";
                         while ($row = mysqli_fetch_assoc($p)) {
                             $current=date("Y-m-d H:i:s");
                             $currentTime=strtotime($current);
-                                if($currentTime- strtotime($row['MaxTimeForFirstAttackDefence'])>0)
-                                {
-                                    $q1="UPDATE `conflicts` SET `TimeForDefendingAgainstFirstAttack`='over' WHERE `conflictid`='$row[conflictid]'";
-                                    mysqli_query($con,$q1);
-                                }
-                                //firstAttackConcluded
+                               
+                                //preparation time ended for fist war and fighting stars
 
-                                if($currentTime- strtotime($row['JourneyTimeForFirstAttack'])>0)
+                                if($currentTime- strtotime($row['finishTimeForFirstWar'])>0)
                                 {
-                                    $q1="UPDATE `conflicts` SET `firstAttackConcluded`='yes' WHERE `conflictid`='$row[conflictid]'";
-                                    mysqli_query($con,$q1);
+                                   
+        
+                                    
+                                    mysqli_query($con,"UPDATE `conflicts` SET `firstWarConcluded`='yes' WHERE `conflictid`='$row[conflictid]'");
+                                    mysqli_query($con,"UPDATE `conflicts` SET `attackNumber`='2' WHERE `conflictid`='$row[conflictid]'");
+
                                 }
+
+
 
                             
 ?>

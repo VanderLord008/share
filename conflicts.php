@@ -37,7 +37,7 @@
                                 <br>
                                 wartype=<?php echo $row['wartype']; ?><br>
                                 
-                                <?php echo "<a href=\"attack_page.php?conflictid=" . $row['conflictid'] . "\">" ?>see more details<?php "</a>"; ?>
+                                <?php echo "<a href=\"attack_page.php?conflictid=" . $row['conflictid'] . "\">" ?>see more details </a>
                         <?php
                         }
                         ?>
